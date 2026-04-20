@@ -1,0 +1,472 @@
+<!DOCTYPE html>
+<html lang="el" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <title>Ατέλεια | Η τέχνη του να είσαι Άνθρωπος</title>
+    <meta name="description" content="Η Ατέλεια είναι ένας χώρος κατανόησης κι εξερεύνησης του τι σημαίνει να είσαι άνθρωπος. Ψυχιατρική, συμβουλευτική και προαγωγή υγείας από την Χριστίνα Κουνατιάδου.">
+    <meta name="robots" content="index, follow">
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400;1,500&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+    
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        base: '#F5F3EF',
+                        dark: '#1C1C1C',
+                        gold: '#C2A46D',
+                        cypress: '#2F5D50',
+                    },
+                    fontFamily: {
+                        serif: ['Cormorant Garamond', 'serif'],
+                        sans: ['Inter', 'sans-serif'],
+                    },
+                    animation: {
+                        'fade-in-up': 'fadeInUp 1.2s cubic-bezier(0.16, 1, 0.3, 1) forwards',
+                        'float': 'float 6s ease-in-out infinite',
+                        'slow-pan': 'panImage 20s linear infinite alternate',
+                    },
+                    keyframes: {
+                        fadeInUp: {
+                            '0%': { opacity: '0', transform: 'translateY(30px)' },
+                            '100%': { opacity: '1', transform: 'translateY(0)' },
+                        },
+                        float: {
+                            '0%, 100%': { transform: 'translateY(0)' },
+                            '50%': { transform: 'translateY(-15px)' },
+                        },
+                        panImage: {
+                            '0%': { objectPosition: '0% 50%' },
+                            '100%': { objectPosition: '100% 50%' },
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+
+    <script src="https://unpkg.com/lucide@latest"></script>
+
+    <style>
+        body { background-color: #F5F3EF; color: #1C1C1C; }
+        ::selection { background-color: #C2A46D; color: #fff; }
+        
+        /* Smooth Scrollbar */
+        ::-webkit-scrollbar { width: 6px; }
+        ::-webkit-scrollbar-track { background: #F5F3EF; }
+        ::-webkit-scrollbar-thumb { background: #C2A46D; border-radius: 3px; }
+
+        /* Reveal Logic */
+        .reveal { opacity: 0; transform: translateY(30px); transition: all 1.2s cubic-bezier(0.16, 1, 0.3, 1); }
+        .reveal.active { opacity: 1; transform: translateY(0); }
+        .delay-100 { transition-delay: 100ms; }
+        .delay-200 { transition-delay: 200ms; }
+
+        /* Editorial Inputs */
+        .input-editorial {
+            background: transparent;
+            border: none;
+            border-bottom: 1px solid rgba(28, 28, 28, 0.2);
+            border-radius: 0;
+            padding: 12px 0;
+            font-family: 'Inter', sans-serif;
+            font-size: 0.95rem;
+            color: #1C1C1C;
+            transition: border-color 0.4s ease;
+        }
+        .input-editorial:focus {
+            outline: none;
+            border-bottom-color: #C2A46D;
+            box-shadow: none;
+        }
+
+        /* Lightbox */
+        #lightbox {
+            opacity: 0; pointer-events: none; transition: opacity 0.5s ease;
+            backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px);
+        }
+        #lightbox.active { opacity: 1; pointer-events: auto; }
+        
+        /* Image hover FX */
+        .img-wrap { overflow: hidden; }
+        .img-wrap img { transition: transform 1.5s cubic-bezier(0.16, 1, 0.3, 1); }
+        .img-wrap:hover img { transform: scale(1.03); }
+    </style>
+</head>
+<body class="font-sans antialiased overflow-x-hidden relative selection:bg-gold selection:text-white">
+
+    <nav id="navbar" class="fixed w-full z-50 transition-all duration-500 py-6">
+        <div class="max-w-7xl mx-auto px-6 flex justify-between items-center">
+            <a href="#" class="group relative z-50">
+                <svg width="48" height="48" viewBox="0 0 100 100" class="transform transition-transform duration-700 group-hover:rotate-90 drop-shadow-sm">
+                    <circle cx="50" cy="50" r="46" fill="none" stroke="#1C1C1C" stroke-width="1.5" stroke-dasharray="200 40" stroke-linecap="round"/>
+                    <circle cx="50" cy="50" r="46" fill="none" stroke="#C2A46D" stroke-width="2.5" stroke-dasharray="0 230 15 0" stroke-linecap="round"/>
+                </svg>
+            </a>
+
+            <div class="hidden md:flex items-center space-x-10">
+                <a href="#intro" class="text-sm tracking-wide text-dark hover:text-gold transition-colors">Η Ατέλεια</a>
+                <a href="#philosophy" class="text-sm tracking-wide text-dark hover:text-gold transition-colors">Προσέγγιση</a>
+                <a href="#services" class="text-sm tracking-wide text-dark hover:text-gold transition-colors">Υπηρεσίες</a>
+                <a href="#articles" class="text-sm tracking-wide text-dark hover:text-gold transition-colors">Άρθρα</a>
+                <a href="#contact" class="text-sm tracking-wide text-dark hover:text-gold transition-colors">Επικοινωνία</a>
+            </div>
+
+            <button class="md:hidden z-50 text-dark focus:outline-none" id="mobile-menu-btn">
+                <i data-lucide="menu" class="w-6 h-6"></i>
+            </button>
+        </div>
+
+        <div id="mobile-menu" class="fixed inset-0 bg-base/98 backdrop-blur-xl z-40 hidden flex-col justify-center items-center space-y-8 opacity-0 transition-opacity duration-300">
+            <a href="#intro" class="text-2xl font-serif text-dark mobile-link">Η Ατέλεια</a>
+            <a href="#philosophy" class="text-2xl font-serif text-dark mobile-link">Προσέγγιση</a>
+            <a href="#services" class="text-2xl font-serif text-dark mobile-link">Υπηρεσίες</a>
+            <a href="#articles" class="text-2xl font-serif text-dark mobile-link">Άρθρα</a>
+            <a href="#contact" class="text-2xl font-serif text-dark mobile-link">Επικοινωνία</a>
+        </div>
+    </nav>
+
+    <section class="relative min-h-screen flex items-center justify-center px-6 overflow-hidden">
+        <div class="absolute top-1/4 left-1/4 w-[40vw] h-[40vw] bg-gold/5 rounded-full blur-[100px] pointer-events-none"></div>
+        <div class="absolute bottom-1/4 right-1/4 w-[30vw] h-[30vw] bg-cypress/5 rounded-full blur-[100px] pointer-events-none"></div>
+
+        <div class="max-w-4xl mx-auto text-center relative z-10 flex flex-col items-center opacity-0 animate-fade-in-up">
+            <span class="text-xs uppercase tracking-[0.2em] text-gold mb-6 font-medium">Ατέλεια</span>
+            <h1 class="text-5xl md:text-7xl lg:text-8xl font-serif text-dark leading-tight mb-8">
+                Η τέχνη του να είσαι<br>
+                <span class="italic font-light">Άνθρωπος.</span>
+            </h1>
+            <p class="text-lg md:text-xl text-dark/70 font-light max-w-2xl mx-auto mb-12 leading-relaxed">
+                Ένας χώρος ψυχοεκπαίδευσης, συνάντησης κι εξερεύνησης.
+            </p>
+            <a href="#contact" class="group relative inline-flex items-center justify-center px-8 py-4 overflow-hidden border border-dark text-dark transition-all duration-500 hover:bg-dark hover:text-base">
+                <span class="text-sm uppercase tracking-widest font-medium z-10">Κλείσε μια συνάντηση</span>
+            </a>
+        </div>
+    </section>
+
+    <section id="intro" class="py-32 px-6">
+        <div class="max-w-4xl mx-auto text-center reveal">
+            <p class="text-2xl md:text-4xl font-serif text-dark leading-relaxed">
+                Η Ατέλεια είναι ένας χώρος κατανόησης κι εξερεύνησης του τι σημαίνει να είσαι άνθρωπος. Είναι ένας χώρος που εστιάζει στην αρχιτεκτονική της υγείας, <span class="text-gold italic">όχι στην ασθένεια.</span>
+            </p>
+            <p class="mt-10 text-lg text-dark/70 font-light max-w-2xl mx-auto leading-loose">
+                Στην δυνατότητα, την ευκαιρία, την γνώση, την επιλογή. Είναι μια πρόσκληση να έρθουμε σε επαφή με αυτό που είμαστε — μέσα από τη σχέση μας με την ατέλεια.
+            </p>
+        </div>
+    </section>
+
+    <section class="py-24 px-6 bg-white">
+        <div class="max-w-7xl mx-auto">
+            <div class="grid md:grid-cols-3 gap-12 border-t border-dark/10 pt-16">
+                
+                <div class="reveal">
+                    <span class="text-gold text-sm font-medium mb-4 block">01</span>
+                    <h3 class="text-2xl font-serif text-dark mb-4">Ατομικές Συναντήσεις</h3>
+                    <p class="text-dark/60 font-light text-sm leading-relaxed mb-8">
+                        Ένας ασφαλής, σταθερός χώρος για την κατανόηση του εαυτού και την υποστήριξη σε περιόδους μετάβασης ή δυσκολίας.
+                    </p>
+                </div>
+
+                <div class="reveal delay-100">
+                    <span class="text-gold text-sm font-medium mb-4 block">02</span>
+                    <h3 class="text-2xl font-serif text-dark mb-4">Συμβουλευτική</h3>
+                    <p class="text-dark/60 font-light text-sm leading-relaxed mb-8">
+                        Εστιασμένη καθοδήγηση για συγκεκριμένους προβληματισμούς, ενισχύοντας την ικανότητα λήψης αποφάσεων και την αυτονομία.
+                    </p>
+                </div>
+
+                <div class="reveal delay-200">
+                    <span class="text-gold text-sm font-medium mb-4 block">03</span>
+                    <h3 class="text-2xl font-serif text-dark mb-4">Σεμινάρια Ζωής</h3>
+                    <p class="text-dark/60 font-light text-sm leading-relaxed mb-8">
+                        Ομαδικές δράσεις εκπαίδευσης γύρω από τις δεξιότητες που απαιτεί η σύγχρονη πραγματικότητα και η συναισθηματική ανάπτυξη.
+                    </p>
+                </div>
+            </div>
+            
+            <div class="text-center mt-16 reveal">
+                <a href="#services" class="inline-flex items-center text-sm uppercase tracking-widest text-dark border-b border-dark pb-1 hover:text-gold hover:border-gold transition-colors">
+                    Δες Περισσότερα
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <section class="py-40 px-6 bg-cypress text-base text-center">
+        <div class="max-w-4xl mx-auto reveal">
+            <svg class="w-10 h-10 mx-auto text-gold/50 mb-8" fill="currentColor" viewBox="0 0 24 24">
+                <path d="M14.017 21v-7.391c0-5.704 3.731-9.57 8.983-10.609l.995 2.151c-2.432.917-3.995 3.638-3.995 5.849h4v10h-9.983zm-14.017 0v-7.391c0-5.704 3.748-9.57 9-10.609l.996 2.151c-2.433.917-3.996 3.638-3.996 5.849h3.983v10h-9.983z" />
+            </svg>
+            <h2 class="text-3xl md:text-5xl font-serif font-light leading-snug mb-12">
+                "Το σημείο που ο κύκλος δεν κλείνει είναι το σημείο που <span class="italic text-gold">ξεκινάει η ζωή</span>."
+            </h2>
+            <a href="#contact" class="inline-flex items-center justify-center px-8 py-4 border border-gold/30 text-gold hover:bg-gold hover:text-cypress transition-all duration-500 uppercase tracking-widest text-sm">
+                Κλείσε μια πρώτη συνάντηση
+            </a>
+        </div>
+    </section>
+
+    <section id="philosophy" class="py-32 px-6">
+        <div class="max-w-7xl mx-auto">
+            <div class="max-w-3xl mb-32 reveal">
+                <h2 class="text-sm uppercase tracking-[0.2em] text-gold mb-6">Η Φιλοσοφία</h2>
+                <h3 class="text-4xl md:text-5xl font-serif text-dark mb-10 leading-tight">
+                    Στόχος δεν είναι να διορθώσουμε τον άνθρωπο, αλλά να <span class="italic">ακούσουμε την ιστορία</span> που έχει ο καθένας να πει.
+                </h3>
+                <div class="space-y-6 text-dark/70 font-light leading-relaxed">
+                    <p>Η Ατέλεια δημιουργήθηκε ως ένας χώρος που συνδυάζει επιστημονική γνώση και ανθρώπινη εμπειρία.</p>
+                    <p>Η προσέγγιση βασίζεται στην ιατρική, την ψυχιατρική, στη ανάλυση της ανθρώπινης συμπεριφοράς, στη συστημική σκέψη, την αφηγηματική και στη σύνδεση με την τέχνη και τη δημιουργικότητα.</p>
+                </div>
+            </div>
+
+            <div class="grid lg:grid-cols-12 gap-16 items-center">
+                <div class="lg:col-span-7 order-2 lg:order-1 reveal">
+                    <h2 class="text-3xl font-serif text-dark mb-2">Χριστίνα Κουνατιάδου</h2>
+                    <p class="text-gold uppercase tracking-widest text-xs mb-8">Ιατρός - Ψυχίατρος Ενηλίκων</p>
+                    
+                    <div class="space-y-6 text-dark/70 font-light text-sm md:text-base leading-relaxed">
+                        <p>Οι μεταπτυχιακές σπουδές μου πραγματοποιούνται στην Ιατρική Σχολή του ΕΚΠΑ, με υποτροφία αριστείας, στο πεδίο της Επιστήμης του Στρες και της Προαγωγής της Υγείας.</p>
+                        <p>Έχω εργαστεί και εκπαιδευτεί στην Ανάλυση και Θεραπεία Συμπεριφοράς, με περισσότερες από 400 ώρες εποπτευόμενης άσκησης υπό την εποπτεία του Δρ. Γιάννη Κασβίκη, με εστίαση σε διαταραχές άγχους, ελέγχου και παρόρμησης.</p>
+                        <p>Είμαι τελειόφοιτη της εκπαίδευσης στη Συστημική-Οικογενειακή Θεραπεία στη Μονάδα Οικογενειακής Θεραπείας του Ψυχιατρικού Νοσοκομείου Αττικής. Παράλληλα, έχω εργαστεί τόσο σε επίπεδο πρακτικής άσκησης όσο και ως εξωτερική συνεργάτιδα σε ειδικό κέντρο για ανθρώπους με διαταραχές πρόσληψης τροφής, υποστηρίζοντας την καθημερινή σίτιση in vivo.</p>
+                        <p>Διαθέτω πιστοποίηση από το Trauma Research Foundation’s Certificate Program in Traumatic Stress Studies.</p>
+                        <p>Παράλληλα με την επιστημονική μου πορεία, είμαι μουσικός και ζωγράφος, ενώ συνεχίζω να εκπαιδεύομαι στην art therapy μέσα από σειρά σεμιναρίων, με πιο πρόσφατο το εντατικό πρόγραμμα του METÀFORA στη Βαρκελώνη.</p>
+                        <div class="border-l border-gold pl-6 mt-8 py-2">
+                            <p class="font-serif italic text-xl text-dark">
+                                "Η ιστορία μου και ο συνθετικός τρόπος με τον οποίο προσεγγίζω την υγεία είναι ο λόγος που δημιούργησα έναν χώρο που αφηγείται το πώς θα ζήσουμε, όχι απλώς το πώς δεν θα πεθάνουμε."
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="lg:col-span-5 order-1 lg:order-2 relative reveal delay-100">
+                    <div class="aspect-[3/4] overflow-hidden bg-white p-2 shadow-2xl animate-float">
+                        <img src="https://raw.githubusercontent.com/agelmet/KONTAKSOPOULOU/refs/heads/main/GLS_0085.jpg" alt="Χριστίνα Κουνατιάδου" class="w-full h-full object-cover grayscale-[20%] hover:grayscale-0 transition-all duration-1000 object-center">
+                    </div>
+                    <div class="absolute -bottom-6 -left-6 w-32 h-32 border border-gold/30 -z-10"></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="services" class="py-32 px-6 bg-white">
+        <div class="max-w-7xl mx-auto">
+            <div class="text-center mb-20 reveal">
+                <h2 class="text-sm uppercase tracking-[0.2em] text-gold mb-4">Οι Υπηρεσίες</h2>
+                <h3 class="text-4xl font-serif text-dark">Αρχιτεκτονική της Υγείας</h3>
+            </div>
+
+            <div class="grid md:grid-cols-2 gap-12">
+                <div class="p-12 border border-dark/5 hover:border-gold/30 transition-colors bg-base/30 reveal">
+                    <h4 class="text-2xl font-serif text-dark mb-4 flex items-center gap-4">
+                        <span class="w-8 h-[1px] bg-gold block"></span>
+                        Ατομικές Συναντήσεις
+                    </h4>
+                    <p class="text-dark/60 font-light mb-8 leading-relaxed">
+                        Το πλαίσιο είναι συμβουλευτικό και προαγωγής υγείας, προσαρμοσμένο στην προσωπική σας ιστορία.
+                    </p>
+                    <ul class="space-y-4">
+                        <li class="flex items-center gap-3 text-sm text-dark/80 font-light">
+                            <i data-lucide="check" class="w-4 h-4 text-cypress"></i> Άγχος
+                        </li>
+                        <li class="flex items-center gap-3 text-sm text-dark/80 font-light">
+                            <i data-lucide="check" class="w-4 h-4 text-cypress"></i> Συναισθηματική ρύθμιση
+                        </li>
+                        <li class="flex items-center gap-3 text-sm text-dark/80 font-light">
+                            <i data-lucide="check" class="w-4 h-4 text-cypress"></i> Σχέσεις
+                        </li>
+                        <li class="flex items-center gap-3 text-sm text-dark/80 font-light">
+                            <i data-lucide="check" class="w-4 h-4 text-cypress"></i> Κατεύθυνση ζωής
+                        </li>
+                    </ul>
+                </div>
+
+                <div class="p-12 border border-dark/5 hover:border-gold/30 transition-colors bg-base/30 reveal delay-100">
+                    <h4 class="text-2xl font-serif text-dark mb-4 flex items-center gap-4">
+                        <span class="w-8 h-[1px] bg-gold block"></span>
+                        Σεμινάρια (Μελλοντικά)
+                    </h4>
+                    <p class="text-dark/60 font-light mb-8 leading-relaxed">
+                        Ομαδικές δράσεις με σκοπό τη βαθύτερη κατανόηση της ανθρώπινης εμπειρίας.
+                    </p>
+                    <ul class="space-y-4">
+                        <li class="flex items-center gap-3 text-sm text-dark/80 font-light">
+                            <i data-lucide="check" class="w-4 h-4 text-cypress"></i> Δεξιότητες ζωής
+                        </li>
+                        <li class="flex items-center gap-3 text-sm text-dark/80 font-light">
+                            <i data-lucide="check" class="w-4 h-4 text-cypress"></i> Αυτογνωσία
+                        </li>
+                        <li class="flex items-center gap-3 text-sm text-dark/80 font-light">
+                            <i data-lucide="check" class="w-4 h-4 text-cypress"></i> Σώμα και συναίσθημα
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="py-32 px-6 bg-dark text-base">
+        <div class="max-w-7xl mx-auto text-center mb-20 reveal">
+            <h2 class="text-sm uppercase tracking-[0.2em] text-gold mb-4">Ο Χώρος</h2>
+            <h3 class="text-4xl font-serif font-light text-base">Εκεί που συναντιόμαστε</h3>
+            <p class="text-base/60 font-light mt-6 max-w-xl mx-auto">Ένα περιβάλλον σχεδιασμένο με μινιμαλισμό και σεβασμό, για να επιτρέπει στη σκέψη να αναπνεύσει.</p>
+        </div>
+
+        <div class="columns-1 md:columns-2 gap-8 space-y-8 max-w-5xl mx-auto">
+            <button class="w-full break-inside-avoid img-wrap reveal cursor-zoom-in" onclick="openLightbox('https://images.unsplash.com/photo-1600607686527-6fb886090705?q=80&w=2000&auto=format&fit=crop')">
+                <img src="https://images.unsplash.com/photo-1600607686527-6fb886090705?q=80&w=800&auto=format&fit=crop" alt="Χώρος 1" class="w-full h-auto object-contain bg-black/10">
+            </button>
+            <button class="w-full break-inside-avoid img-wrap reveal delay-100 cursor-zoom-in" onclick="openLightbox('https://images.unsplash.com/photo-1497366216548-37526070297c?q=80&w=2000&auto=format&fit=crop')">
+                <img src="https://images.unsplash.com/photo-1497366216548-37526070297c?q=80&w=800&auto=format&fit=crop" alt="Χώρος 2" class="w-full h-auto object-contain bg-black/10">
+            </button>
+        </div>
+    </section>
+
+    <div id="lightbox" class="fixed inset-0 z-[100] bg-base/95 flex items-center justify-center cursor-zoom-out" onclick="closeLightbox()">
+        <button class="absolute top-8 right-8 text-dark hover:text-gold transition-colors">
+            <i data-lucide="x" class="w-8 h-8"></i>
+        </button>
+        <img id="lightbox-img" src="" alt="Enlarged View" class="max-w-[90vw] max-h-[90vh] object-contain shadow-2xl cursor-default" onclick="event.stopPropagation()">
+    </div>
+
+    <section id="articles" class="py-32 px-6 border-b border-dark/10">
+        <div class="max-w-4xl mx-auto text-center reveal">
+            <h2 class="text-sm uppercase tracking-[0.2em] text-gold mb-4">Άρθρα</h2>
+            <h3 class="text-3xl font-serif text-dark mb-10">Σκέψεις, κείμενα και εργαλεία γύρω από την ψυχική υγεία.</h3>
+            <p class="text-dark/60 font-light italic">Το περιεχόμενο θα προστεθεί σύντομα.</p>
+        </div>
+    </section>
+
+    <footer id="contact" class="bg-base pt-32 pb-12 px-6 relative">
+        <div class="max-w-7xl mx-auto grid lg:grid-cols-2 gap-20 mb-24">
+            
+            <div class="reveal">
+                <h3 class="text-4xl font-serif text-dark mb-8">Επικοινωνία</h3>
+                <p class="text-dark/70 font-light mb-12 max-w-md leading-relaxed">
+                    Η πρώτη κίνηση είναι συχνά η πιο σημαντική. Συμπληρώστε τη φόρμα ή χρησιμοποιήστε τα στοιχεία επικοινωνίας παρακάτω.
+                </p>
+
+                <div class="space-y-8 font-light text-sm text-dark">
+                    <div>
+                        <h5 class="text-gold uppercase tracking-widest text-xs mb-2">Ωράριο Λειτουργίας</h5>
+                        <p>Δευτέρα - Παρασκευή</p>
+                        <p class="text-dark/60 mt-1 italic">Αποκλειστικά κατόπιν ραντεβού</p>
+                    </div>
+                    <div>
+                        <h5 class="text-gold uppercase tracking-widest text-xs mb-2">Τοποθεσία</h5>
+                        <p>[Η διεύθυνσή σας εδώ]</p>
+                    </div>
+                    <div>
+                        <h5 class="text-gold uppercase tracking-widest text-xs mb-2">Στοιχεία</h5>
+                        <p><a href="tel:+300000000000" class="hover:text-gold transition-colors">[Το τηλέφωνό σας]</a></p>
+                        <p class="mt-1"><a href="mailto:hello@atelia.gr" class="hover:text-gold transition-colors">hello@atelia.gr</a></p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="reveal delay-100">
+                <form class="space-y-8">
+                    <div>
+                        <input type="text" placeholder="Όνομα" class="input-editorial w-full" required>
+                    </div>
+                    <div>
+                        <input type="email" placeholder="Email" class="input-editorial w-full" required>
+                    </div>
+                    <div>
+                        <textarea placeholder="Μήνυμα" rows="4" class="input-editorial w-full resize-none" required></textarea>
+                    </div>
+                    <button type="submit" class="group relative inline-flex items-center justify-center px-10 py-4 overflow-hidden border border-dark text-dark transition-all duration-500 hover:bg-dark hover:text-base w-full md:w-auto">
+                        <span class="text-sm uppercase tracking-widest font-medium z-10">Αποστολή</span>
+                    </button>
+                </form>
+            </div>
+        </div>
+
+        <div class="max-w-7xl mx-auto border-t border-dark/10 pt-8 flex flex-col md:flex-row justify-between items-center gap-6 reveal">
+            <p class="text-dark/50 text-xs tracking-wide">© 2026 Ατέλεια. All rights reserved.</p>
+            <p class="text-dark/50 text-xs tracking-wide">
+                Designed by <a href="https://advonmedia.com" target="_blank" rel="noopener" class="text-dark font-medium hover:text-gold transition-colors">Advon Media</a>
+            </p>
+        </div>
+    </footer>
+
+    <script>
+        // Init Icons
+        lucide.createIcons();
+
+        // Mobile Menu
+        const btn = document.getElementById('mobile-menu-btn');
+        const menu = document.getElementById('mobile-menu');
+        const links = document.querySelectorAll('.mobile-link');
+        let isMenuOpen = false;
+
+        function toggleMenu() {
+            isMenuOpen = !isMenuOpen;
+            if(isMenuOpen) {
+                menu.classList.remove('hidden');
+                setTimeout(() => menu.classList.remove('opacity-0'), 10);
+                document.body.style.overflow = 'hidden';
+            } else {
+                menu.classList.add('opacity-0');
+                setTimeout(() => menu.classList.add('hidden'), 300);
+                document.body.style.overflow = '';
+            }
+        }
+
+        btn.addEventListener('click', toggleMenu);
+        links.forEach(link => link.addEventListener('click', toggleMenu));
+
+        // Scroll Reveal Observer
+        const observer = new IntersectionObserver((entries, observer) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('active');
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, { threshold: 0.1, rootMargin: "0px 0px -50px 0px" });
+
+        document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+
+        // Navbar Scroll Effect
+        const navbar = document.getElementById('navbar');
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 50) {
+                navbar.classList.add('py-4', 'bg-base/90', 'backdrop-blur-md', 'shadow-sm');
+                navbar.classList.remove('py-6');
+            } else {
+                navbar.classList.add('py-6');
+                navbar.classList.remove('py-4', 'bg-base/90', 'backdrop-blur-md', 'shadow-sm');
+            }
+        });
+
+        // Lightbox Logic
+        const lightbox = document.getElementById('lightbox');
+        const lightboxImg = document.getElementById('lightbox-img');
+
+        function openLightbox(src) {
+            lightboxImg.src = src;
+            lightbox.classList.add('active');
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeLightbox() {
+            lightbox.classList.remove('active');
+            setTimeout(() => {
+                lightboxImg.src = '';
+                document.body.style.overflow = '';
+            }, 500);
+        }
+
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape' && lightbox.classList.contains('active')) closeLightbox();
+        });
+    </script>
+</body>
+</html>
