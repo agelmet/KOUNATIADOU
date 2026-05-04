@@ -4,14 +4,16 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     
-    <title>Ατέλεια | Η τέχνου του να είσαι Άνθρωπος</title>
+    <title>Ατέλεια | Η τέχνη του να είσαι Άνθρωπος</title>
     <meta name="description" content="Η Ατέλεια είναι ένας χώρος κατανόησης κι εξερεύνησης του τι σημαίνει να είσαι άνθρωπος. Ψυχιατρική, συμβουλευτική και προαγωγή υγείας από την Χριστίνα Κουνατιάδου.">
     <meta name="robots" content="index, follow">
     
+    <!-- Typography -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400;1,500&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
     
+    <!-- Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
     <script>
         tailwind.config = {
@@ -30,7 +32,6 @@
                     animation: {
                         'fade-in-up': 'fadeInUp 1.2s cubic-bezier(0.16, 1, 0.3, 1) forwards',
                         'float': 'float 6s ease-in-out infinite',
-                        'slow-pan': 'panImage 20s linear infinite alternate',
                         'scale-in-up': 'scaleInUp 1.2s cubic-bezier(0.16, 1, 0.3, 1) forwards',
                     },
                     keyframes: {
@@ -45,10 +46,6 @@
                         float: {
                             '0%, 100%': { transform: 'translateY(0)' },
                             '50%': { transform: 'translateY(-15px)' },
-                        },
-                        panImage: {
-                            '0%': { objectPosition: '0% 50%' },
-                            '100%': { objectPosition: '100% 50%' },
                         }
                     }
                 }
@@ -56,6 +53,7 @@
         }
     </script>
 
+    <!-- Lucide Icons -->
     <script src="https://unpkg.com/lucide@latest"></script>
 
     <style>
@@ -103,7 +101,7 @@
         .img-wrap img { transition: transform 1.5s cubic-bezier(0.16, 1, 0.3, 1); }
         .img-wrap:hover img { transform: scale(1.03); }
 
-        /* Subtle pattern forcypress sections */
+        /* Subtle pattern */
         .cypress-pattern {
             background-color: #2F5D50;
             background-image: url("data:image/svg+xml,%3Csvg width='6' height='6' viewBox='0 0 6 6' xmlns='http://www.w3.org/2000/svg'%3%3Cg fill='%23C2A46D' fill-opacity='0.1' fill-rule='evenodd'%3%3Cpath d='M5 0h1L0 6V5zM6 5v1H5z'/%3%3C/g%3%3C/svg%3%3C/");
@@ -112,37 +110,39 @@
 </head>
 <body class="font-sans antialiased overflow-x-hidden relative selection:bg-gold selection:text-white">
 
+    <!-- Navigation -->
     <nav id="navbar" class="fixed w-full z-50 transition-all duration-500 py-6">
         <div class="max-w-7xl mx-auto px-6 flex justify-between items-center">
-            <a href="#" class="group relative z-50">
-                <svg width="48" height="48" viewBox="0 0 100 100" class="transform transition-transform duration-700 group-hover:rotate-90 drop-shadow-sm">
-                    <circle cx="50" cy="50" r="46" fill="none" stroke="#1C1C1C" stroke-width="1.5" stroke-dasharray="200 40" stroke-linecap="round"/>
-                    <circle cx="50" cy="50" r="46" fill="none" stroke="#C2A46D" stroke-width="2.5" stroke-dasharray="0 230 15 0" stroke-linecap="round"/>
-                </svg>
+            <a href="#hero" class="group relative z-50">
+                <img src="https://raw.githubusercontent.com/agelmet/KOUNATIADOU/refs/heads/main/ChatGPT%20Image%204%20%CE%9C%CE%B1%CE%90%202026%2C%2012_15_51%20%CF%80.%CE%BC..png" alt="Ατέλεια Logo" class="h-10 md:h-12 w-auto object-contain transition-transform duration-500 hover:scale-105">
             </a>
 
+            <!-- Desktop Menu -->
             <div class="hidden md:flex items-center space-x-10">
                 <a href="#hero" class="text-sm tracking-wide text-dark hover:text-gold transition-colors">Αρχική</a>
                 <a href="#intro" class="text-sm tracking-wide text-dark hover:text-gold transition-colors">Η Ατέλεια</a>
                 <a href="#services" class="text-sm tracking-wide text-dark hover:text-gold transition-colors">Υπηρεσίες</a>
-                <a href="#articles" class="text-sm tracking-wide text-dark hover:text-gold transition-colors">Άρθρα</a>
+                <a href="#media" class="text-sm tracking-wide text-dark hover:text-gold transition-colors">Άρθρα & Συνεντεύξεις</a>
                 <a href="#contact" class="text-sm tracking-wide text-dark hover:text-gold transition-colors">Επικοινωνία</a>
             </div>
 
+            <!-- Mobile Toggle -->
             <button class="md:hidden z-50 text-dark focus:outline-none" id="mobile-menu-btn">
                 <i data-lucide="menu" class="w-6 h-6"></i>
             </button>
         </div>
 
+        <!-- Mobile Menu -->
         <div id="mobile-menu" class="fixed inset-0 bg-base/98 backdrop-blur-xl z-40 hidden flex-col justify-center items-center space-y-8 opacity-0 transition-opacity duration-300">
             <a href="#hero" class="text-2xl font-serif text-dark mobile-link">Αρχική</a>
             <a href="#intro" class="text-2xl font-serif text-dark mobile-link">Η Ατέλεια</a>
             <a href="#services" class="text-2xl font-serif text-dark mobile-link">Υπηρεσίες</a>
-            <a href="#articles" class="text-2xl font-serif text-dark mobile-link">Άρθρα</a>
+            <a href="#media" class="text-2xl font-serif text-dark mobile-link">Άρθρα & Συνεντεύξεις</a>
             <a href="#contact" class="text-2xl font-serif text-dark mobile-link">Επικοινωνία</a>
         </div>
     </nav>
 
+    <!-- Hero Section -->
     <section id="hero" class="relative min-h-screen flex items-center justify-center px-6 overflow-hidden">
         <div class="absolute top-1/4 left-1/4 w-[40vw] h-[40vw] bg-gold/5 rounded-full blur-[100px] pointer-events-none"></div>
         <div class="absolute bottom-1/4 right-1/4 w-[30vw] h-[30vw] bg-cypress/5 rounded-full blur-[100px] pointer-events-none"></div>
@@ -150,7 +150,7 @@
         <div class="max-w-4xl mx-auto text-center relative z-10 flex flex-col items-center opacity-0 animate-scale-in-up">
             <span class="text-xs uppercase tracking-[0.2em] text-gold mb-6 font-medium">Ατέλεια</span>
             <h1 class="text-5xl md:text-7xl lg:text-8xl font-serif text-dark leading-tight mb-8">
-                Η τέχνου του να είσαι<br>
+                Η τέχνη του να είσαι<br>
                 <span class="italic font-light">Άνθρωπος.</span>
             </h1>
             <p class="text-lg md:text-xl text-dark/70 font-light max-w-2xl mx-auto mb-12 leading-relaxed">
@@ -162,6 +162,7 @@
         </div>
     </section>
 
+    <!-- Intro Section -->
     <section id="intro" class="py-32 px-6">
         <div class="max-w-4xl mx-auto text-center reveal">
             <p class="text-2xl md:text-4xl font-serif text-dark leading-relaxed">
@@ -173,10 +174,10 @@
         </div>
     </section>
 
+    <!-- Services Preview -->
     <section class="py-32 px-6 bg-white">
         <div class="max-w-7xl mx-auto">
             <div class="grid md:grid-cols-3 gap-12 border-t border-dark/10 pt-20">
-                
                 <div class="reveal p-8 border border-dark/5 hover:border-gold/30 transition-all duration-500">
                     <span class="text-gold text-sm font-medium mb-4 block">01</span>
                     <h3 class="text-2xl font-serif text-dark mb-4">Ατομικές Συναντήσεις</h3>
@@ -184,7 +185,6 @@
                         Ένας ασφαλής, σταθερός χώρος για την κατανόηση του εαυτού και την υποστήριξη σε περιόδους μετάβασης ή δυσκολίας.
                     </p>
                 </div>
-
                 <div class="reveal delay-100 p-8 border border-dark/5 hover:border-gold/30 transition-all duration-500">
                     <span class="text-gold text-sm font-medium mb-4 block">02</span>
                     <h3 class="text-2xl font-serif text-dark mb-4">Συμβουλευτική</h3>
@@ -192,7 +192,6 @@
                         Εστιασμένη καθοδήγηση για συγκεκριμένους προβληματισμούς, ενισχύοντας την ικανότητα λήψης αποφάσεων και την αυτονομία.
                     </p>
                 </div>
-
                 <div class="reveal delay-200 p-8 border border-dark/5 hover:border-gold/30 transition-all duration-500">
                     <span class="text-gold text-sm font-medium mb-4 block">03</span>
                     <h3 class="text-2xl font-serif text-dark mb-4">Σεμινάρια Ζωής</h3>
@@ -210,6 +209,7 @@
         </div>
     </section>
 
+    <!-- Quote Section -->
     <section class="py-40 px-6 cypress-pattern text-base text-center relative overflow-hidden visibility-fix">
         <div class="max-w-4xl mx-auto reveal">
             <svg class="w-10 h-10 mx-auto text-gold/50 mb-10" fill="currentColor" viewBox="0 0 24 24">
@@ -224,8 +224,10 @@
         </div>
     </section>
 
+    <!-- Philosophy & Bio Section -->
     <section id="about" class="py-32 px-6">
         <div class="max-w-7xl mx-auto">
+            <!-- Philosophy Content -->
             <div class="max-w-3xl mb-32 reveal">
                 <h2 class="text-sm uppercase tracking-[0.2em] text-gold mb-6">Η Φιλοσοφία</h2>
                 <h3 class="text-4xl md:text-5xl font-serif text-dark mb-10 leading-tight">
@@ -237,12 +239,14 @@
                 </div>
             </div>
 
+            <!-- Bio Layout -->
             <div class="grid lg:grid-cols-12 gap-16 items-start">
-                <div class="lg:col-span-8 order-2 lg:order-1 reveal">
+                <!-- Bio Text -->
+                <div class="lg:col-span-7 order-2 lg:order-1 reveal">
                     <h2 class="text-3xl font-serif text-dark mb-2">Χριστίνα Κουνατιάδου</h2>
                     <p class="text-gold uppercase tracking-widest text-xs mb-10">Ιατρός - Ψυχίατρος Ενηλίκων</p>
                     
-                    <div class="space-y-8 text-dark/70 font-light md:text-base leading-relaxed text-justified verbatim-bio">
+                    <div class="space-y-8 text-dark/70 font-light md:text-base leading-relaxed text-justified">
                         <p>Ονομάζομαι Κουνατιάδου Χριστίνα. Είμαι ιατρός, με ειδικότητα στην Ψυχιατρική Ενηλίκων.</p>
                         <p>Οι μεταπτυχιακές σπουδές μου πραγματοποιούνται στην Ιατρική Σχολή του ΕΚΠΑ, με υποτροφία αριστείας, στο πεδίο της Επιστήμης του Στρες και της Προαγωγής της Υγείας.</p>
                         
@@ -264,38 +268,19 @@
                     </div>
                 </div>
 
-                <div class="lg:col-span-4 order-1 lg:order-2 grid md:grid-cols-2 lg:grid-cols-1 gap-8 relative z-10 verbatim-structure">
-                    
-                    <div class="reveal delay-100 aspect-[3/4] overflow-hidden bg-white p-3 shadow-xl transform rotate-1 group transition-transform duration-500 hover:rotate-0">
-                        <img src="https://images.unsplash.com/photo-1622253692010-333f2da6031d?q=80&w=800&auto=format&fit=crop" alt="Ιατρική Προσέγγιση" class="w-full h-full object-cover grayscale-[30%] group-hover:grayscale-0 transition-all duration-700">
-                        <div class="absolute bottom-4 left-4 right-4 bg-white/90 p-3 text-xs font-light">
-                            <span class="text-gold uppercase tracking-widest font-medium block mb-1">Ιατρική / Ψυχιατρική</span>
-                            <p class="text-dark/70">[Παράδειγμα: Υποστήριξη βασισμένη σε επιστημονικά δεδομένα και ιατρική γνώση.]</p>
-                        </div>
+                <!-- Main Bio Image -->
+                <div class="lg:col-span-5 order-1 lg:order-2 relative reveal delay-100">
+                    <div class="aspect-[3/4] overflow-hidden bg-white p-2 shadow-2xl animate-float">
+                        <img src="https://raw.githubusercontent.com/agelmet/KOUNATIADOU/refs/heads/main/EE7AD9AC-4FB4-455F-A5C1-31C4FF06062E.jpeg" alt="Χριστίνα Κουνατιάδου" class="w-full h-full object-cover object-center grayscale-[15%] hover:grayscale-0 transition-all duration-1000">
                     </div>
-
-                    <div class="reveal delay-200 aspect-[3/4] overflow-hidden bg-cypress p-3 shadow-xl transform -rotate-1 group transition-transform duration-500 hover:rotate-0">
-                        <img src="https://images.unsplash.com/photo-1516534775068-ba3e7458af70?q=80&w=800&auto=format&fit=crop" alt="Συστημική Σκέψη" class="w-full h-full object-cover grayscale-[30%] group-hover:grayscale-0 transition-all duration-700">
-                        <div class="absolute bottom-4 left-4 right-4 bg-white/90 p-3 text-xs font-light">
-                            <span class="text-gold uppercase tracking-widest font-medium block mb-1">Συστημική Σκέψη / Σχέσεις</span>
-                            <p class="text-dark/70">[Παράδειγμα: Κατανόηση του ατόμου μέσα στο πλαίσιο των σχέσεών του.]</p>
-                        </div>
-                    </div>
-
-                    <div class="reveal delay-300 aspect-[3/4] overflow-hidden bg-white p-3 shadow-xl transform rotate-2 group transition-transform duration-500 hover:rotate-0">
-                        <img src="https://images.unsplash.com/photo-1513364776144-60967b0f800f?q=80&w=800&auto=format&fit=crop" alt="Τέχνη & Δημιουργικότητα" class="w-full h-full object-cover grayscale-[30%] group-hover:grayscale-0 transition-all duration-700">
-                        <div class="absolute bottom-4 left-4 right-4 bg-white/90 p-3 text-xs font-light">
-                            <span class="text-gold uppercase tracking-widest font-medium block mb-1">Τέχνη & Δημιουργικότητα</span>
-                            <p class="text-dark/70">[Παράδειγμα: Σύνδεση με τον εαυτό μέσα από τη δημιουργική έκφραση.]</p>
-                        </div>
-                    </div>
-
+                    <div class="absolute -bottom-6 -left-6 w-32 h-32 border border-gold/30 -z-10"></div>
                 </div>
             </div>
         </div>
     </section>
 
-    <section id="services" class="py-32 px-6 bg-white verbatim-detailed">
+    <!-- Services Detailed -->
+    <section id="services" class="py-32 px-6 bg-white">
         <div class="max-w-7xl mx-auto">
             <div class="text-center mb-24 reveal">
                 <h2 class="text-sm uppercase tracking-[0.2em] text-gold mb-4">Οι Υπηρεσίες</h2>
@@ -358,6 +343,7 @@
         </div>
     </section>
 
+    <!-- Space / Χώρος -->
     <section class="py-32 px-6 bg-dark text-base">
         <div class="max-w-7xl mx-auto text-center mb-24 reveal">
             <h2 class="text-sm uppercase tracking-[0.2em] text-gold mb-4">Ο Χώρος</h2>
@@ -375,6 +361,84 @@
         </div>
     </section>
 
+    <!-- Media / Appearances / Interviews -->
+    <section id="media" class="py-32 px-6 border-b border-dark/10">
+        <div class="max-w-7xl mx-auto">
+            <div class="text-center mb-24 reveal">
+                <h2 class="text-sm uppercase tracking-[0.2em] text-gold mb-4">Παρουσίες</h2>
+                <h3 class="text-3xl font-serif text-dark mb-10 leading-snug">Άρθρα & Συνεντεύξεις</h3>
+            </div>
+
+            <!-- Block 1: Video (Action 24) -->
+            <div class="grid lg:grid-cols-2 gap-16 items-center mb-32 reveal">
+                <div class="order-2 lg:order-1">
+                    <h3 class="text-3xl font-serif text-dark mb-6 leading-tight">Συναισθηματική Υπερφαγία & Στρες: Γιατί καταφεύγουμε στο φαγητό;</h3>
+                    <div class="space-y-4 text-dark/70 font-light mb-8 leading-relaxed">
+                        <p>Πόσες φορές αναζητήσατε ένα πλούσιο γεύμα μετά από μια πιεστική μέρα, όχι από πραγματική πείνα, αλλά απλώς για να ηρεμήσετε;</p>
+                        <p>Καλεσμένη στην εκπομπή Vitality (ACTION 24 TV), η Χριστίνα Κουνατιάδου προσεγγίζει επιστημονικά –αλλά και με βαθιά ενσυναίσθηση– το συχνό, μα παρεξηγημένο φαινόμενο της συναισθηματικής υπερφαγίας.</p>
+                        <p>Μάθετε γιατί το σώμα μας χρησιμοποιεί το φαγητό ως άμεσο «καταπραϋντικό» απέναντι στο στρες, ανακαλύψτε πώς να ξεχωρίζετε τη συναισθηματική ρύθμιση από τη βιολογική πείνα και βρείτε πρακτικούς τρόπους για να "ακούσετε" καλύτερα τις πραγματικές ανάγκες του οργανισμού σας.</p>
+                    </div>
+                    <a href="https://www.youtube.com/watch?v=A0SnqUAz-Gg&authuser=0" target="_blank" rel="noopener" class="inline-flex items-center text-sm uppercase tracking-widest text-dark border-b border-dark pb-1 hover:text-gold hover:border-gold transition-colors">
+                        Δείτε το Βίντεο
+                    </a>
+                </div>
+                <div class="order-1 lg:order-2">
+                    <a href="https://www.youtube.com/watch?v=A0SnqUAz-Gg&authuser=0" target="_blank" rel="noopener" class="block overflow-hidden relative group shadow-xl">
+                        <img src="https://raw.githubusercontent.com/agelmet/KOUNATIADOU/refs/heads/main/dsdss.jpg" class="w-full h-auto object-cover transform transition-transform duration-700 group-hover:scale-105" alt="Βίντεο: Συναισθηματική Υπερφαγία & Στρες">
+                        <div class="absolute inset-0 bg-dark/20 group-hover:bg-transparent transition-colors flex items-center justify-center">
+                            <div class="w-20 h-20 bg-white/90 rounded-full flex items-center justify-center backdrop-blur-sm group-hover:scale-110 transition-transform shadow-lg">
+                                <i data-lucide="play" class="w-8 h-8 text-dark ml-1"></i>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+            </div>
+
+            <!-- Block 2: Interview (TrueMed) -->
+            <div class="grid lg:grid-cols-2 gap-16 items-center reveal">
+                <div class="order-1">
+                     <a href="https://www.truemed.gr/synenteukseis/kounatiadou-xristina/?fbclid=IwY2xjawRkde5leHRuA2FlbQIxMQBicmlkETFidko0R045T2lFbUJqZWwzc3J0YwZhcHBfaWQQMjIyMDM5MTc4ODIwMDg5MgABHgLJlqKlMRIE0E7g_Mc83HBqz--WbEh4Po3bYX3RKnqOZ0FGhSO4wA-F5E1l_aem_JrYp3_tKchVB7bTuMjKZPw" target="_blank" rel="noopener" class="block overflow-hidden relative group shadow-xl bg-white p-2">
+                        <img src="https://raw.githubusercontent.com/agelmet/KOUNATIADOU/refs/heads/main/tedme.jpg" class="w-full h-auto object-cover transform transition-transform duration-700 group-hover:scale-105" alt="Συνέντευξη: Χαρτογραφώντας τον Κόσμο της Ψυχιατρικής">
+                    </a>
+                </div>
+                <div class="order-2">
+                    <h3 class="text-3xl font-serif text-dark mb-6 leading-tight">Συνέντευξη: Χαρτογραφώντας τον Κόσμο της Ψυχιατρικής με τη Χριστίνα Κουνατιάδου</h3>
+                    <p class="text-dark/70 font-light mb-4 leading-relaxed">Σε μια ειλικρινή και βαθιά ανθρώπινη συζήτηση με τη Σταματία Κύρλα, η ειδικευόμενη ψυχίατρος Χριστίνα Κουνατιάδου ανοίγει ένα παράθυρο στις αθέατες πλευρές της ψυχικής υγείας και της σύγχρονης ιατρικής πραγματικότητας.</p>
+                    <p class="text-dark/70 font-light mb-6 leading-relaxed">Μέσα από τη δική της προσωπική και επαγγελματική διαδρομή —από το απαιτητικό «αγροτικό» εν μέσω της πανδημίας του COVID-19 μέχρι τις προκλήσεις της ειδικότητας— η συνέντευξη προσεγγίζει καίρια ζητήματα της εποχής μας, αναδεικνύοντας:</p>
+                    
+                    <ul class="space-y-4 mb-8">
+                        <li class="flex items-start gap-4 text-sm text-dark/80 font-light leading-relaxed">
+                            <span class="w-1.5 h-1.5 rounded-full bg-gold shrink-0 mt-2"></span>
+                            <span><strong>Το βιο-ψυχο-κοινωνικό μοντέλο:</strong> Την άρρηκτη, αποδεδειγμένη σύνδεση μεταξύ σωματικής και ψυχικής υγείας και τον καταλυτικό ρόλο του στρες.</span>
+                        </li>
+                        <li class="flex items-start gap-4 text-sm text-dark/80 font-light leading-relaxed">
+                            <span class="w-1.5 h-1.5 rounded-full bg-gold shrink-0 mt-2"></span>
+                            <span><strong>Την ανατομία της σύγχρονης βίας:</strong> Πώς οι κοινωνικές πιέσεις, το αίσθημα αβοηθησίας και ο καταιγισμός πληροφοριών οδηγούν στην κανονικοποίηση ακραίων συμπεριφορών.</span>
+                        </li>
+                        <li class="flex items-start gap-4 text-sm text-dark/80 font-light leading-relaxed">
+                            <span class="w-1.5 h-1.5 rounded-full bg-gold shrink-0 mt-2"></span>
+                            <span><strong>Την απομυθοποίηση της ψυχιατρικής φροντίδας:</strong> Ξεκάθαρες απαντήσεις για τις διαφορές ψυχιάτρου και ψυχολόγου, αλλά και μια αφοπλιστική κατάρριψη των ταμπού γύρω από την αναζήτηση βοήθειας (μέσα από ένα εξαιρετικά εύστοχο παράδειγμα με... ορθοπεδικούς!).</span>
+                        </li>
+                    </ul>
+                    <p class="text-dark/70 font-light italic mb-8 border-l border-gold pl-5 leading-relaxed">Μια συνέντευξη-τροφή για σκέψη που μας υπενθυμίζει πως η φροντίδα της ψυχικής μας υγείας δεν είναι ένδειξη αδυναμίας, αλλά ένα γενναίο βήμα εξερεύνησης του εαυτού μας και διεκδίκησης μιας ζωής με ουσιαστικό νόημα.</p>
+                    
+                    <a href="https://www.truemed.gr/synenteukseis/kounatiadou-xristina/?fbclid=IwY2xjawRkde5leHRuA2FlbQIxMQBicmlkETFidko0R045T2lFbUJqZWwzc3J0YwZhcHBfaWQQMjIyMDM5MTc4ODIwMDg5MgABHgLJlqKlMRIE0E7g_Mc83HBqz--WbEh4Po3bYX3RKnqOZ0FGhSO4wA-F5E1l_aem_JrYp3_tKchVB7bTuMjKZPw" target="_blank" rel="noopener" class="inline-flex items-center text-sm uppercase tracking-widest text-dark border-b border-dark pb-1 hover:text-gold hover:border-gold transition-colors">
+                        Διαβάστε τη Συνέντευξη
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Placeholder info section as requested previously for later addition -->
+    <section class="py-16 px-6 border-b border-dark/10">
+        <div class="max-w-4xl mx-auto text-center reveal">
+            <h3 class="text-2xl font-serif text-dark mb-4 leading-snug">Σκέψεις, κείμενα και εργαλεία γύρω από την ψυχική υγεία και την καθημερινότητα.</h3>
+            <p class="text-dark/60 font-light italic mt-6">[Άρθρα: Το περιεχόμενο θα προστεθεί σύντομα.]</p>
+        </div>
+    </section>
+
+    <!-- Lightbox -->
     <div id="lightbox" class="fixed inset-0 z-[100] bg-base/95 flex items-center justify-center cursor-zoom-out" onclick="closeLightbox()">
         <button class="absolute top-8 right-8 text-dark hover:text-gold transition-colors">
             <i data-lucide="x" class="w-8 h-8"></i>
@@ -382,15 +446,8 @@
         <img id="lightbox-img" src="" alt="Enlarged View" class="max-w-[95vw] max-h-[95vh] object-contain shadow-2xl cursor-default" onclick="event.stopPropagation()">
     </div>
 
-    <section id="articles" class="py-32 px-6 border-b border-dark/10 verbatim-articles">
-        <div class="max-w-4xl mx-auto text-center reveal">
-            <h2 class="text-sm uppercase tracking-[0.2em] text-gold mb-6">Άρθρα</h2>
-            <h3 class="text-3xl font-serif text-dark mb-10 leading-snug">Σκέψεις, κείμενα και εργαλεία γύρω από την ψυχική υγεία και την καθημερινότητα.</h3>
-            <p class="text-dark/60 font-light italic mt-12">[Παράδειγμα: Το περιεχόμενο θα προστεθεί σύντομα.]</p>
-        </div>
-    </section>
-
-    <footer id="contact" class="bg-base pt-32 pb-12 px-6 relative verbatim-structure">
+    <!-- Contact & Footer -->
+    <footer id="contact" class="bg-base pt-32 pb-12 px-6 relative">
         <div class="max-w-7xl mx-auto grid lg:grid-cols-2 gap-20 mb-24">
             
             <div class="reveal">
@@ -403,7 +460,7 @@
                     <div>
                         <h5 class="text-gold uppercase tracking-widest text-xs mb-3">Ωράριο Λειτουργίας</h5>
                         <p>Δευτέρα - Παρασκευή</p>
-                        <p class="text-dark/60 mt-1 italicVerbatim text: Каτόπιν Ραντεβού">Каτόπιν Ραντεβού</p>
+                        <p class="text-dark/60 mt-1 italic">Κατόπιν Ραντεβού</p>
                     </div>
                     <div>
                         <h5 class="text-gold uppercase tracking-widest text-xs mb-3">Διεύθυνση</h5>
@@ -416,7 +473,7 @@
                     <div>
                         <h5 class="text-gold uppercase tracking-widest text-xs mb-3">Email</h5>
                         <p><a href="mailto:hello@atelia.gr" class="hover:text-gold transition-colors">hello@atelia.gr</a></p>
-                        <p class="text-dark/50 italic text-xs mt-2Verbatim text: (The domain hasn't been purchased yet.)">(The domain hasn't been purchased yet.)</p>
+                        <p class="text-dark/50 italic text-xs mt-2">(The domain hasn't been purchased yet.)</p>
                     </div>
                 </div>
             </div>
@@ -442,24 +499,20 @@
         <div class="max-w-7xl mx-auto border-t border-dark/10 pt-10 flex flex-col md:flex-row justify-between items-center gap-6 reveal">
             <p class="text-dark/50 text-xs tracking-wide">© 2026 Ατέλεια. All rights reserved.</p>
             
-            <a href="#" class="group relative z-50 transform hover:-translate-y-1 transition-transform">
-                <svg width="40" height="40" viewBox="0 0 100 100" class="drop-shadow-sm">
-                    <circle cx="50" cy="50" r="46" fill="none" stroke="#1C1C1C" stroke-opacity="0.3" stroke-width="1"/>
-                    <circle cx="50" cy="50" r="46" fill="none" stroke="#C2A46D" stroke-opacity="0.5" stroke-width="1.5" stroke-dasharray="0 230 15 0" stroke-linecap="round"/>
-                </svg>
+            <a href="#hero" class="group relative z-50 transform hover:-translate-y-1 transition-transform">
+                <img src="https://raw.githubusercontent.com/agelmet/KOUNATIADOU/refs/heads/main/ChatGPT%20Image%204%20%CE%9C%CE%B1%CE%90%202026%2C%2012_15_51%20%CF%80.%CE%BC..png" alt="Ατέλεια" class="h-8 w-auto object-contain opacity-50 hover:opacity-100 transition-opacity">
             </a>
             
-            <p class="text-dark/50 text-xs tracking-wideVerbatim text: Designed by Advon Media">
+            <p class="text-dark/50 text-xs tracking-wide">
                 Designed by <a href="https://advonmedia.com" target="_blank" rel="noopener" class="text-dark font-medium hover:text-gold transition-colors">Advon Media</a>
             </p>
         </div>
     </footer>
 
+    <!-- Scripts -->
     <script>
-        // Init Icons
         lucide.createIcons();
 
-        // Mobile Menu
         const btn = document.getElementById('mobile-menu-btn');
         const menu = document.getElementById('mobile-menu');
         const links = document.querySelectorAll('.mobile-link');
@@ -481,7 +534,6 @@
         btn.addEventListener('click', toggleMenu);
         links.forEach(link => link.addEventListener('click', toggleMenu));
 
-        // Scroll Reveal Observer
         const observer = new IntersectionObserver((entries, observer) => {
             entries.forEach(entry => {
                 if (entry.isIntersecting) {
@@ -493,7 +545,6 @@
 
         document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
 
-        // Navbar Scroll Effect
         const navbar = document.getElementById('navbar');
         window.addEventListener('scroll', () => {
             if (window.scrollY > 50) {
@@ -505,7 +556,6 @@
             }
         });
 
-        // Lightbox Logic
         const lightbox = document.getElementById('lightbox');
         const lightboxImg = document.getElementById('lightbox-img');
 
