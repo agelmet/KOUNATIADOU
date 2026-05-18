@@ -56,6 +56,9 @@
     <!-- Lucide Icons -->
     <script src="https://unpkg.com/lucide@latest"></script>
 
+    <!-- Contentful Library -->
+    <script src="https://cdn.jsdelivr.net/npm/contentful@latest/dist/contentful.browser.min.js"></script>
+
     <style>
         body { background-color: #F5F3EF; color: #1C1C1C; }
         ::selection { background-color: #C2A46D; color: #fff; }
@@ -90,6 +93,13 @@
             box-shadow: none;
         }
 
+        /* Lightbox */
+        #lightbox {
+            opacity: 0; pointer-events: none; transition: opacity 0.5s ease;
+            backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px);
+        }
+        #lightbox.active { opacity: 1; pointer-events: auto; }
+        
         /* Subtle pattern */
         .cypress-pattern {
             background-color: #2F5D50;
@@ -143,7 +153,6 @@
                 <span class="italic font-light">Άνθρωπος.</span>
             </h1>
             
-            <!-- Updated Quotes / Subtitle -->
             <p class="text-dark/80 font-serif italic text-2xl mb-6">
                 «Από την επιβίωση, στην επιλογή.»
             </p>
@@ -154,6 +163,53 @@
             <a href="#contact" class="group relative inline-flex items-center justify-center px-10 py-5 overflow-hidden border border-dark text-dark transition-all duration-500 hover:bg-dark hover:text-base">
                 <span class="text-sm uppercase tracking-widest font-medium z-10">Κλείσε μια συνάντηση</span>
             </a>
+        </div>
+    </section>
+
+    <!-- Intro Section -->
+    <section id="intro" class="py-32 px-6">
+        <div class="max-w-4xl mx-auto text-center reveal">
+            <p class="text-2xl md:text-4xl font-serif text-dark leading-relaxed">
+                Η Ατέλεια είναι ένας χώρος κατανόησης κι εξερεύνησης του τι σημαίνει να είσαι άνθρωπος. Είναι ένας χώρος που εστιάζει στην αρχιτεκτονική της υγείας, <span class="text-gold italic">όχι στην ασθένεια.</span>
+            </p>
+            <p class="mt-10 text-lg text-dark/70 font-light max-w-2xl mx-auto leading-loose">
+                Στην δυνατότητα, την ευκαιρία, την γνώση, την επιλογή. Είναι μια πρόσκληση να έρθουμε σε επαφή με αυτό που είμαστε — μέσα από τη σχέση μας με την ατέλεια.
+            </p>
+        </div>
+    </section>
+
+    <!-- Services Preview -->
+    <section class="py-32 px-6 bg-white">
+        <div class="max-w-7xl mx-auto">
+            <div class="grid md:grid-cols-3 gap-12 border-t border-dark/10 pt-20">
+                <div class="reveal p-8 border border-dark/5 hover:border-gold/30 transition-all duration-500 hover:shadow-lg">
+                    <span class="text-gold text-sm font-medium mb-4 block">01</span>
+                    <h3 class="text-2xl font-serif text-dark mb-4">Ατομικές Συναντήσεις</h3>
+                    <p class="text-dark/60 font-light text-sm leading-relaxed mb-8">
+                        Ένας ασφαλής, σταθερός χώρος για την κατανόηση του εαυτού και την υποστήριξη σε περιόδους μετάβασης ή δυσκολίας.
+                    </p>
+                </div>
+                <div class="reveal delay-100 p-8 border border-dark/5 hover:border-gold/30 transition-all duration-500 hover:shadow-lg">
+                    <span class="text-gold text-sm font-medium mb-4 block">02</span>
+                    <h3 class="text-2xl font-serif text-dark mb-4">Συμβουλευτική</h3>
+                    <p class="text-dark/60 font-light text-sm leading-relaxed mb-8">
+                        Εστιασμένη καθοδήγηση για συγκεκριμένους προβληματισμούς, ενισχύοντας την ικανότητα λήψης αποφάσεων και την αυτονομία.
+                    </p>
+                </div>
+                <div class="reveal delay-200 p-8 border border-dark/5 hover:border-gold/30 transition-all duration-500 hover:shadow-lg">
+                    <span class="text-gold text-sm font-medium mb-4 block">03</span>
+                    <h3 class="text-2xl font-serif text-dark mb-4">Σεμινάρια Ζωής</h3>
+                    <p class="text-dark/60 font-light text-sm leading-relaxed mb-8">
+                        Ομαδικές δράσεις εκπαίδευσης γύρω από τις δεξιότητες που απαιτεί η σύγχρονη πραγματικότητα και η συναισθηματική ανάπτυξη.
+                    </p>
+                </div>
+            </div>
+            
+            <div class="text-center mt-16 reveal">
+                <a href="#services" class="inline-flex items-center text-sm uppercase tracking-widest text-dark border-b border-dark pb-1 hover:text-gold hover:border-gold transition-colors">
+                    Δες Περισσότερα
+                </a>
+            </div>
         </div>
     </section>
 
@@ -305,7 +361,7 @@
         </div>
     </section>
 
-    <!-- Quote Section (New phrasing) -->
+    <!-- Quote Section -->
     <section class="py-40 px-6 cypress-pattern text-base text-center relative overflow-hidden visibility-fix">
         <div class="max-w-4xl mx-auto reveal">
             <svg class="w-10 h-10 mx-auto text-gold/50 mb-10" fill="currentColor" viewBox="0 0 24 24">
@@ -320,7 +376,7 @@
         </div>
     </section>
 
-    <!-- CMS Setup: Articles & Interviews -->
+    <!-- Media & CMS Articles Integration -->
     <section id="media" class="py-32 px-6 border-b border-dark/10 bg-base">
         <div class="max-w-7xl mx-auto">
             <div class="text-center mb-20 reveal">
@@ -328,75 +384,46 @@
                 <h3 class="text-3xl font-serif text-dark mb-10 leading-snug">Άρθρα & Συνεντεύξεις</h3>
             </div>
 
-            <!-- Contentful List Wrapper -->
-            <!-- Developer Note: Loop through Contentful articles here. The UI supports a 'pinned' feature layout for the first item, and a grid for the rest. -->
-            <div class="cms-articles-list flex flex-col gap-16">
-
-                <!-- PINNED / FEATURED ITEM (e.g., True Med Interview) -->
-                <!-- Developer Note: Use an 'isPinned' boolean in CMS to render this block -->
-                <article class="cms-item-pinned grid lg:grid-cols-2 gap-12 lg:gap-20 items-center reveal bg-white p-8 lg:p-12 shadow-sm border border-gold/20">
-                    <div class="order-2 lg:order-1 cms-content">
-                        <span class="text-xs uppercase tracking-widest text-cypress mb-4 block font-bold cms-category">Συνεντευξη</span>
-                        <h3 class="text-3xl font-serif text-dark mb-6 leading-tight cms-title">
+            <div class="flex flex-col gap-16">
+                
+                <!-- Pinned Feature: TrueMed Interview -->
+                <article class="grid lg:grid-cols-2 gap-12 lg:gap-20 items-center reveal bg-white p-8 lg:p-12 shadow-sm border border-gold/20">
+                    <div class="order-2 lg:order-1">
+                        <span class="text-xs uppercase tracking-widest text-cypress mb-4 block font-bold">Συνεντευξη</span>
+                        <h3 class="text-3xl font-serif text-dark mb-6 leading-tight">
                             Συνέντευξη: Χαρτογραφώντας τον Κόσμο της Ψυχιατρικής με τη Χριστίνα Κουνατιάδου
                         </h3>
-                        <div class="space-y-4 text-dark/70 font-light mb-8 leading-relaxed cms-excerpt">
-                            <!-- Contentful Rich Text output goes here -->
+                        <div class="space-y-4 text-dark/70 font-light mb-8 leading-relaxed">
                             <p>Σε μια ειλικρινή και βαθιά ανθρώπινη συζήτηση με τη Σταματία Κύρλα, η ειδικευόμενη ψυχίατρος Χριστίνα Κουνατιάδου ανοίγει ένα παράθυρο στις αθέατες πλευρές της ψυχικής υγείας και της σύγχρονης ιατρικής πραγματικότητας.</p>
                             <p>Μέσα από τη δική της προσωπική και επαγγελματική διαδρομή προσεγγίζει καίρια ζητήματα της εποχής μας, αναδεικνύοντας το βιο-ψυχο-κοινωνικό μοντέλο, την ανατομία της σύγχρονης βίας, και απομυθοποιώντας την ψυχιατρική φροντίδα.</p>
                         </div>
-                        <a href="https://www.truemed.gr/" target="_blank" rel="noopener" class="inline-flex items-center text-sm uppercase tracking-widest text-dark border-b border-dark pb-1 hover:text-gold hover:border-gold transition-colors cms-link">
+                        <a href="https://www.truemed.gr/synenteukseis/kounatiadou-xristina/?fbclid=IwY2xjawRkde5leHRuA2FlbQIxMQBicmlkETFidko0R045T2lFbUJqZWwzc3J0YwZhcHBfaWQQMjIyMDM5MTc4ODIwMDg5MgABHgLJlqKlMRIE0E7g_Mc83HBqz--WbEh4Po3bYX3RKnqOZ0FGhSO4wA-F5E1l_aem_JrYp3_tKchVB7bTuMjKZPw" target="_blank" rel="noopener" class="inline-flex items-center text-sm uppercase tracking-widest text-dark border-b border-dark pb-1 hover:text-gold hover:border-gold transition-colors">
                             Διαβάστε τη Συνέντευξη
                         </a>
                     </div>
-                    <div class="order-1 lg:order-2 cms-image-wrapper">
-                        <a href="#" target="_blank" class="block overflow-hidden relative group shadow-lg aspect-[4/3] bg-base">
-                            <!-- Contentful Featured Image goes here -->
-                            <img src="https://raw.githubusercontent.com/agelmet/KOUNATIADOU/refs/heads/main/tedme.jpg" class="w-full h-full object-cover transform transition-transform duration-700 group-hover:scale-105 cms-image" alt="Thumbnail">
+                    <div class="order-1 lg:order-2">
+                        <a href="https://www.truemed.gr/synenteukseis/kounatiadou-xristina/?fbclid=IwY2xjawRkde5leHRuA2FlbQIxMQBicmlkETFidko0R045T2lFbUJqZWwzc3J0YwZhcHBfaWQQMjIyMDM5MTc4ODIwMDg5MgABHgLJlqKlMRIE0E7g_Mc83HBqz--WbEh4Po3bYX3RKnqOZ0FGhSO4wA-F5E1l_aem_JrYp3_tKchVB7bTuMjKZPw" target="_blank" rel="noopener" class="block overflow-hidden relative group shadow-lg aspect-[4/3] bg-base">
+                            <img src="https://raw.githubusercontent.com/agelmet/KOUNATIADOU/refs/heads/main/tedme.jpg" class="w-full h-full object-cover transform transition-transform duration-700 group-hover:scale-105" alt="Thumbnail">
                         </a>
                     </div>
                 </article>
 
-                <!-- STANDARD GRID ITEMS -->
-                <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-                    
-                    <!-- CMS Item (Standard) -->
-                    <article class="cms-item reveal bg-white p-6 border border-dark/5 hover:shadow-md transition-shadow flex flex-col h-full">
-                        <a href="#" target="_blank" class="block aspect-video bg-base mb-6 overflow-hidden relative group">
-                            <!-- If Video, show play button -->
-                            <div class="absolute inset-0 bg-dark/20 group-hover:bg-transparent transition-colors flex items-center justify-center z-10">
-                                <div class="w-12 h-12 bg-white/95 rounded-full flex items-center justify-center shadow-lg group-hover:scale-110 transition-transform">
-                                    <i data-lucide="play" class="w-5 h-5 text-dark ml-1"></i>
-                                </div>
-                            </div>
-                            <!-- Contentful image -->
-                            <img src="https://raw.githubusercontent.com/agelmet/KOUNATIADOU/refs/heads/main/dsdss.jpg" class="w-full h-full object-cover cms-image transform transition-transform duration-700 group-hover:scale-105" alt="Thumbnail">
-                        </a>
-                        <span class="text-xs uppercase tracking-widest text-gold mb-3 block font-bold cms-category">Video</span>
-                        <h4 class="text-xl font-serif text-dark mb-4 leading-tight cms-title">Συναισθηματική Υπερφαγία & Στρες: Γιατί καταφεύγουμε στο φαγητό;</h4>
-                        <div class="text-dark/60 text-sm font-light mb-6 line-clamp-3 flex-grow cms-excerpt">
-                            Πόσες φορές αναζητήσατε ένα πλούσιο γεύμα μετά από μια πιεστική μέρα, όχι από πραγματική πείνα, αλλά απλώς για να ηρεμήσετε; Ανακαλύψτε πώς να ξεχωρίζετε τη συναισθηματική ρύθμιση...
-                        </div>
-                        <a href="#" class="text-xs uppercase tracking-widest text-dark font-medium hover:text-gold transition-colors cms-link mt-auto inline-block">Δειτε το Βιντεο</a>
-                    </article>
-
-                    <!-- Mocked CMS Draft Item -->
-                    <article class="cms-item reveal delay-100 bg-white p-6 border border-dark/5 hover:shadow-md transition-shadow flex flex-col h-full">
-                        <a href="#" class="block aspect-video bg-base mb-6 overflow-hidden relative flex items-center justify-center text-dark/10 group">
-                             <i data-lucide="image" class="w-10 h-10 group-hover:scale-110 transition-transform"></i>
-                        </a>
-                        <span class="text-xs uppercase tracking-widest text-cypress mb-3 block font-bold cms-category">Αρθρο</span>
-                        <h4 class="text-xl font-serif text-dark mb-4 leading-tight cms-title">Προσεχώς: Νέο Άρθρο</h4>
-                        <div class="text-dark/60 text-sm font-light mb-6 line-clamp-3 flex-grow cms-excerpt">
-                            Ο χώρος αυτός προετοιμάζεται να φιλοξενήσει το επόμενο άρθρο. (Περιεχόμενο που θα προστεθεί δυναμικά μέσω CMS).
-                        </div>
-                        <a href="#" class="text-xs uppercase tracking-widest text-dark font-medium hover:text-gold transition-colors cms-link mt-auto inline-block">Διαβαστε Περισσοτερα</a>
-                    </article>
-
+                <!-- Dynamic Contentful Grid -->
+                <div id="dynamic-articles-grid" class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                    <p class="col-span-full text-center text-dark/60 font-light italic py-10">Φόρτωση άρθρων...</p>
                 </div>
+
             </div>
         </div>
     </section>
+
+    <!-- Lightbox -->
+    <div id="lightbox" class="fixed inset-0 z-[100] bg-base/95 flex items-center justify-center cursor-zoom-out" onclick="closeLightbox()">
+        <button class="absolute top-8 right-8 text-dark hover:text-gold transition-colors">
+            <i data-lucide="x" class="w-10 h-10"></i>
+        </button>
+        <img id="lightbox-img" src="" alt="Enlarged View" class="max-w-[95vw] max-h-[95vh] object-contain shadow-2xl cursor-default" onclick="event.stopPropagation()">
+    </div>
 
     <!-- Contact & Footer -->
     <footer id="contact" class="bg-base pt-32 pb-12 px-6 relative">
@@ -481,6 +508,7 @@
         btn.addEventListener('click', toggleMenu);
         links.forEach(link => link.addEventListener('click', toggleMenu));
 
+        // Intersection Observer for scroll animations
         const observer = new IntersectionObserver((entries, observer) => {
             entries.forEach(entry => {
                 if (entry.isIntersecting) {
@@ -501,6 +529,81 @@
                 navbar.classList.add('py-6');
                 navbar.classList.remove('py-4', 'bg-base/90', 'backdrop-blur-md', 'shadow-sm');
             }
+        });
+
+        // Contentful Integration Logic
+        const client = contentful.createClient({
+            space: 'tovjl7zlci7q', 
+            accessToken: '2zRMzD79QA1j6CCeTgehLTnYnT2z8e65kAF-h6xOhvc',
+            environment: 'master'
+        });
+
+        function formatDate(dateString) {
+            const options = { year: 'numeric', month: 'long', day: 'numeric' };
+            return new Date(dateString).toLocaleDateString('el-GR', options);
+        }
+
+        function renderBody(field) {
+            if (!field) return ''; 
+            if (field.nodeType === 'document') { 
+                return field.content.map(node => {
+                    if (node.nodeType === 'paragraph') {
+                        const text = node.content.map(c => c.value).join('');
+                        return `<p class="mb-3">${text}</p>`;
+                    }
+                    return ''; 
+                }).join('');
+            }
+            return `<p>${field}</p>`;
+        }
+
+        document.addEventListener("DOMContentLoaded", () => {
+            client.getEntries({ order: '-sys.createdAt' })
+                .then((response) => {
+                    const container = document.getElementById('dynamic-articles-grid');
+                    
+                    if (response.items.length === 0) {
+                        container.innerHTML = "<p class='col-span-full text-center text-dark/60 font-light italic py-10'>Δεν βρέθηκαν επιπλέον άρθρα προς το παρόν.</p>";
+                        return;
+                    }
+
+                    container.innerHTML = ""; 
+
+                    response.items.forEach((entry, index) => {
+                        const title = entry.fields.title || "Χωρίς Τίτλο";
+                        const body = renderBody(entry.fields.body); 
+                        const date = formatDate(entry.sys.createdAt);
+                        
+                        // Adding staggering delay for animation
+                        const delayClass = index % 3 === 0 ? '' : (index % 3 === 1 ? 'delay-100' : 'delay-200');
+
+                        const articleHTML = `
+                            <article class="cms-item reveal ${delayClass} bg-white p-8 border border-dark/5 hover:shadow-xl transition-all duration-500 flex flex-col h-full group">
+                                <span class="text-xs uppercase tracking-widest text-cypress mb-4 block font-bold">${date}</span>
+                                <h4 class="text-2xl font-serif text-dark mb-4 leading-tight group-hover:text-gold transition-colors">${title}</h4>
+                                <div class="text-dark/60 text-[15px] font-light mb-8 line-clamp-4 flex-grow">
+                                    ${body}
+                                </div>
+                                <div class="text-xs uppercase tracking-widest text-dark font-medium border-b border-dark pb-1 inline-table group-hover:text-gold group-hover:border-gold transition-colors mt-auto w-max cursor-pointer">
+                                    Διαβαστε Περισσοτερα
+                                </div>
+                            </article>
+                        `;
+                        
+                        container.insertAdjacentHTML('beforeend', articleHTML);
+                    });
+
+                    // Observe dynamically added articles for the reveal animation
+                    const dynamicReveals = container.querySelectorAll('.reveal');
+                    dynamicReveals.forEach(el => observer.observe(el));
+                })
+                .catch((error) => {
+                    console.error("Contentful Error:", error);
+                    document.getElementById('dynamic-articles-grid').innerHTML = `
+                        <p class="col-span-full text-center text-red-500/80 font-light py-10">
+                            Σφάλμα κατά τη φόρτωση των άρθρων. Παρακαλώ δοκιμάστε ξανά αργότερα.
+                        </p>`;
+                });
         });
     </script>
 </body>
