@@ -73,7 +73,6 @@
         .reveal.active { opacity: 1; transform: translateY(0); }
         .delay-100 { transition-delay: 100ms; }
         .delay-200 { transition-delay: 200ms; }
-        .delay-300 { transition-delay: 300ms; }
 
         /* Editorial Inputs */
         .input-editorial {
@@ -93,22 +92,17 @@
             box-shadow: none;
         }
 
-        /* Lightbox for single images */
-        #lightbox {
-            opacity: 0; pointer-events: none; transition: opacity 0.5s ease;
-            backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px);
-        }
-        #lightbox.active { opacity: 1; pointer-events: auto; }
-        
         /* Subtle pattern */
         .cypress-pattern {
             background-color: #2F5D50;
             background-image: url("data:image/svg+xml,%3Csvg width='6' height='6' viewBox='0 0 6 6' xmlns='http://www.w3.org/2000/svg'%3%3Cg fill='%23C2A46D' fill-opacity='0.1' fill-rule='evenodd'%3%3Cpath d='M5 0h1L0 6V5zM6 5v1H5z'/%3%3C/g%3%3C/svg%3%3C/");
         }
 
-        /* Custom rich-text styling inside modals */
+        /* Custom rich-text styling inside article modal */
         #modal-body strong { color: #1C1C1C; font-weight: 700; }
         #modal-body em { font-style: italic; color: #2F5D50; }
+        #modal-body ul li { margin-bottom: 0.5rem; }
+        #modal-body ol li { margin-bottom: 0.5rem; }
     </style>
 </head>
 <body class="font-sans antialiased overflow-x-hidden relative selection:bg-gold selection:text-white">
@@ -247,7 +241,6 @@
                     <h2 class="text-3xl md:text-4xl font-serif text-dark mb-2">Χριστίνα Κουνατιάδου</h2>
                     <p class="text-gold uppercase tracking-widest text-xs mb-10 font-bold">Ιατρός - Ειδικευόμενη Ψυχιατρικής</p>
                     
-                    <!-- Το κείμενο έγινε απόλυτα μαύρο (text-black) και μεσαίου πάχους (font-medium) για μέγιστη αναγνωσιμότητα σε desktop -->
                     <div class="space-y-6 text-black font-medium text-[16px] md:text-[17px] leading-relaxed text-justify">
                         <p>Η Χριστίνα Κουνάτιαδου είναι ιατρός και ειδικεύεται στην Ψυχιατρική. Οι μεταπτυχιακές της σπουδές επικεντρώνονται στην «Επιστήμη του Στρες και Προαγωγή της Υγείας» στην Ιατρική Σχολή του ΕΚΠΑ, με υποτροφία αριστείας και ερευνητικό έργο πάνω στη συσχέτιση στρες, αυτοάνοσων παθήσεων και διαταραχών πρόσληψης τροφής.</p>
                         
@@ -303,7 +296,7 @@
                             <i data-lucide="check" class="w-4 h-4 text-cypress shrink-0 mt-1"></i> συναισθηματική ρύθμιση
                         </li>
                         <li class="flex items-start gap-3">
-                            <i data-lucide="check" class="w-4 h-4 text-cypress shrink-0 mt-1"></i> ανάπτυξη δεξιοτήτων ζωής
+                            <i data-lucide="check" class="w-4 h-4 text-cypress shrink-0 mt-1"></i> ανάπτυ δεξιοτήτων ζωής
                         </li>
                         <li class="flex items-start gap-3">
                             <i data-lucide="check" class="w-4 h-4 text-cypress shrink-0 mt-1"></i> δυσκολίες προσαρμογής και μεταβάσεις ζωής
@@ -431,7 +424,6 @@
                     <div class="order-1">
                         <a href="https://www.youtube.com/watch?v=A0SnqUAz-Gg&authuser=0" target="_blank" rel="noopener" class="block overflow-hidden relative group shadow-lg aspect-[4/3] bg-base">
                             <img src="https://raw.githubusercontent.com/agelmet/KOUNATIADOU/refs/heads/main/dsdss.jpg" class="w-full h-full object-cover transform transition-transform duration-700 group-hover:scale-105" alt="Συνέντευξη Action 24">
-                            <!-- Play icon overlay -->
                             <div class="absolute inset-0 bg-dark/20 group-hover:bg-transparent transition-colors flex items-center justify-center z-10">
                                 <div class="w-16 h-16 bg-white/95 rounded-full flex items-center justify-center shadow-lg group-hover:scale-110 transition-transform">
                                     <i data-lucide="play" class="w-6 h-6 text-dark ml-1"></i>
@@ -444,7 +436,7 @@
                 <!-- Dynamic Contentful Grid -->
                 <div class="pt-16 border-t border-dark/10">
                     <h3 class="text-3xl font-serif text-dark mb-12 text-center">Όλα τα Άρθρα</h3>
-                    <!-- Εδώ θα φορτωθούν τα άρθρα δυναμικά -->
+                    <!-- Εδώ φορτώνονται τα άρθρα -->
                     <div id="dynamic-articles-grid" class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
                         <p class="col-span-full text-center text-dark/60 font-light italic py-10">Φόρτωση άρθρων από το CMS...</p>
                     </div>
@@ -454,20 +446,20 @@
         </div>
     </section>
 
-    <!-- FULL ARTICLE MODAL (POPUP) FOR CONTENTFUL ARTICLES -->
-    <div id="article-modal" class="fixed inset-0 z-[200] bg-base/95 flex items-center justify-center opacity-0 pointer-events-none transition-opacity duration-300 overflow-y-auto">
+    <!-- FULL ARTICLE MODAL (POPUP) -->
+    <div id="article-modal" class="fixed inset-0 z-[200] bg-base/95 backdrop-blur-sm flex items-center justify-center opacity-0 pointer-events-none transition-all duration-300 overflow-y-auto">
         <div class="flex min-h-screen items-center justify-center py-12 px-4 md:px-6 w-full">
-            <div class="bg-white max-w-4xl w-full p-8 md:p-14 shadow-2xl relative border border-dark/10 rounded-xl my-auto">
+            <div id="article-modal-content" class="bg-white max-w-4xl w-full p-8 md:p-14 shadow-2xl relative border border-dark/10 rounded-xl my-auto transform scale-95 transition-transform duration-300">
                 <!-- Close Button -->
-                <button onclick="closeArticleModal()" class="absolute top-4 right-4 md:top-6 md:right-6 text-dark/50 hover:text-gold transition-colors focus:outline-none bg-base rounded-full p-2 z-10">
+                <button onclick="closeArticleModal()" class="absolute top-4 right-4 md:top-6 md:right-6 text-dark hover:text-gold transition-colors focus:outline-none bg-base rounded-full p-2 z-10">
                     <i data-lucide="x" class="w-6 h-6"></i>
                 </button>
                 
-                <span id="modal-date" class="text-xs uppercase tracking-widest text-cypress mb-6 block font-bold"></span>
+                <span id="modal-date" class="text-xs uppercase tracking-widest text-cypress mb-6 block font-bold mt-4 md:mt-0"></span>
                 <h3 id="modal-title" class="text-3xl md:text-5xl font-serif text-dark mb-10 leading-tight"></h3>
                 
-                <!-- Rich Text content from Contentful (Text, Images, Bold, Links) -->
-                <div id="modal-body" class="space-y-6 text-dark font-normal text-[16px] md:text-lg leading-relaxed text-justify pb-6">
+                <!-- Dynamic Content -->
+                <div id="modal-body" class="space-y-6 text-dark font-normal text-[16px] md:text-[17px] leading-relaxed text-justify pb-6">
                 </div>
             </div>
         </div>
@@ -535,7 +527,7 @@
     <script>
         lucide.createIcons();
 
-        // 1. Mobile Menu
+        // Mobile Menu
         const btn = document.getElementById('mobile-menu-btn');
         const menu = document.getElementById('mobile-menu');
         const links = document.querySelectorAll('.mobile-link');
@@ -557,7 +549,7 @@
         btn.addEventListener('click', toggleMenu);
         links.forEach(link => link.addEventListener('click', toggleMenu));
 
-        // 2. Intersection Observer (Scroll Animations)
+        // Intersection Observer (Scroll Animations)
         const observer = new IntersectionObserver((entries, observer) => {
             entries.forEach(entry => {
                 if (entry.isIntersecting) {
@@ -569,7 +561,7 @@
 
         document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
 
-        // 3. Navbar Scroll Behavior
+        // Navbar Scroll Behavior
         const navbar = document.getElementById('navbar');
         window.addEventListener('scroll', () => {
             if (window.scrollY > 50) {
@@ -581,34 +573,32 @@
             }
         });
 
-        // 4. Contentful Integration & Dynamic Modals
+        // CONTENTFUL INTEGRATION & MODAL LOGIC
         const client = contentful.createClient({
             space: 'tovjl7zlci7q', 
             accessToken: '2zRMzD79QA1j6CCeTgehLTnYnT2z8e65kAF-h6xOhvc',
             environment: 'master'
         });
 
-        let articlesData = []; // Store fetched articles globally for the modal
+        let allArticles = []; // Global array to store fetched articles
 
         function formatDate(dateString) {
             const options = { year: 'numeric', month: 'long', day: 'numeric' };
             return new Date(dateString).toLocaleDateString('el-GR', options);
         }
 
-        // Βοηθητική συνάρτηση για τα URLs των εικόνων του Contentful
         function getImageUrl(url) {
             if (!url) return '';
             return url.startsWith('//') ? 'https:' + url : url;
         }
 
-        // Αναβαθμισμένος μεταφραστής Rich Text (Bold, Italic, Υπογραμμίσεις, Links & Εικόνες)
-        function renderNode(node) {
+        // Ο Έξυπνος Μεταφραστής Rich Text
+        function renderNode(node, assets = []) {
             if (!node) return '';
 
-            // Αν είναι κείμενο, ψάχνουμε για format (bold, italic, underline)
             if (node.nodeType === 'text') {
                 let html = node.value;
-                html = html.replace(/\n/g, '<br/>'); // Αλλαγές γραμμής
+                html = html.replace(/\n/g, '<br/>'); 
                 if (node.marks) {
                     node.marks.forEach(mark => {
                         if (mark.type === 'bold') html = `<strong>${html}</strong>`;
@@ -619,24 +609,29 @@
                 return html;
             }
 
-            const contentHtml = node.content ? node.content.map(renderNode).join('') : '';
+            const contentHtml = node.content ? node.content.map(c => renderNode(c, assets)).join('') : '';
 
-            // Διαχείριση των διαφόρων Blocks
             switch (node.nodeType) {
-                case 'paragraph': return `<p class="mb-5 leading-relaxed">${contentHtml}</p>`;
+                case 'paragraph': return contentHtml.trim() ? `<p class="mb-5 leading-relaxed">${contentHtml}</p>` : '';
                 case 'heading-1': return `<h1 class="text-3xl md:text-4xl font-serif text-dark mt-10 mb-6">${contentHtml}</h1>`;
                 case 'heading-2': return `<h2 class="text-2xl md:text-3xl font-serif text-dark mt-8 mb-5">${contentHtml}</h2>`;
                 case 'heading-3': return `<h3 class="text-xl md:text-2xl font-serif text-dark mt-6 mb-4">${contentHtml}</h3>`;
                 case 'hyperlink': return `<a href="${node.data.uri}" target="_blank" class="text-gold hover:underline font-bold">${contentHtml}</a>`;
                 
-                // Εικόνες που έχουν τοποθετηθεί μέσα στο κείμενο!
+                case 'unordered-list': return `<ul class="list-disc pl-5 space-y-2 mb-6 marker:text-cypress">${contentHtml}</ul>`;
+                case 'ordered-list': return `<ol class="list-decimal pl-5 space-y-2 mb-6 marker:text-cypress">${contentHtml}</ol>`;
+                case 'list-item': return `<li>${contentHtml}</li>`;
+
                 case 'embedded-asset-block':
-                    const target = node.data.target;
-                    if (target && target.fields && target.fields.file) {
-                        const url = target.fields.file.url;
-                        const title = target.fields.title || 'Εικόνα';
-                        const finalUrl = getImageUrl(url);
-                        return `<img src="${finalUrl}" alt="${title}" class="w-full h-auto rounded-xl my-10 block shadow-lg border border-dark/5">`;
+                    if (node.data && node.data.target && node.data.target.sys) {
+                        const assetId = node.data.target.sys.id;
+                        const asset = assets.find(a => a.sys.id === assetId);
+                        
+                        if (asset && asset.fields && asset.fields.file) {
+                            const url = getImageUrl(asset.fields.file.url);
+                            const title = asset.fields.title || 'Εικόνα';
+                            return `<img src="${url}" alt="${title}" class="w-full h-auto rounded-xl my-10 shadow-sm border border-dark/5 object-cover max-h-[500px]">`;
+                        }
                     }
                     return '';
                 
@@ -645,53 +640,13 @@
             }
         }
 
-        // Συναρτήσεις του Modal για τα άρθρα
-        const articleModal = document.getElementById('article-modal');
-        const modalTitle = document.getElementById('modal-title');
-        const modalDate = document.getElementById('modal-date');
-        const modalBody = document.getElementById('modal-body');
-
-        window.openArticleModal = function(index) {
-            const article = articlesData[index];
-            modalTitle.innerText = article.title;
-            modalDate.innerText = article.date;
-            
-            // Τοποθέτηση Cover Image + Κειμένου (εάν υπάρχει cover image)
-            let finalHtml = '';
-            if(article.coverImage) {
-                finalHtml += `<img src="${article.coverImage}" alt="Εξώφυλλο" class="w-full max-h-[450px] object-cover rounded-xl mb-10 shadow-md">`;
-            }
-            finalHtml += article.body;
-            modalBody.innerHTML = finalHtml;
-            
-            articleModal.classList.add('opacity-100', 'pointer-events-auto');
-            articleModal.classList.remove('opacity-0', 'pointer-events-none');
-            document.body.style.overflow = 'hidden';
-        }
-
-        window.closeArticleModal = function() {
-            articleModal.classList.remove('opacity-100', 'pointer-events-auto');
-            articleModal.classList.add('opacity-0', 'pointer-events-none');
-            setTimeout(() => {
-                modalTitle.innerText = '';
-                modalDate.innerText = '';
-                modalBody.innerHTML = '';
-                document.body.style.overflow = '';
-            }, 300);
-        }
-
-        // Close Modal on Escape
-        document.addEventListener('keydown', (e) => {
-            if (e.key === 'Escape' && articleModal.classList.contains('opacity-100')) {
-                closeArticleModal();
-            }
-        });
-
-        // 5. Φόρτωση Άρθρων (Initialization)
+        // Φόρτωση Άρθρων
         document.addEventListener("DOMContentLoaded", () => {
-            client.getEntries({ order: '-sys.createdAt' })
+            // include: 2 είναι σημαντικό για να παίρνει και τα assets/images που είναι μέσα στο κείμενο!
+            client.getEntries({ order: '-sys.createdAt', include: 2 })
                 .then((response) => {
                     const container = document.getElementById('dynamic-articles-grid');
+                    const assets = response.includes && response.includes.Asset ? response.includes.Asset : [];
                     
                     if (response.items.length === 0) {
                         container.innerHTML = "<p class='col-span-full text-center text-dark/60 font-light italic py-10'>Δεν βρέθηκαν άρθρα προς το παρόν.</p>";
@@ -702,30 +657,36 @@
 
                     response.items.forEach((entry, index) => {
                         const title = entry.fields.title || "Χωρίς Τίτλο";
-                        
-                        // Μετατροπή του Rich Text σε HTML
-                        const body = renderNode(entry.fields.body); 
                         const date = formatDate(entry.sys.createdAt);
+                        const bodyHtml = renderNode(entry.fields.body, assets); 
                         
-                        // Έλεγχος για Κεντρική Εικόνα (Cover Image)
                         let coverImageUrl = '';
                         if (entry.fields.image && entry.fields.image.fields && entry.fields.image.fields.file) {
                             coverImageUrl = getImageUrl(entry.fields.image.fields.file.url);
+                        } else if (entry.fields.image && entry.fields.image.sys) {
+                            // Fallback if image wasn't fully resolved but is in includes
+                            const assetId = entry.fields.image.sys.id;
+                            const asset = assets.find(a => a.sys.id === assetId);
+                            if(asset && asset.fields && asset.fields.file) {
+                                coverImageUrl = getImageUrl(asset.fields.file.url);
+                            }
                         }
                         
-                        // Αποθήκευση στον global πίνακα για να το διαβάσει το Modal αργότερα
-                        articlesData.push({ title, body, date, coverImage: coverImageUrl });
+                        // Αποθηκεύουμε τα δεδομένα στον πίνακα
+                        allArticles.push({ title, bodyHtml, date, coverImage: coverImageUrl });
 
                         const delayClass = index % 3 === 0 ? '' : (index % 3 === 1 ? 'delay-100' : 'delay-200');
 
-                        // HTML Κάρτας
+                        // Δημιουργία κάρτας (απογυμνώνουμε το HTML για το summary preview)
+                        const summaryText = bodyHtml.replace(/<[^>]*>?/gm, ' ').substring(0, 140) + '...';
+
                         const articleHTML = `
-                            <article class="cms-item reveal ${delayClass} bg-white p-6 md:p-8 border border-dark/5 hover:shadow-xl transition-all duration-500 flex flex-col h-full group rounded-md cursor-pointer" onclick="openArticleModal(${index})">
+                            <article class="cms-item reveal ${delayClass} bg-white p-6 md:p-8 border border-dark/5 hover:shadow-xl transition-all duration-500 flex flex-col h-full group rounded-md cursor-pointer border-l-4 hover:border-l-gold" onclick="openArticleModal(${index})">
                                 ${coverImageUrl ? `<div class="aspect-video w-full overflow-hidden mb-6 rounded-md bg-base"><img src="${coverImageUrl}" alt="${title}" class="w-full h-full object-cover transform transition-transform duration-700 group-hover:scale-105"></div>` : ''}
                                 <span class="text-xs uppercase tracking-widest text-cypress mb-3 block font-bold">${date}</span>
                                 <h4 class="text-xl md:text-2xl font-serif text-dark mb-4 leading-tight group-hover:text-gold transition-colors">${title}</h4>
                                 <div class="text-dark/60 text-sm md:text-base font-light mb-6 line-clamp-3 flex-grow">
-                                    Κάντε κλικ για να διαβάσετε ολόκληρο το άρθρο...
+                                    ${summaryText}
                                 </div>
                                 <span class="text-xs uppercase tracking-widest text-dark font-bold border-b border-dark pb-1 inline-table group-hover:text-gold group-hover:border-gold transition-colors mt-auto w-max">
                                     Διαβαστε Περισσοτερα
@@ -736,7 +697,7 @@
                         container.insertAdjacentHTML('beforeend', articleHTML);
                     });
 
-                    // Ενεργοποίηση των scroll animations για τα νέα άρθρα
+                    // Ενεργοποίηση animations για τις κάρτες
                     const dynamicReveals = container.querySelectorAll('.reveal');
                     dynamicReveals.forEach(el => observer.observe(el));
                 })
@@ -747,6 +708,53 @@
                             Σφάλμα κατά τη φόρτωση των άρθρων. Παρακαλώ δοκιμάστε ξανά αργότερα.
                         </p>`;
                 });
+        });
+
+        // Λειτουργίες Popup (Modal) Άρθρου
+        const articleModal = document.getElementById('article-modal');
+        const modalContent = document.getElementById('article-modal-content');
+        const modalTitle = document.getElementById('modal-title');
+        const modalDate = document.getElementById('modal-date');
+        const modalBody = document.getElementById('modal-body');
+
+        window.openArticleModal = function(index) {
+            const article = allArticles[index];
+            if(!article) return;
+
+            modalTitle.innerText = article.title;
+            modalDate.innerText = article.date;
+            
+            let finalHtml = '';
+            if(article.coverImage) {
+                finalHtml += `<img src="${article.coverImage}" alt="Cover Image" class="w-full max-h-[450px] object-cover rounded-xl mb-10 shadow-md">`;
+            }
+            finalHtml += article.bodyHtml;
+            modalBody.innerHTML = finalHtml;
+            
+            articleModal.classList.add('opacity-100', 'pointer-events-auto');
+            articleModal.classList.remove('opacity-0', 'pointer-events-none');
+            setTimeout(() => modalContent.classList.remove('scale-95'), 50);
+            
+            document.body.style.overflow = 'hidden';
+        }
+
+        window.closeArticleModal = function() {
+            modalContent.classList.add('scale-95');
+            articleModal.classList.remove('opacity-100', 'pointer-events-auto');
+            articleModal.classList.add('opacity-0', 'pointer-events-none');
+            
+            setTimeout(() => {
+                modalTitle.innerText = '';
+                modalDate.innerText = '';
+                modalBody.innerHTML = '';
+                document.body.style.overflow = '';
+            }, 300);
+        }
+
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape' && articleModal.classList.contains('opacity-100')) {
+                closeArticleModal();
+            }
         });
     </script>
 </body>
