@@ -90,13 +90,6 @@
             box-shadow: none;
         }
 
-        /* Lightbox */
-        #lightbox {
-            opacity: 0; pointer-events: none; transition: opacity 0.5s ease;
-            backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px);
-        }
-        #lightbox.active { opacity: 1; pointer-events: auto; }
-        
         /* Subtle pattern */
         .cypress-pattern {
             background-color: #2F5D50;
@@ -118,7 +111,7 @@
                 <a href="#hero" class="text-sm tracking-wide text-dark hover:text-gold transition-colors">Αρχική</a>
                 <a href="#about" class="text-sm tracking-wide text-dark hover:text-gold transition-colors">Η Ατέλεια</a>
                 <a href="#services" class="text-sm tracking-wide text-dark hover:text-gold transition-colors">Υπηρεσίες</a>
-                <a href="#media" class="text-sm tracking-wide text-dark hover:text-gold transition-colors">Άρθρα & Συνεντεύξεις</a>
+                <a href="#media" class="text-sm tracking-wide text-dark hover:text-gold transition-colors">Άρθρα</a>
                 <a href="#contact" class="text-sm tracking-wide text-dark hover:text-gold transition-colors">Επικοινωνία</a>
             </div>
 
@@ -133,7 +126,7 @@
             <a href="#hero" class="text-2xl font-serif text-dark mobile-link">Αρχική</a>
             <a href="#about" class="text-2xl font-serif text-dark mobile-link">Η Ατέλεια</a>
             <a href="#services" class="text-2xl font-serif text-dark mobile-link">Υπηρεσίες</a>
-            <a href="#media" class="text-2xl font-serif text-dark mobile-link">Άρθρα & Συνεντεύξεις</a>
+            <a href="#media" class="text-2xl font-serif text-dark mobile-link">Άρθρα</a>
             <a href="#contact" class="text-2xl font-serif text-dark mobile-link">Επικοινωνία</a>
         </div>
     </nav>
@@ -145,94 +138,45 @@
 
         <div class="max-w-4xl mx-auto text-center relative z-10 flex flex-col items-center opacity-0 animate-scale-in-up mt-16">
             <span class="text-xs uppercase tracking-[0.2em] text-gold mb-6 font-medium">Ατέλεια</span>
-            <h1 class="text-5xl md:text-7xl lg:text-8xl font-serif text-dark leading-tight mb-8">
+            <h1 class="text-5xl md:text-7xl lg:text-8xl font-serif text-dark leading-tight mb-6">
                 Η τέχνη του να είσαι<br>
                 <span class="italic font-light">Άνθρωπος.</span>
             </h1>
-            <p class="text-lg md:text-xl text-dark/70 font-light max-w-2xl mx-auto mb-12 leading-relaxed">
-                Ένας χώρος ψυχοεκπαίδευσης, συνάντησης κι εξερεύνησης.
+            
+            <!-- Updated Quotes / Subtitle -->
+            <p class="text-dark/80 font-serif italic text-2xl mb-6">
+                «Από την επιβίωση, στην επιλογή.»
             </p>
+            <p class="text-lg md:text-xl text-dark/70 font-light max-w-2xl mx-auto mb-12 leading-relaxed">
+                Ένας χώρος συνάντησης, ψυχοεκπαίδευσης και προαγωγής της υγείας.
+            </p>
+            
             <a href="#contact" class="group relative inline-flex items-center justify-center px-10 py-5 overflow-hidden border border-dark text-dark transition-all duration-500 hover:bg-dark hover:text-base">
                 <span class="text-sm uppercase tracking-widest font-medium z-10">Κλείσε μια συνάντηση</span>
             </a>
         </div>
     </section>
 
-    <!-- Intro Section -->
-    <section id="intro" class="py-32 px-6">
-        <div class="max-w-4xl mx-auto text-center reveal">
-            <p class="text-2xl md:text-4xl font-serif text-dark leading-relaxed">
-                Η Ατέλεια είναι ένας χώρος κατανόησης κι εξερεύνησης του τι σημαίνει να είσαι άνθρωπος. Είναι ένας χώρος που εστιάζει στην αρχιτεκτονική της υγείας, <span class="text-gold italic">όχι στην ασθένεια.</span>
-            </p>
-            <p class="mt-10 text-lg text-dark/70 font-light max-w-2xl mx-auto leading-loose">
-                Στην δυνατότητα, την ευκαιρία, την γνώση, την επιλογή. Είναι μια πρόσκληση να έρθουμε σε επαφή με αυτό που είμαστε — μέσα από τη σχέση μας με την ατέλεια.
-            </p>
-        </div>
-    </section>
-
-    <!-- Services Preview -->
-    <section class="py-32 px-6 bg-white">
-        <div class="max-w-7xl mx-auto">
-            <div class="grid md:grid-cols-3 gap-12 border-t border-dark/10 pt-20">
-                <div class="reveal p-8 border border-dark/5 hover:border-gold/30 transition-all duration-500 hover:shadow-lg">
-                    <span class="text-gold text-sm font-medium mb-4 block">01</span>
-                    <h3 class="text-2xl font-serif text-dark mb-4">Ατομικές Συναντήσεις</h3>
-                    <p class="text-dark/60 font-light text-sm leading-relaxed mb-8">
-                        Ένας ασφαλής, σταθερός χώρος για την κατανόηση του εαυτού και την υποστήριξη σε περιόδους μετάβασης ή δυσκολίας.
-                    </p>
-                </div>
-                <div class="reveal delay-100 p-8 border border-dark/5 hover:border-gold/30 transition-all duration-500 hover:shadow-lg">
-                    <span class="text-gold text-sm font-medium mb-4 block">02</span>
-                    <h3 class="text-2xl font-serif text-dark mb-4">Συμβουλευτική</h3>
-                    <p class="text-dark/60 font-light text-sm leading-relaxed mb-8">
-                        Εστιασμένη καθοδήγηση για συγκεκριμένους προβληματισμούς, ενισχύοντας την ικανότητα λήψης αποφάσεων και την αυτονομία.
-                    </p>
-                </div>
-                <div class="reveal delay-200 p-8 border border-dark/5 hover:border-gold/30 transition-all duration-500 hover:shadow-lg">
-                    <span class="text-gold text-sm font-medium mb-4 block">03</span>
-                    <h3 class="text-2xl font-serif text-dark mb-4">Σεμινάρια Ζωής</h3>
-                    <p class="text-dark/60 font-light text-sm leading-relaxed mb-8">
-                        Ομαδικές δράσεις εκπαίδευσης γύρω από τις δεξιότητες που απαιτεί η σύγχρονη πραγματικότητα και η συναισθηματική ανάπτυξη.
-                    </p>
-                </div>
-            </div>
-            
-            <div class="text-center mt-16 reveal">
-                <a href="#services" class="inline-flex items-center text-sm uppercase tracking-widest text-dark border-b border-dark pb-1 hover:text-gold hover:border-gold transition-colors">
-                    Δες Περισσότερα
-                </a>
-            </div>
-        </div>
-    </section>
-
-    <!-- Quote Section -->
-    <section class="py-40 px-6 cypress-pattern text-base text-center relative overflow-hidden visibility-fix">
-        <div class="max-w-4xl mx-auto reveal">
-            <svg class="w-10 h-10 mx-auto text-gold/50 mb-10" fill="currentColor" viewBox="0 0 24 24">
-                <path d="M14.017 21v-7.391c0-5.704 3.731-9.57 8.983-10.609l.995 2.151c-2.432.917-3.995 3.638-3.995 5.849h4v10h-9.983zm-14.017 0v-7.391c0-5.704 3.748-9.57 9-10.609l.996 2.151c-2.433.917-3.996 3.638-3.996 5.849h3.983v10h-9.983z" />
-            </svg>
-            <h2 class="text-3xl md:text-5xl font-serif font-light leading-snug mb-16 text-base">
-                "Το σημείο που ο κύκλος δεν κλείνει είναι το σημείο που <span class="italic text-gold">ξεκινάει η ζωή</span>."
-            </h2>
-            <a href="#contact" class="inline-flex items-center justify-center px-10 py-5 border border-gold/30 text-gold hover:bg-gold hover:text-cypress transition-all duration-500 uppercase tracking-widest text-sm">
-                Κλείσε μια πρώτη συνάντηση
-            </a>
-        </div>
-    </section>
-
-    <!-- Philosophy & Bio Section -->
+    <!-- Philosophy (Manifesto) Section -->
     <section id="about" class="py-32 px-6">
         <div class="max-w-7xl mx-auto">
             
-            <!-- Philosophy Content (Centered) -->
+            <!-- Manifesto Content (Centered) -->
             <div class="max-w-4xl mx-auto text-center mb-32 reveal">
                 <h2 class="text-sm uppercase tracking-[0.2em] text-gold mb-6">Η ΦΙΛΟΣΟΦΙΑ</h2>
-                <h3 class="text-4xl md:text-5xl font-serif text-dark mb-10 leading-tight mx-auto max-w-3xl">
-                    Στόχος δεν είναι να διορθώσουμε τον άνθρωπο, αλλά να <span class="italic">ακούσουμε την ιστορία</span> που έχει ο καθένας να πει.
-                </h3>
-                <div class="space-y-6 text-dark font-normal text-lg leading-relaxed mx-auto max-w-2xl">
-                    <p>Η Ατέλεια δημιουργήθηκε ως ένας χώρος που συνδυάζει επιστημονική γνώση και ανθρώπινη εμπειρία.</p>
-                    <p>Η προσέγγιση βασίζεται στην ιατρική, την ψυχιατρική, στη ανάλυση της ανθρώπινης συμπεριφοράς, στη συστημική σκέψη, την αφηγηματική και στη σύνδεση με την τέχνη και τη δημιουργικότητα.</p>
+                
+                <div class="space-y-6 text-dark font-normal text-lg leading-relaxed mx-auto max-w-3xl text-justify">
+                    <p>Η «Ατέλεια» γεννήθηκε ως ένας χώρος παρατήρησης, συνάντησης, εξερεύνησης και επεξεργασίας της ανθρώπινης εμπειρίας — ενός τρόπου να γνωρίσουμε την υγεία όχι μόνο ως απουσία ασθένειας, αλλά ως μια ζωντανή διαδικασία προσαρμογής, σύνδεσης και νοήματος. Μέσα από την επιστημονική γνώση, την ιατρική, την τέχνη, την κοινότητα, τη συστημική σκέψη, επιχειρεί να συνδέσει τους διαφορετικούς τρόπους με τους οποίους οι άνθρωποι κατοικούν τον εαυτό και τη ζωή τους.</p>
+                    
+                    <p>Στην "Ατέλεια", ο,τι μοιάζει με "σύμπτωμα" αξιοποιείται για να συστήσει τον μοναδικό τρόπο με τον οποίο κάθε άνθρωπος προσπαθεί να επιβιώσει, να προστατευτεί, να ανακουφιστεί, να υπάρξει. Στην «Ατέλεια», η υγεία προσεγγίζεται ως αρχιτεκτονική ζωής και ανάπτυξη δεξιοτήτων υγείας — μιας βαθύτερης ικανότητας να σχετιζόμαστε με το σώμα, τα συναισθήματα και τους μηχανισμούς ρύθμισής τους, το στρες, τις σχέσεις, τις δυσκολίες, τις προκλήσεις και τις μεταβολές της ζωής.</p>
+                    
+                    <p>Η «Ατέλεια» ενδιαφέρεται για όσα μάθαμε, όσα ίσως χρειάζεται να ξεμάθουμε και όσα μπορούμε και τολμούμε να μάθουμε ξανά από την αρχή, με σκοπό να ζήσουμε τη ζωή με περισσότερη ελευθερία, συνείδηση κι αλήθεια. Για τον τρόπο με τον οποίο γράφουμε, αφηγούμαστε και βιώνουμε την ιστορία του εαυτού και της ζωής μας — αλλά και για τη δυνατότητα να την επανανοηματοδοτήσουμε, να την μοιραστούμε και να βρούμε μια πιο αυθεντική θέση στον κόσμο μέσα και στον κόσμο έξω μας, σύμφωνα με τις αξίες και τα όνειρα μας.</p>
+                    
+                    <p>Στην «Ατέλεια», δεν απορρίπτουμε το ατελές - το τιμάμε, δίνοντας του τη σημασία που του αξίζει - ως αρχή της αυθεντικότητας, της μοναδικότητας, της ανθρώπινης αλήθειας, της ουσιαστικής συνάντησης. Ως ευκαιρία και δυνατότητα - για μια ζωή που έχει το νόημα που της δίνουμε.</p>
+                    
+                    <p class="font-serif italic text-2xl mt-12 text-center text-gold">Ατέλεια σαν Αρχή. Ατέλεια σαν αποδοχή. Ατέλεια σαν αλλαγή. Ατέλεια σαν αυθεντικότητα. Ατέλεια σαν αλήθεια. Ατέλεια σαν Ανθρωπος.</p>
+                    
+                    <p class="text-right text-xs md:text-sm text-dark font-semibold uppercase tracking-widest mt-8">— Χριστινα Κουνατιάδου, ειδ. ψυχίατρος, ιδρύτρια της "Ατέλεια"</p>
                 </div>
             </div>
 
@@ -243,102 +187,98 @@
                     <h2 class="text-3xl md:text-4xl font-serif text-dark mb-2">Χριστίνα Κουνατιάδου</h2>
                     <p class="text-gold uppercase tracking-widest text-xs mb-10 font-semibold">Ιατρός - Ειδικευόμενη Ψυχιατρικής</p>
                     
-                    <div class="space-y-6 text-dark font-normal text-[16px] md:text-lg leading-relaxed text-justify">
-                        <p>Ονομάζομαι Χριστίνα Κουνατιάδου και είμαι Ιατρός, Ειδικευόμενη Ψυχιατρικής. Διαθέτω μεταπτυχιακό τίτλο (MSc) στην Επιστήμη του Στρες και την Προαγωγή της Υγείας, ενώ παράλληλα είμαι πιστοποιημένη επαγγελματίας στην Ανάλυση και Θεραπεία της Συμπεριφοράς.</p>
+                    <div class="space-y-6 text-dark font-normal text-[15px] md:text-base leading-relaxed text-justify">
+                        <p>Η Χριστίνα Κουνάτιαδου είναι ιατρός και ειδικεύεται στην Ψυχιατρική. Οι μεταπτυχιακές της σπουδές επικεντρώνονται στην «Επιστήμη του Στρες και Προαγωγή της Υγείας» στην Ιατρική Σχολή του ΕΚΠΑ, με υποτροφία αριστείας και ερευνητικό έργο πάνω στη συσχέτιση στρες, αυτοάνοσων παθήσεων και διαταραχών πρόσληψης τροφής.</p>
                         
-                        <p>Ως ιατρός, εξειδικεύομαι στη διασταύρωση της επιστήμης του στρες με την ανάλυση της συμπεριφοράς. Με συναρπάζει βαθιά η πολυπλοκότητα της συνειδητότητας, ο τρόπος που λαμβάνουμε αποφάσεις, η αντίληψη και η εμπειρία του Εαυτού.</p>
+                        <p>Η πορεία της περιλαμβάνει εκπαίδευση σε παραπάνω από μια ψυχοθεραπευτικές προσεγγίσεις. Έχει εκπαιδευτεί στην Ανάλυση και Θεραπεία Συμπεριφοράς για αγχώδεις διαταραχές, μετατραυματική διαταραχή του στρες, ιδεοψυχαναγκαστική διαταραχή, τριχοτιλλομανία και διαταραχές πρόσληψης τροφής, ενώ εργάστηκε επί δύο χρόνια στη Μονάδα Θεραπείας Συμπεριφοράς υπό την εποπτεία του Δρ. Γιάννη Κασβίκη. Παράλληλα, ολοκληρώνει την εκπαίδευσή της στη Συστημική/Ομαδική–Οικογενειακή Θεραπεία στη Μονάδα Οικογενειακής Θεραπείας του Ψυχιατρικού Νοσοκομείου Αττικής, ως μία από τους επιλεγμένους εκπαιδευόμενους με υποτροφία φοίτησης.</p>
                         
-                        <p>Έχω ως κινητήρια δύναμη την περιέργεια να κατανοήσω τις αρχές που διέπουν την ομοιοστατική ισορροπία της υγείας. Στόχος μου είναι να προάγω περισσότερη ελευθερία και αφθονία, με γνώμονα το ήθος, στην αναζήτηση της ανθρώπινης ευημερίας.</p>
-                        
-                        <div class="bg-white border-l-4 border-gold p-6 md:p-8 shadow-md my-8">
-                            <h5 class="text-dark font-bold mb-5 text-base md:text-lg tracking-wide">Τα ειδικά κλινικά και ερευνητικά μου ενδιαφέροντα εστιάζουν στις εξής περιοχές:</h5>
-                            <ul class="space-y-4 text-dark font-medium">
-                                <li class="flex items-start gap-3">
-                                    <span class="w-2 h-2 rounded-full bg-gold shrink-0 mt-2"></span>
-                                    <span>Διαταραχές Πρόσληψης Τροφής</span>
-                                </li>
-                                <li class="flex items-start gap-3">
-                                    <span class="w-2 h-2 rounded-full bg-gold shrink-0 mt-2"></span>
-                                    <span>Ιδεοψυχαναγκαστική Διαταραχή (ΙΨΔ / OCD)</span>
-                                </li>
-                                <li class="flex items-start gap-3">
-                                    <span class="w-2 h-2 rounded-full bg-gold shrink-0 mt-2"></span>
-                                    <span>Εξαρτητικές Συμπεριφορές</span>
-                                </li>
-                                <li class="flex items-start gap-3">
-                                    <span class="w-2 h-2 rounded-full bg-gold shrink-0 mt-2"></span>
-                                    <span>Προσαρμογή που σχετίζεται με το Τραύμα</span>
-                                </li>
-                            </ul>
-                        </div>
+                        <p>Έχει συνεργαστεί με εξειδικευμένα κέντρα διαταραχών πρόσληψης τροφής και έχει ολοκληρώσει μονοετή εξειδικευμένη εκπαίδευση στο ψυχικό τραύμα μέσω του Trauma Research Foundation και του έργου του Dr. Bessel van der Kolk. Διατηρεί ενεργό ενδιαφέρον για τη συνεχιζόμενη και πολυδιάστατη εκπαίδευση, συνδέοντας διαφορετικά πεδία γνώσης και έκφρασης με την κλινική της εμπειρία, ενώ έχει συμμετάσχει και παρουσιάσει σε διεθνείς διοργανώσεις, μεταξύ των οποίων και το συνέδριο του World Psychiatric Association.</p>
 
-                        <p>Η πρακτική μου αντλεί ισχυρά θεμέλια από τη Γνωσιακή Συμπεριφορική Θεραπεία (CBT), την Ψυχονευροανοσοενδοκρινολογία (PNIE) και την Κλινική Έρευνα. Σήμερα, εργάζομαι στο Ψυχιατρικό Νοσοκομείο Αττικής και είμαι απόφοιτη του Εθνικού και Καποδιστριακού Πανεπιστημίου Αθηνών.</p>
+                        <p>Είναι μουσικός, ασχολείται με τη ζωγραφική και την εκφραστική γραφή, ενώ εκπαιδεύεται και στη θεραπεία μέσω τέχνης (Art Therapy) στο Metàfora Art Therapy Center στη Βαρκελώνη.</p>
 
-                        <p class="font-semibold text-dark italic pt-4">Θα χαρώ πολύ να συνδεθούμε και να επικοινωνήσουμε!</p>
+                        <p>Για την ίδια, η υγεία δεν αφορά την αναζήτηση μιας ιδανικής ή «τέλειας» εκδοχής του εαυτού, αλλά μια διαρκή, διαλεκτική διαδικασία ομοιόστασης — την καλύτερη συμφωνία που μπορούμε να κάνουμε με τον εαυτό μας με όσα γνωρίζουμε, όσα νιώθουμε, όσα φανταζόμαστε, όσα μπορούμε, όσα αντέχουμε να αλλάξουμε και να δημιουργήσουμε σε κάθε φάση της ζωής.</p>
+
+                        <p>Επηρεασμένη από τη συνθετική και αφηγηματική σκέψη, προσεγγίζει κάθε άνθρωπο ως μια μοναδική ιστορία ζωής, με τη δική της διαδρομή, οργανικότητα, νοήματα, προσαρμογές, ανάγκες και τρόπους ύπαρξης μέσα στον κόσμο. Είναι μέλος της American Psychiatric Association ως International Fellow, της International OCD Foundation, της Academy for Eating Disorders και της Ελληνικής Εταιρείας Ανάλυσης Συμπεριφοράς.</p>
                     </div>
                 </div>
 
-                <!-- Main Bio Image - Architectural layered look -->
+                <!-- Main Bio Image -->
                 <div class="lg:col-span-5 order-1 lg:order-2 relative mt-8 lg:mt-0 reveal delay-100">
-                    <!-- Layer 1: Structural Offset Frame -->
                     <div class="absolute inset-0 translate-x-4 translate-y-4 md:translate-x-8 md:translate-y-8 border border-gold/40"></div>
-                    <!-- Layer 2: Subtle Color Fill -->
                     <div class="absolute inset-0 -translate-x-2 -translate-y-2 bg-cypress/5"></div>
                     
-                    <!-- Main Image Container -->
                     <div class="relative aspect-[3/4] overflow-hidden shadow-2xl group animate-float bg-white">
                         <div class="absolute inset-0 bg-dark/20 group-hover:bg-transparent transition-colors duration-700 z-10 pointer-events-none"></div>
                         <img src="https://raw.githubusercontent.com/agelmet/KOUNATIADOU/refs/heads/main/EE7AD9AC-4FB4-455F-A5C1-31C4FF06062E.jpeg" alt="Χριστίνα Κουνατιάδου" class="w-full h-full object-cover object-center grayscale-[15%] group-hover:grayscale-0 group-hover:scale-105 transition-all duration-1000">
-                    </div>
-
-                    <!-- Floating Badge overlapping the image -->
-                    <div class="absolute -left-4 md:-left-10 bottom-12 bg-white px-6 py-4 shadow-[0_15px_40px_rgba(0,0,0,0.12)] z-20 reveal delay-300 transform transition-transform hover:-translate-y-1">
-                        <span class="text-gold uppercase tracking-[0.2em] text-[10px] block mb-1 font-bold">MSc & CBT</span>
-                        <span class="text-dark font-serif text-lg tracking-wide">Κλινική Έρευνα</span>
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Services Detailed -->
+    <!-- Services Section -->
     <section id="services" class="py-32 px-6 bg-white">
         <div class="max-w-7xl mx-auto">
             <div class="text-center mb-24 reveal">
                 <h2 class="text-sm uppercase tracking-[0.2em] text-gold mb-4">Οι Υπηρεσίες</h2>
                 <h3 class="text-4xl font-serif text-dark">Αρχιτεκτονική της Υγείας</h3>
-                <p class="text-dark/60 font-light mt-6 max-w-2xl mx-auto leading-relaxed">Η προσέγγισή μας είναι συνθετική και εξατομικευμένη. Δεν προσαρμόζουμε τον άνθρωπο στη θεωρία, αλλά αντλούμε εργαλεία για να δημιουργήσουμε ένα πλάνο που ταιριάζει αποκλειστικά στη δική σας ιδιοσυγκρασία.</p>
             </div>
 
             <div class="grid md:grid-cols-2 gap-12">
-                <div class="p-12 border border-dark/5 hover:border-gold/30 transition-all duration-500 bg-base/30 hover:shadow-xl reveal">
+                <!-- Υπηρεσία 1: Ατομικές Συναντήσεις (Ενημερωμένη) -->
+                <div class="p-10 lg:p-12 border border-dark/5 hover:border-gold/30 transition-all duration-500 bg-base/30 hover:shadow-xl reveal">
                     <h4 class="text-2xl font-serif text-dark mb-4 flex items-center gap-4">
                         <span class="w-8 h-[1px] bg-gold block"></span>
-                        Ατομικές Συναντήσεις
+                        Ατομικές συναντήσεις
                     </h4>
                     <p class="text-dark/60 font-light mb-8 leading-relaxed">
-                        Ατομικές συνεδρίες. Το πλαίσιο είναι συμβουλευτικό και προαγωγής υγείας.
+                        Ενδεικτικά πεδία ενδιαφέροντος:
                     </p>
-                    <div class="mt-8">
-                        <h5 class="text-gold uppercase tracking-widest text-xs mb-4">Υποστήριξη σε:</h5>
-                        <ul class="space-y-4">
-                            <li class="flex items-center gap-3 text-sm text-dark/80 font-light">
-                                <i data-lucide="check" class="w-4 h-4 text-cypress shrink-0"></i> άγχος
-                            </li>
-                            <li class="flex items-center gap-3 text-sm text-dark/80 font-light">
-                                <i data-lucide="check" class="w-4 h-4 text-cypress shrink-0"></i> συναισθηματική ρύθμιση
-                            </li>
-                            <li class="flex items-center gap-3 text-sm text-dark/80 font-light">
-                                <i data-lucide="check" class="w-4 h-4 text-cypress shrink-0"></i> σχέσεις
-                            </li>
-                            <li class="flex items-center gap-3 text-sm text-dark/80 font-light">
-                                <i data-lucide="check" class="w-4 h-4 text-cypress shrink-0"></i> κατεύθυνση ζωής
-                            </li>
-                        </ul>
-                    </div>
+                    <ul class="space-y-4 text-dark font-medium text-[15px]">
+                        <li class="flex items-start gap-3">
+                            <i data-lucide="check" class="w-4 h-4 text-cypress shrink-0 mt-1"></i> διαχείριση στρες και ψυχικής επιβάρυνσης
+                        </li>
+                        <li class="flex items-start gap-3">
+                            <i data-lucide="check" class="w-4 h-4 text-cypress shrink-0 mt-1"></i> συναισθηματική ρύθμιση
+                        </li>
+                        <li class="flex items-start gap-3">
+                            <i data-lucide="check" class="w-4 h-4 text-cypress shrink-0 mt-1"></i> ανάπτυξη δεξιοτήτων ζωής
+                        </li>
+                        <li class="flex items-start gap-3">
+                            <i data-lucide="check" class="w-4 h-4 text-cypress shrink-0 mt-1"></i> δυσκολίες προσαρμογής και μεταβάσεις ζωής
+                        </li>
+                        <li class="flex items-start gap-3">
+                            <i data-lucide="check" class="w-4 h-4 text-cypress shrink-0 mt-1"></i> διαπροσωπικές προκλήσεις και υγιής οριοθέτηση
+                        </li>
+                        <li class="flex items-start gap-3">
+                            <i data-lucide="check" class="w-4 h-4 text-cypress shrink-0 mt-1"></i> ανάπτυξη διεκδικητικής συμπεριφοράς
+                        </li>
+                        <li class="flex items-start gap-3">
+                            <i data-lucide="check" class="w-4 h-4 text-cypress shrink-0 mt-1"></i> σύνδεση σώματος και ψυχικής εμπειρίας
+                        </li>
+                        <li class="flex items-start gap-3">
+                            <i data-lucide="check" class="w-4 h-4 text-cypress shrink-0 mt-1"></i> αυτοπαρατήρηση και κατανόηση μοτίβων συμπεριφοράς
+                        </li>
+                        <li class="flex items-start gap-3">
+                            <i data-lucide="check" class="w-4 h-4 text-cypress shrink-0 mt-1"></i> δυσκολίες αυτοεικόνας και σχέσης με το σώμα/τροφή
+                        </li>
+                        <li class="flex items-start gap-3">
+                            <i data-lucide="check" class="w-4 h-4 text-cypress shrink-0 mt-1"></i> ενίσχυση ψυχικής ανθεκτικότητας
+                        </li>
+                        <li class="flex items-start gap-3">
+                            <i data-lucide="check" class="w-4 h-4 text-cypress shrink-0 mt-1"></i> αφήγηση προσωπικής ιστορίας και ταυτότητας
+                        </li>
+                        <li class="flex items-start gap-3">
+                            <i data-lucide="check" class="w-4 h-4 text-cypress shrink-0 mt-1"></i> burnout και συναισθηματική εξάντληση
+                        </li>
+                        <li class="flex items-start gap-3">
+                            <i data-lucide="check" class="w-4 h-4 text-cypress shrink-0 mt-1"></i> δημιουργικότητα, αυθεντικότητα και προσωπική έκφραση
+                        </li>
+                    </ul>
                 </div>
 
-                <div class="p-12 border border-dark/5 hover:border-gold/30 transition-all duration-500 bg-base/30 hover:shadow-xl reveal delay-100">
+                <!-- Υπηρεσία 2 -->
+                <div class="p-10 lg:p-12 border border-dark/5 hover:border-gold/30 transition-all duration-500 bg-base/30 hover:shadow-xl reveal delay-100 h-fit">
                     <h4 class="text-2xl font-serif text-dark mb-4 flex items-center gap-4">
                         <span class="w-8 h-[1px] bg-gold block"></span>
                         Σεμινάρια (μελλοντικά)
@@ -348,15 +288,15 @@
                     </p>
                     <div class="mt-8">
                         <h5 class="text-gold uppercase tracking-widest text-xs mb-4">Ομαδικές δράσεις γύρω από:</h5>
-                        <ul class="space-y-4">
-                            <li class="flex items-center gap-3 text-sm text-dark/80 font-light">
-                                <i data-lucide="check" class="w-4 h-4 text-cypress shrink-0"></i> δεξιότητες ζωής
+                        <ul class="space-y-4 text-dark font-medium text-[15px]">
+                            <li class="flex items-start gap-3">
+                                <i data-lucide="check" class="w-4 h-4 text-cypress shrink-0 mt-1"></i> δεξιότητες ζωής
                             </li>
-                            <li class="flex items-center gap-3 text-sm text-dark/80 font-light">
-                                <i data-lucide="check" class="w-4 h-4 text-cypress shrink-0"></i> αυτογνωσία
+                            <li class="flex items-start gap-3">
+                                <i data-lucide="check" class="w-4 h-4 text-cypress shrink-0 mt-1"></i> αυτογνωσία
                             </li>
-                            <li class="flex items-center gap-3 text-sm text-dark/80 font-light">
-                                <i data-lucide="check" class="w-4 h-4 text-cypress shrink-0"></i> σώμα και συναίσθημα
+                            <li class="flex items-start gap-3">
+                                <i data-lucide="check" class="w-4 h-4 text-cypress shrink-0 mt-1"></i> σώμα και συναίσθημα
                             </li>
                         </ul>
                     </div>
@@ -365,118 +305,98 @@
         </div>
     </section>
 
-    <!-- Space / Χώρος -->
-    <section class="py-32 px-6 bg-dark text-base">
-        <div class="max-w-7xl mx-auto text-center mb-24 reveal">
-            <h2 class="text-sm uppercase tracking-[0.2em] text-gold mb-4">Ο Χώρος</h2>
-            <h3 class="text-4xl font-serif font-light text-base mb-6">Εκεί που συναντιόμαστε</h3>
-            <p class="text-base/60 font-light max-w-2xl mx-auto leading-relaxed">Ένα περιβάλλον σχεδιασμένο με μινιμαλισμό και σεβασμό, για να επιτρέπει στη σκέψη να αναπνεύσει και στην ιστορία σας να ακουστεί.</p>
-        </div>
-
-        <div class="grid grid-cols-2 lg:grid-cols-4 gap-4 md:gap-6 max-w-7xl mx-auto">
-            <button class="relative aspect-[4/5] w-full overflow-hidden group reveal cursor-zoom-in" onclick="openLightbox('https://images.unsplash.com/photo-1600607686527-6fb886090705?q=80&w=2000&auto=format&fit=crop')">
-                <img src="https://images.unsplash.com/photo-1600607686527-6fb886090705?q=80&w=800&auto=format&fit=crop" alt="Χώρος Ατέλεια 1" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110">
-                <div class="absolute inset-0 bg-dark/20 opacity-0 group-hover:opacity-100 transition-opacity duration-500 flex items-center justify-center">
-                    <i data-lucide="maximize-2" class="w-6 h-6 text-white opacity-80"></i>
-                </div>
-            </button>
-            <button class="relative aspect-[4/5] w-full overflow-hidden group reveal delay-100 cursor-zoom-in" onclick="openLightbox('https://images.unsplash.com/photo-1497366754035-f200968a6e72?q=80&w=2000&auto=format&fit=crop')">
-                <img src="https://images.unsplash.com/photo-1497366754035-f200968a6e72?q=80&w=800&auto=format&fit=crop" alt="Χώρος Ατέλεια 2" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110">
-                <div class="absolute inset-0 bg-dark/20 opacity-0 group-hover:opacity-100 transition-opacity duration-500 flex items-center justify-center">
-                    <i data-lucide="maximize-2" class="w-6 h-6 text-white opacity-80"></i>
-                </div>
-            </button>
-            <button class="relative aspect-[4/5] w-full overflow-hidden group reveal delay-200 cursor-zoom-in" onclick="openLightbox('https://images.unsplash.com/photo-1497366216548-37526070297c?q=80&w=2000&auto=format&fit=crop')">
-                <img src="https://images.unsplash.com/photo-1497366216548-37526070297c?q=80&w=800&auto=format&fit=crop" alt="Χώρος Ατέλεια 3" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110">
-                <div class="absolute inset-0 bg-dark/20 opacity-0 group-hover:opacity-100 transition-opacity duration-500 flex items-center justify-center">
-                    <i data-lucide="maximize-2" class="w-6 h-6 text-white opacity-80"></i>
-                </div>
-            </button>
-            <button class="relative aspect-[4/5] w-full overflow-hidden group reveal delay-300 cursor-zoom-in" onclick="openLightbox('https://images.unsplash.com/photo-1513694203232-719a280e022f?q=80&w=2000&auto=format&fit=crop')">
-                <img src="https://images.unsplash.com/photo-1513694203232-719a280e022f?q=80&w=800&auto=format&fit=crop" alt="Χώρος Ατέλεια 4" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110">
-                <div class="absolute inset-0 bg-dark/20 opacity-0 group-hover:opacity-100 transition-opacity duration-500 flex items-center justify-center">
-                    <i data-lucide="maximize-2" class="w-6 h-6 text-white opacity-80"></i>
-                </div>
-            </button>
+    <!-- Quote Section (New phrasing) -->
+    <section class="py-40 px-6 cypress-pattern text-base text-center relative overflow-hidden visibility-fix">
+        <div class="max-w-4xl mx-auto reveal">
+            <svg class="w-10 h-10 mx-auto text-gold/50 mb-10" fill="currentColor" viewBox="0 0 24 24">
+                <path d="M14.017 21v-7.391c0-5.704 3.731-9.57 8.983-10.609l.995 2.151c-2.432.917-3.995 3.638-3.995 5.849h4v10h-9.983zm-14.017 0v-7.391c0-5.704 3.748-9.57 9-10.609l.996 2.151c-2.433.917-3.996 3.638-3.996 5.849h3.983v10h-9.983z" />
+            </svg>
+            <h2 class="text-3xl md:text-5xl font-serif font-light leading-snug mb-16 text-base mx-auto max-w-3xl">
+                "Στόχος δεν είναι να διορθώσουμε τον άνθρωπο, αλλά να τον συναντήσουμε στο σημείο που <span class="italic text-gold">αναλαμβάνει την ιστορία του</span>."
+            </h2>
+            <a href="#contact" class="inline-flex items-center justify-center px-10 py-5 border border-gold/30 text-gold hover:bg-gold hover:text-cypress transition-all duration-500 uppercase tracking-widest text-sm">
+                Κλείσε μια πρώτη συνάντηση
+            </a>
         </div>
     </section>
 
-    <!-- Media / Appearances / Interviews -->
-    <section id="media" class="py-32 px-6 border-b border-dark/10">
+    <!-- CMS Setup: Articles & Interviews -->
+    <section id="media" class="py-32 px-6 border-b border-dark/10 bg-base">
         <div class="max-w-7xl mx-auto">
-            <div class="text-center mb-24 reveal">
-                <h2 class="text-sm uppercase tracking-[0.2em] text-gold mb-4">Παρουσίες</h2>
+            <div class="text-center mb-20 reveal">
+                <h2 class="text-sm uppercase tracking-[0.2em] text-gold mb-4">Παρουσίες & Αρθρογραφία</h2>
                 <h3 class="text-3xl font-serif text-dark mb-10 leading-snug">Άρθρα & Συνεντεύξεις</h3>
             </div>
 
-            <!-- Block 1: Video (Action 24) -->
-            <div class="grid lg:grid-cols-2 gap-16 lg:gap-24 items-center mb-32 reveal">
-                <div class="order-2 lg:order-1">
-                    <h3 class="text-3xl font-serif text-dark mb-6 leading-tight">Συναισθηματική Υπερφαγία & Στρες: Γιατί καταφεύγουμε στο φαγητό;</h3>
-                    <div class="space-y-4 text-dark/70 font-light mb-8 leading-relaxed">
-                        <p>Πόσες φορές αναζητήσατε ένα πλούσιο γεύμα μετά από μια πιεστική μέρα, όχι από πραγματική πείνα, αλλά απλώς για να ηρεμήσετε;</p>
-                        <p>Καλεσμένη στην εκπομπή Vitality (ACTION 24 TV), η Χριστίνα Κουνατιάδου προσεγγίζει επιστημονικά –αλλά και με βαθιά ενσυναίσθηση– το συχνό, μα παρεξηγημένο φαινόμενο της συναισθηματικής υπερφαγίας.</p>
-                        <p>Μάθετε γιατί το σώμα μας χρησιμοποιεί το φαγητό ως άμεσο «καταπραϋντικό» απέναντι στο στρες, ανακαλύψτε πώς να ξεχωρίζετε τη συναισθηματική ρύθμιση από τη βιολογική πείνα και βρείτε πρακτικούς τρόπους για να "ακούσετε" καλύτερα τις πραγματικές ανάγκες του οργανισμού σας.</p>
-                    </div>
-                    <a href="https://www.youtube.com/watch?v=A0SnqUAz-Gg&authuser=0" target="_blank" rel="noopener" class="inline-flex items-center text-sm uppercase tracking-widest text-dark border-b border-dark pb-1 hover:text-gold hover:border-gold transition-colors">
-                        Δείτε το Βίντεο
-                    </a>
-                </div>
-                <div class="order-1 lg:order-2">
-                    <a href="https://www.youtube.com/watch?v=A0SnqUAz-Gg&authuser=0" target="_blank" rel="noopener" class="block overflow-hidden relative group shadow-2xl">
-                        <img src="https://raw.githubusercontent.com/agelmet/KOUNATIADOU/refs/heads/main/dsdss.jpg" class="w-full h-auto object-cover transform transition-transform duration-700 group-hover:scale-105" alt="Βίντεο: Συναισθηματική Υπερφαγία & Στρες">
-                        <div class="absolute inset-0 bg-dark/20 group-hover:bg-transparent transition-colors flex items-center justify-center">
-                            <div class="w-20 h-20 bg-white/95 rounded-full flex items-center justify-center shadow-[0_10px_30px_rgba(0,0,0,0.15)] group-hover:scale-110 transition-transform">
-                                <i data-lucide="play" class="w-8 h-8 text-dark ml-1"></i>
-                            </div>
-                        </div>
-                    </a>
-                </div>
-            </div>
+            <!-- Contentful List Wrapper -->
+            <!-- Developer Note: Loop through Contentful articles here. The UI supports a 'pinned' feature layout for the first item, and a grid for the rest. -->
+            <div class="cms-articles-list flex flex-col gap-16">
 
-            <!-- Block 2: Interview (TrueMed) -->
-            <div class="grid lg:grid-cols-2 gap-16 lg:gap-24 items-center reveal">
-                <div class="order-1">
-                     <a href="https://www.truemed.gr/synenteukseis/kounatiadou-xristina/?fbclid=IwY2xjawRkde5leHRuA2FlbQIxMQBicmlkETFidko0R045T2lFbUJqZWwzc3J0YwZhcHBfaWQQMjIyMDM5MTc4ODIwMDg5MgABHgLJlqKlMRIE0E7g_Mc83HBqz--WbEh4Po3bYX3RKnqOZ0FGhSO4wA-F5E1l_aem_JrYp3_tKchVB7bTuMjKZPw" target="_blank" rel="noopener" class="block overflow-hidden relative group shadow-2xl bg-white p-2">
-                        <img src="https://raw.githubusercontent.com/agelmet/KOUNATIADOU/refs/heads/main/tedme.jpg" class="w-full h-auto object-cover transform transition-transform duration-700 group-hover:scale-105" alt="Συνέντευξη: Χαρτογραφώντας τον Κόσμο της Ψυχιατρικής">
-                    </a>
-                </div>
-                <div class="order-2">
-                    <h3 class="text-3xl font-serif text-dark mb-6 leading-tight">Συνέντευξη: Χαρτογραφώντας τον Κόσμο της Ψυχιατρικής με τη Χριστίνα Κουνατιάδου</h3>
-                    <p class="text-dark/70 font-light mb-4 leading-relaxed">Σε μια ειλικρινή και βαθιά ανθρώπινη συζήτηση με τη Σταματία Κύρλα, η ειδικευόμενη ψυχίατρος Χριστίνα Κουνατιάδου ανοίγει ένα παράθυρο στις αθέατες πλευρές της ψυχικής υγείας και της σύγχρονης ιατρικής πραγματικότητας.</p>
-                    <p class="text-dark/70 font-light mb-6 leading-relaxed">Μέσα από τη δική της προσωπική και επαγγελματική διαδρομή —από το απαιτητικό «αγροτικό» εν μέσω της πανδημίας του COVID-19 μέχρι τις προκλήσεις της ειδικότητας— η συνέντευξη προσεγγίζει καίρια ζητήματα της εποχής μας, αναδεικνύοντας:</p>
+                <!-- PINNED / FEATURED ITEM (e.g., True Med Interview) -->
+                <!-- Developer Note: Use an 'isPinned' boolean in CMS to render this block -->
+                <article class="cms-item-pinned grid lg:grid-cols-2 gap-12 lg:gap-20 items-center reveal bg-white p-8 lg:p-12 shadow-sm border border-gold/20">
+                    <div class="order-2 lg:order-1 cms-content">
+                        <span class="text-xs uppercase tracking-widest text-cypress mb-4 block font-bold cms-category">Συνεντευξη</span>
+                        <h3 class="text-3xl font-serif text-dark mb-6 leading-tight cms-title">
+                            Συνέντευξη: Χαρτογραφώντας τον Κόσμο της Ψυχιατρικής με τη Χριστίνα Κουνατιάδου
+                        </h3>
+                        <div class="space-y-4 text-dark/70 font-light mb-8 leading-relaxed cms-excerpt">
+                            <!-- Contentful Rich Text output goes here -->
+                            <p>Σε μια ειλικρινή και βαθιά ανθρώπινη συζήτηση με τη Σταματία Κύρλα, η ειδικευόμενη ψυχίατρος Χριστίνα Κουνατιάδου ανοίγει ένα παράθυρο στις αθέατες πλευρές της ψυχικής υγείας και της σύγχρονης ιατρικής πραγματικότητας.</p>
+                            <p>Μέσα από τη δική της προσωπική και επαγγελματική διαδρομή προσεγγίζει καίρια ζητήματα της εποχής μας, αναδεικνύοντας το βιο-ψυχο-κοινωνικό μοντέλο, την ανατομία της σύγχρονης βίας, και απομυθοποιώντας την ψυχιατρική φροντίδα.</p>
+                        </div>
+                        <a href="https://www.truemed.gr/" target="_blank" rel="noopener" class="inline-flex items-center text-sm uppercase tracking-widest text-dark border-b border-dark pb-1 hover:text-gold hover:border-gold transition-colors cms-link">
+                            Διαβάστε τη Συνέντευξη
+                        </a>
+                    </div>
+                    <div class="order-1 lg:order-2 cms-image-wrapper">
+                        <a href="#" target="_blank" class="block overflow-hidden relative group shadow-lg aspect-[4/3] bg-base">
+                            <!-- Contentful Featured Image goes here -->
+                            <img src="https://raw.githubusercontent.com/agelmet/KOUNATIADOU/refs/heads/main/tedme.jpg" class="w-full h-full object-cover transform transition-transform duration-700 group-hover:scale-105 cms-image" alt="Thumbnail">
+                        </a>
+                    </div>
+                </article>
+
+                <!-- STANDARD GRID ITEMS -->
+                <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
                     
-                    <ul class="space-y-4 mb-8">
-                        <li class="flex items-start gap-4 text-sm text-dark/80 font-light leading-relaxed">
-                            <span class="w-1.5 h-1.5 rounded-full bg-gold shrink-0 mt-2"></span>
-                            <span><strong>Το βιο-ψυχο-κοινωνικό μοντέλο:</strong> Την άρρηκτη, αποδεδειγμένη σύνδεση μεταξύ σωματικής και ψυχικής υγείας και τον καταλυτικό ρόλο του στρες.</span>
-                        </li>
-                        <li class="flex items-start gap-4 text-sm text-dark/80 font-light leading-relaxed">
-                            <span class="w-1.5 h-1.5 rounded-full bg-gold shrink-0 mt-2"></span>
-                            <span><strong>Την ανατομία της σύγχρονης βίας:</strong> Πώς οι κοινωνικές πιέσεις, το αίσθημα αβοηθησίας και ο καταιγισμός πληροφοριών οδηγούν στην κανονικοποίηση ακραίων συμπεριφορών.</span>
-                        </li>
-                        <li class="flex items-start gap-4 text-sm text-dark/80 font-light leading-relaxed">
-                            <span class="w-1.5 h-1.5 rounded-full bg-gold shrink-0 mt-2"></span>
-                            <span><strong>Την απομυθοποίηση της ψυχιατρικής φροντίδας:</strong> Ξεκάθαρες απαντήσεις για τις διαφορές ψυχιάτρου και ψυχολόγου, αλλά και μια αφοπλιστική κατάρριψη των ταμπού γύρω από την αναζήτηση βοήθειας (μέσα από ένα εξαιρετικά εύστοχο παράδειγμα με... ορθοπεδικούς!).</span>
-                        </li>
-                    </ul>
-                    <p class="text-dark/70 font-light italic mb-8 border-l border-gold pl-5 leading-relaxed">Μια συνέντευξη-τροφή για σκέψη που μας υπενθυμίζει πως η φροντίδα της ψυχικής μας υγείας δεν είναι ένδειξη αδυναμίας, αλλά ένα γενναίο βήμα εξερεύνησης του εαυτού μας και διεκδίκησης μιας ζωής με ουσιαστικό νόημα.</p>
-                    
-                    <a href="https://www.truemed.gr/synenteukseis/kounatiadou-xristina/?fbclid=IwY2xjawRkde5leHRuA2FlbQIxMQBicmlkETFidko0R045T2lFbUJqZWwzc3J0YwZhcHBfaWQQMjIyMDM5MTc4ODIwMDg5MgABHgLJlqKlMRIE0E7g_Mc83HBqz--WbEh4Po3bYX3RKnqOZ0FGhSO4wA-F5E1l_aem_JrYp3_tKchVB7bTuMjKZPw" target="_blank" rel="noopener" class="inline-flex items-center text-sm uppercase tracking-widest text-dark border-b border-dark pb-1 hover:text-gold hover:border-gold transition-colors">
-                        Διαβάστε τη Συνέντευξη
-                    </a>
+                    <!-- CMS Item (Standard) -->
+                    <article class="cms-item reveal bg-white p-6 border border-dark/5 hover:shadow-md transition-shadow flex flex-col h-full">
+                        <a href="#" target="_blank" class="block aspect-video bg-base mb-6 overflow-hidden relative group">
+                            <!-- If Video, show play button -->
+                            <div class="absolute inset-0 bg-dark/20 group-hover:bg-transparent transition-colors flex items-center justify-center z-10">
+                                <div class="w-12 h-12 bg-white/95 rounded-full flex items-center justify-center shadow-lg group-hover:scale-110 transition-transform">
+                                    <i data-lucide="play" class="w-5 h-5 text-dark ml-1"></i>
+                                </div>
+                            </div>
+                            <!-- Contentful image -->
+                            <img src="https://raw.githubusercontent.com/agelmet/KOUNATIADOU/refs/heads/main/dsdss.jpg" class="w-full h-full object-cover cms-image transform transition-transform duration-700 group-hover:scale-105" alt="Thumbnail">
+                        </a>
+                        <span class="text-xs uppercase tracking-widest text-gold mb-3 block font-bold cms-category">Video</span>
+                        <h4 class="text-xl font-serif text-dark mb-4 leading-tight cms-title">Συναισθηματική Υπερφαγία & Στρες: Γιατί καταφεύγουμε στο φαγητό;</h4>
+                        <div class="text-dark/60 text-sm font-light mb-6 line-clamp-3 flex-grow cms-excerpt">
+                            Πόσες φορές αναζητήσατε ένα πλούσιο γεύμα μετά από μια πιεστική μέρα, όχι από πραγματική πείνα, αλλά απλώς για να ηρεμήσετε; Ανακαλύψτε πώς να ξεχωρίζετε τη συναισθηματική ρύθμιση...
+                        </div>
+                        <a href="#" class="text-xs uppercase tracking-widest text-dark font-medium hover:text-gold transition-colors cms-link mt-auto inline-block">Δειτε το Βιντεο</a>
+                    </article>
+
+                    <!-- Mocked CMS Draft Item -->
+                    <article class="cms-item reveal delay-100 bg-white p-6 border border-dark/5 hover:shadow-md transition-shadow flex flex-col h-full">
+                        <a href="#" class="block aspect-video bg-base mb-6 overflow-hidden relative flex items-center justify-center text-dark/10 group">
+                             <i data-lucide="image" class="w-10 h-10 group-hover:scale-110 transition-transform"></i>
+                        </a>
+                        <span class="text-xs uppercase tracking-widest text-cypress mb-3 block font-bold cms-category">Αρθρο</span>
+                        <h4 class="text-xl font-serif text-dark mb-4 leading-tight cms-title">Προσεχώς: Νέο Άρθρο</h4>
+                        <div class="text-dark/60 text-sm font-light mb-6 line-clamp-3 flex-grow cms-excerpt">
+                            Ο χώρος αυτός προετοιμάζεται να φιλοξενήσει το επόμενο άρθρο. (Περιεχόμενο που θα προστεθεί δυναμικά μέσω CMS).
+                        </div>
+                        <a href="#" class="text-xs uppercase tracking-widest text-dark font-medium hover:text-gold transition-colors cms-link mt-auto inline-block">Διαβαστε Περισσοτερα</a>
+                    </article>
+
                 </div>
             </div>
         </div>
     </section>
-
-    <!-- Lightbox -->
-    <div id="lightbox" class="fixed inset-0 z-[100] bg-base/95 flex items-center justify-center cursor-zoom-out" onclick="closeLightbox()">
-        <button class="absolute top-8 right-8 text-dark hover:text-gold transition-colors">
-            <i data-lucide="x" class="w-10 h-10"></i>
-        </button>
-        <img id="lightbox-img" src="" alt="Enlarged View" class="max-w-[95vw] max-h-[95vh] object-contain shadow-2xl cursor-default" onclick="event.stopPropagation()">
-    </div>
 
     <!-- Contact & Footer -->
     <footer id="contact" class="bg-base pt-32 pb-12 px-6 relative">
@@ -581,27 +501,6 @@
                 navbar.classList.add('py-6');
                 navbar.classList.remove('py-4', 'bg-base/90', 'backdrop-blur-md', 'shadow-sm');
             }
-        });
-
-        const lightbox = document.getElementById('lightbox');
-        const lightboxImg = document.getElementById('lightbox-img');
-
-        function openLightbox(src) {
-            lightboxImg.src = src;
-            lightbox.classList.add('active');
-            document.body.style.overflow = 'hidden';
-        }
-
-        function closeLightbox() {
-            lightbox.classList.remove('active');
-            setTimeout(() => {
-                lightboxImg.src = '';
-                document.body.style.overflow = '';
-            }, 500);
-        }
-
-        document.addEventListener('keydown', (e) => {
-            if (e.key === 'Escape' && lightbox.classList.contains('active')) closeLightbox();
         });
     </script>
 </body>
