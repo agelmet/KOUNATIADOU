@@ -8,10 +8,12 @@
     <meta name="description" content="Η Ατέλεια είναι ένας χώρος κατανόησης κι εξερεύνησης του τι σημαίνει να είσαι άνθρωπος. Ψυχιατρική, συμβουλευτική και προαγωγή υγείας από την Χριστίνα Κουνατιάδου.">
     <meta name="robots" content="index, follow">
     
+    <!-- Typography -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400;1,500&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     
+    <!-- Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
     <script>
         tailwind.config = {
@@ -51,8 +53,10 @@
         }
     </script>
 
+    <!-- Lucide Icons -->
     <script src="https://unpkg.com/lucide@latest"></script>
 
+    <!-- Contentful Library -->
     <script src="https://cdn.jsdelivr.net/npm/contentful@latest/dist/contentful.browser.min.js"></script>
 
     <style>
@@ -106,150 +110,163 @@
 </head>
 <body class="font-sans antialiased overflow-x-hidden relative selection:bg-gold selection:text-white">
 
+    <!-- Navigation -->
     <nav id="navbar" class="fixed w-full z-50 transition-all duration-500 py-6">
         <div class="max-w-7xl mx-auto px-6 flex justify-between items-center">
             <a href="#hero" class="group relative z-50">
                 <img src="https://raw.githubusercontent.com/agelmet/KOUNATIADOU/refs/heads/main/ChatGPT%20Image%204%20%CE%9C%CE%B1%CE%90%202026%2C%2012_15_51%20%CF%80.%CE%BC..png" alt="Ατέλεια Logo" class="h-28 w-28 md:h-36 md:w-36 lg:h-40 lg:w-40 rounded-full object-cover transition-transform duration-700 hover:scale-105 drop-shadow-md">
             </a>
 
-            <div class="flex items-center gap-6 mt-4">
+            <!-- Desktop Menu & Controls -->
+            <div class="flex items-center gap-4 md:gap-6 mt-4">
                 <div class="hidden md:flex items-center space-x-10">
-                    <a href="#hero" class="text-sm tracking-wide text-dark hover:text-gold transition-colors">Αρχική</a>
-                    <a href="#about" class="text-sm tracking-wide text-dark hover:text-gold transition-colors">Η Ατέλεια</a>
-                    <a href="#services" class="text-sm tracking-wide text-dark hover:text-gold transition-colors">Υπηρεσίες</a>
-                    <a href="#media" class="text-sm tracking-wide text-dark hover:text-gold transition-colors">Άρθρα & Παρουσίες</a>
-                    <a href="#contact" class="text-sm tracking-wide text-dark hover:text-gold transition-colors">Επικοινωνία</a>
+                    <a href="#hero" class="text-sm tracking-wide text-dark hover:text-gold transition-colors" data-i18n="nav_home">Αρχική</a>
+                    <a href="#about" class="text-sm tracking-wide text-dark hover:text-gold transition-colors" data-i18n="nav_about">Η Ατέλεια</a>
+                    <a href="#services" class="text-sm tracking-wide text-dark hover:text-gold transition-colors" data-i18n="nav_services">Υπηρεσίες</a>
+                    <a href="#media" class="text-sm tracking-wide text-dark hover:text-gold transition-colors" data-i18n="nav_media">Άρθρα & Παρουσίες</a>
+                    <a href="#contact" class="text-sm tracking-wide text-dark hover:text-gold transition-colors" data-i18n="nav_contact">Επικοινωνία</a>
                 </div>
 
-                <a href="/en" title="English Version" class="focus:outline-none hover:scale-110 transition-transform drop-shadow-sm flex items-center justify-center rounded-full overflow-hidden w-9 h-9 md:w-10 md:h-10 border-2 border-white shadow-md z-50 bg-white ml-2">
-                    <img src="https://flagcdn.com/w80/gb.png" alt="English" class="w-full h-full object-cover">
+                <!-- Language Toggle Flag (Links to /en or / based on current URL) -->
+                <a id="lang-switcher" href="/en" class="focus:outline-none hover:scale-110 transition-transform drop-shadow-sm flex items-center justify-center rounded-full overflow-hidden w-9 h-9 md:w-10 md:h-10 border-2 border-white shadow-md z-50 bg-white ml-2">
+                    <img id="lang-flag" src="https://flagcdn.com/w80/gb.png" alt="English" class="w-full h-full object-cover">
                 </a>
 
+                <!-- Mobile Toggle -->
                 <button class="md:hidden z-50 text-dark focus:outline-none ml-2" id="mobile-menu-btn">
                     <i data-lucide="menu" class="w-8 h-8"></i>
                 </button>
             </div>
         </div>
 
+        <!-- Mobile Menu -->
         <div id="mobile-menu" class="fixed inset-0 bg-base/98 backdrop-blur-xl z-40 hidden flex-col justify-center items-center space-y-8 opacity-0 transition-opacity duration-300">
-            <a href="#hero" class="text-2xl font-serif text-dark mobile-link">Αρχική</a>
-            <a href="#about" class="text-2xl font-serif text-dark mobile-link">Η Ατέλεια</a>
-            <a href="#services" class="text-2xl font-serif text-dark mobile-link">Υπηρεσίες</a>
-            <a href="#media" class="text-2xl font-serif text-dark mobile-link">Άρθρα & Παρουσίες</a>
-            <a href="#contact" class="text-2xl font-serif text-dark mobile-link">Επικοινωνία</a>
+            <a href="#hero" class="text-2xl font-serif text-dark mobile-link" data-i18n="nav_home">Αρχική</a>
+            <a href="#about" class="text-2xl font-serif text-dark mobile-link" data-i18n="nav_about">Η Ατέλεια</a>
+            <a href="#services" class="text-2xl font-serif text-dark mobile-link" data-i18n="nav_services">Υπηρεσίες</a>
+            <a href="#media" class="text-2xl font-serif text-dark mobile-link" data-i18n="nav_media">Άρθρα & Παρουσίες</a>
+            <a href="#contact" class="text-2xl font-serif text-dark mobile-link" data-i18n="nav_contact">Επικοινωνία</a>
         </div>
     </nav>
 
+    <!-- Hero Section -->
     <section id="hero" class="relative min-h-screen flex items-center justify-center px-6 overflow-hidden">
         <div class="absolute top-1/4 left-1/4 w-[40vw] h-[40vw] bg-gold/5 rounded-full blur-[100px] pointer-events-none"></div>
         <div class="absolute bottom-1/4 right-1/4 w-[30vw] h-[30vw] bg-cypress/5 rounded-full blur-[100px] pointer-events-none"></div>
 
         <div class="max-w-4xl mx-auto text-center relative z-10 flex flex-col items-center opacity-0 animate-scale-in-up mt-16">
-            <span class="text-xs uppercase tracking-[0.2em] text-gold mb-6 font-medium">Ατέλεια</span>
+            <span class="text-xs uppercase tracking-[0.2em] text-gold mb-6 font-medium" data-i18n="hero_subtitle">Ατέλεια</span>
             <h1 class="text-5xl md:text-7xl lg:text-8xl font-serif text-dark leading-tight mb-6">
-                Η τέχνη του να είσαι<br>
-                <span class="italic font-light">Άνθρωπος.</span>
+                <span data-i18n="hero_title_1">Η τέχνη του να είσαι</span><br>
+                <span class="italic font-light" data-i18n="hero_title_2">Άνθρωπος.</span>
             </h1>
             
-            <p class="text-dark/80 font-serif italic text-2xl mb-6">
+            <p class="text-dark/80 font-serif italic text-2xl mb-6" data-i18n="hero_quote">
                 «Από την επιβίωση, στην επιλογή.»
             </p>
-            <p class="text-lg md:text-xl text-dark/70 font-light max-w-2xl mx-auto mb-12 leading-relaxed">
+            <p class="text-lg md:text-xl text-dark/70 font-light max-w-2xl mx-auto mb-12 leading-relaxed" data-i18n="hero_desc">
                 Ένας χώρος συνάντησης, ψυχοεκπαίδευσης και προαγωγής της υγείας.
             </p>
             
             <a href="#contact" class="group relative inline-flex items-center justify-center px-10 py-5 overflow-hidden border border-dark text-dark transition-all duration-500 hover:bg-dark hover:text-base">
-                <span class="text-sm uppercase tracking-widest font-medium z-10">Κλείσε μια συνάντηση</span>
+                <span class="text-sm uppercase tracking-widest font-medium z-10" data-i18n="btn_book">Κλείσε μια συνάντηση</span>
             </a>
         </div>
     </section>
 
+    <!-- Intro Section -->
     <section id="intro" class="py-32 px-6">
         <div class="max-w-4xl mx-auto text-center reveal">
             <p class="text-2xl md:text-4xl font-serif text-dark leading-relaxed">
-                Η Ατέλεια είναι ένας χώρος κατανόησης κι εξερεύνησης του τι σημαίνει να είσαι άνθρωπος. Είναι ένας χώρος που εστιάζει στην <span class="text-gold italic">αρχιτεκτονική της υγείας</span>, όχι στην ασθένεια.
+                <span data-i18n="intro_p1">Η Ατέλεια είναι ένας χώρος κατανόησης κι εξερεύνησης του τι σημαίνει να είσαι άνθρωπος. Είναι ένας χώρος που εστιάζει στην</span> <span class="text-gold italic" data-i18n="intro_gold">αρχιτεκτονική της υγείας</span><span data-i18n="intro_p1_cont">, όχι στην ασθένεια.</span>
             </p>
-            <p class="mt-10 text-lg text-dark/70 font-light max-w-2xl mx-auto leading-loose">
+            <p class="mt-10 text-lg text-dark/70 font-light max-w-2xl mx-auto leading-loose" data-i18n="intro_p2">
                 Στην δυνατότητα, την ευκαιρία, την γνώση, την επιλογή. Είναι μια πρόσκληση να έρθουμε σε επαφή με αυτό που είμαστε — μέσα από τη σχέση μας με την ατέλεια.
             </p>
         </div>
     </section>
 
+    <!-- Services Preview -->
     <section class="py-32 px-6 bg-white">
         <div class="max-w-7xl mx-auto">
             <div class="grid md:grid-cols-3 gap-12 border-t border-dark/10 pt-20">
                 <div class="reveal p-8 border border-dark/5 hover:border-gold/30 transition-all duration-500 hover:shadow-lg">
                     <span class="text-gold text-sm font-medium mb-4 block">01</span>
-                    <h3 class="text-2xl font-serif text-dark mb-4">Ατομικές Συναντήσεις</h3>
-                    <p class="text-dark/60 font-light text-sm leading-relaxed mb-8">
+                    <h3 class="text-2xl font-serif text-dark mb-4" data-i18n="preview_01_title">Ατομικές Συναντήσεις</h3>
+                    <p class="text-dark/60 font-light text-sm leading-relaxed mb-8" data-i18n="preview_01_desc">
                         Ένας ασφαλής, σταθερός χώρος για την κατανόηση του εαυτού και την υποστήριξη σε περιόδους μετάβασης ή δυσκολίας.
                     </p>
                 </div>
                 <div class="reveal delay-100 p-8 border border-dark/5 hover:border-gold/30 transition-all duration-500 hover:shadow-lg">
                     <span class="text-gold text-sm font-medium mb-4 block">02</span>
-                    <h3 class="text-2xl font-serif text-dark mb-4">Συμβουλευτική</h3>
-                    <p class="text-dark/60 font-light text-sm leading-relaxed mb-8">
+                    <h3 class="text-2xl font-serif text-dark mb-4" data-i18n="preview_02_title">Συμβουλευτική</h3>
+                    <p class="text-dark/60 font-light text-sm leading-relaxed mb-8" data-i18n="preview_02_desc">
                         Εστιασμένη καθοδήγηση για συγκεκριμένους προβληματισμούς, ενισχύοντας την ικανότητα λήψης αποφάσεων και την αυτονομία.
                     </p>
                 </div>
                 <div class="reveal delay-200 p-8 border border-dark/5 hover:border-gold/30 transition-all duration-500 hover:shadow-lg">
                     <span class="text-gold text-sm font-medium mb-4 block">03</span>
-                    <h3 class="text-2xl font-serif text-dark mb-4">Σεμινάρια Ζωής</h3>
-                    <p class="text-dark/60 font-light text-sm leading-relaxed mb-8">
+                    <h3 class="text-2xl font-serif text-dark mb-4" data-i18n="preview_03_title">Σεμινάρια Ζωής</h3>
+                    <p class="text-dark/60 font-light text-sm leading-relaxed mb-8" data-i18n="preview_03_desc">
                         Ομαδικές δράσεις εκπαίδευσης γύρω από τις δεξιότητες που απαιτεί η σύγχρονη πραγματικότητα και η συναισθηματική ανάπτυξη.
                     </p>
                 </div>
             </div>
             
             <div class="text-center mt-16 reveal">
-                <a href="#services" class="inline-flex items-center text-sm uppercase tracking-widest text-dark border-b border-dark pb-1 hover:text-gold hover:border-gold transition-colors">
+                <a href="#services" class="inline-flex items-center text-sm uppercase tracking-widest text-dark border-b border-dark pb-1 hover:text-gold hover:border-gold transition-colors" data-i18n="preview_btn">
                     Δες Περισσότερα
                 </a>
             </div>
         </div>
     </section>
 
+    <!-- Philosophy (Manifesto) Section -->
     <section id="about" class="py-32 px-6">
         <div class="max-w-7xl mx-auto">
             
+            <!-- Manifesto Content (Centered) -->
             <div class="max-w-4xl mx-auto text-center mb-32 reveal">
-                <h2 class="text-sm uppercase tracking-[0.2em] text-gold mb-6">Η ΦΙΛΟΣΟΦΙΑ</h2>
+                <h2 class="text-sm uppercase tracking-[0.2em] text-gold mb-6" data-i18n="phil_tag">Η ΦΙΛΟΣΟΦΙΑ</h2>
                 
                 <div class="space-y-6 text-dark font-normal text-lg leading-relaxed mx-auto max-w-3xl text-justify">
-                    <p>Η «Ατέλεια» γεννήθηκε ως ένας χώρος παρατήρησης, συνάντησης, εξερεύνησης και επεξεργασίας της ανθρώπινης εμπειρίας — ενός τρόπου να γνωρίσουμε την υγεία όχι μόνο ως απουσία ασθένειας, αλλά ως μια ζωντανή διαδικασία προσαρμογής, σύνδεσης και νοήματος. Μέσα από την επιστημονική γνώση, την ιατρική, την τέχνη, την κοινότητα, τη συστημική σκέψη, επιχειρεί να συνδέσει τους διαφορετικούς τρόπους με τους οποίους οι άνθρωποι κατοικούν τον εαυτό και τη ζωή τους.</p>
+                    <p data-i18n="phil_p1">Η «Ατέλεια» γεννήθηκε ως ένας χώρος παρατήρησης, συνάντησης, εξερεύνησης και επεξεργασίας της ανθρώπινης εμπειρίας — ενός τρόπου να γνωρίσουμε την υγεία όχι μόνο ως απουσία ασθένειας, αλλά ως μια ζωντανή διαδικασία προσαρμογής, σύνδεσης και νοήματος. Μέσα από την επιστημονική γνώση, την ιατρική, την τέχνη, την κοινότητα, τη συστημική σκέψη, επιχειρεί να συνδέσει τους διαφορετικούς τρόπους με τους οποίους οι άνθρωποι κατοικούν τον εαυτό και τη ζωή τους.</p>
                     
-                    <p>Στην "Ατέλεια", ο,τι μοιάζει με "σύμπτωμα" αξιοποιείται για να συστήσει τον μοναδικό τρόπο με τον οποίο κάθε άνθρωπος προσπαθεί να επιβιώσει, να προστατευτεί, να ανακουφιστεί, να υπάρξει. Στην «Ατέλεια», η υγεία προσεγγίζεται ως αρχιτεκτονική ζωής και ανάπτυξη δεξιοτήτων υγείας — μιας βαθύτερης ικανότητας να σχετιζόμαστε με το σώμα, τα συναισθήματα και τους μηχανισμούς ρύθμισής τους, το στρες, τις σχέσεις, τις δυσκολίες, τις προκλήσεις και τις μεταβολές της ζωής.</p>
+                    <p data-i18n="phil_p2">Στην "Ατέλεια", ο,τι μοιάζει με "σύμπτωμα" αξιοποιείται για να συστήσει τον μοναδικό τρόπο με τον οποίο κάθε άνθρωπος προσπαθεί να επιβιώσει, να προστατευτεί, να ανακουφιστεί, να υπάρξει. Στην «Ατέλεια», η υγεία προσεγγίζεται ως αρχιτεκτονική ζωής και ανάπτυξη δεξιοτήτων υγείας — μιας βαθύτερης ικανότητας να σχετιζόμαστε με το σώμα, τα συναισθήματα και τους μηχανισμούς ρύθμισής τους, το στρες, τις σχέσεις, τις δυσκολίες, τις προκλήσεις και τις μεταβολές της ζωής.</p>
                     
-                    <p>Η «Ατέλεια» ενδιαφέρεται για όσα μάθαμε, όσα ίσως χρειάζεται να ξεμάθουμε και όσα μπορούμε και τολμούμε να μάθουμε ξανά από την αρχή, με σκοπό να ζήσουμε τη ζωή με περισσότερη ελευθερία, συνείδηση κι αλήθεια. Για τον τρόπο με τον οποίο γράφουμε, αφηγούμαστε και βιώνουμε την ιστορία του εαυτού και της ζωής μας — αλλά και για τη δυνατότητα να την επανανοηματοδοτήσουμε, να την μοιραστούμε και να βρούμε μια πιο αυθεντική θέση στον κόσμο μέσα και στον κόσμο έξω μας, σύμφωνα με τις αξίες και τα όνειρα μας.</p>
+                    <p data-i18n="phil_p3">Η «Ατέλεια» ενδιαφέρεται για όσα μάθαμε, όσα ίσως χρειάζεται να ξεμάθουμε και όσα μπορούμε και τολμούμε να μάθουμε ξανά από την αρχή, με σκοπό να ζήσουμε τη ζωή με περισσότερη ελευθερία, συνείδηση κι αλήθεια. Για τον τρόπο με τον οποίο γράφουμε, αφηγούμαστε και βιώνουμε την ιστορία του εαυτού και της ζωής μας — αλλά και για τη δυνατότητα να την επανανοηματοδοτήσουμε, να την μοιραστούμε και να βρούμε μια πιο αυθεντική θέση στον κόσμο μέσα και στον κόσμο έξω μας, σύμφωνα με τις αξίες και τα όνειρα μας.</p>
                     
-                    <p>Στην «Ατέλεια», δεν απορρίπτουμε το ατελές - το τιμάμε, δίνοντας του τη σημασία που του αξίζει - ως αρχή της αυθεντικότητας, της μοναδικότητας, της ανθρώπινης αλήθειας, της ουσιαστικής συνάντησης. Ως ευκαιρία και δυνατότητα - για μια ζωή που έχει το νόημα που της δίνουμε.</p>
+                    <p data-i18n="phil_p4">Στην «Ατέλεια», δεν απορρίπτουμε το ατελές - το τιμάμε, δίνοντας του τη σημασία που του αξίζει - ως αρχή της αυθεντικότητας, της μοναδικότητας, της ανθρώπινης αλήθειας, της ουσιαστικής συνάντησης. Ως ευκαιρία και δυνατότητα - για μια ζωή που έχει το νόημα που της δίνουμε.</p>
                     
-                    <p class="font-serif italic text-2xl mt-12 text-center text-gold">Ατέλεια σαν Αρχή. Ατέλεια σαν αποδοχή. Ατέλεια σαν αλλαγή. Ατέλεια σαν αυθεντικότητα. Ατέλεια σαν αλήθεια. Ατέλεια σαν Ανθρωπος.</p>
+                    <p class="font-serif italic text-2xl mt-12 text-center text-gold" data-i18n="phil_p5">Ατέλεια σαν Αρχή. Ατέλεια σαν αποδοχή. Ατέλεια σαν αλλαγή. Ατέλεια σαν αυθεντικότητα. Ατέλεια σαν αλήθεια. Ατέλεια σαν Ανθρωπος.</p>
                     
-                    <p class="text-right text-xs md:text-sm text-dark font-semibold uppercase tracking-widest mt-8">— Χριστινα Κουνατιάδου, ειδ. ψυχίατρος, ιδρύτρια της "Ατέλεια"</p>
+                    <p class="text-right text-xs md:text-sm text-dark font-semibold uppercase tracking-widest mt-8" data-i18n="phil_author">— Χριστινα Κουνατιάδου, ειδ. ψυχίατρος, ιδρύτρια της "Ατέλεια"</p>
                 </div>
             </div>
 
+            <!-- Bio Layout -->
             <div class="grid lg:grid-cols-12 gap-16 lg:gap-24 items-center border-t border-dark/10 pt-24">
+                <!-- Bio Text -->
                 <div class="lg:col-span-7 order-2 lg:order-1 reveal">
-                    <h2 class="text-3xl md:text-4xl font-serif text-dark mb-2">Χριστίνα Κουνατιάδου</h2>
-                    <p class="text-gold uppercase tracking-widest text-xs mb-10 font-bold">Ιατρός - Ειδικευόμενη Ψυχιατρικής</p>
+                    <h2 class="text-3xl md:text-4xl font-serif text-dark mb-2" data-i18n="bio_name">Χριστίνα Κουνατιάδου</h2>
+                    <p class="text-gold uppercase tracking-widest text-xs mb-10 font-bold" data-i18n="bio_sub">Ιατρός - Ειδικευόμενη Ψυχιατρικής</p>
                     
                     <div class="space-y-6 text-black font-semibold md:font-bold text-[16px] md:text-[17px] leading-relaxed text-justify">
-                        <p>Η Χριστίνα Κουνάτιαδου είναι ιατρός και ειδικεύεται στην Ψυχιατρική. Οι μεταπτυχιακές της σπουδές επικεντρώνονται στην «Επιστήμη του Στρες και Προαγωγή της Υγείας» στην Ιατρική Σχολή του ΕΚΠΑ, με υποτροφία αριστείας και ερευνητικό έργο πάνω στη συσχέτιση στρες, αυτοάνοσων παθήσεων και διαταραχών πρόσληψης τροφής.</p>
+                        <p data-i18n="bio_p1">Η Χριστίνα Κουνάτιαδου είναι ιατρός και ειδικεύεται στην Ψυχιατρική. Οι μεταπτυχιακές της σπουδές επικεντρώνονται στην «Επιστήμη του Στρες και Προαγωγή της Υγείας» στην Ιατρική Σχολή του ΕΚΠΑ, με υποτροφία αριστείας και ερευνητικό έργο πάνω στη συσχέτιση στρες, αυτοάνοσων παθήσεων και διαταραχών πρόσληψης τροφής.</p>
                         
-                        <p>Η πορεία της περιλαμβάνει εκπαίδευση σε παραπάνω από μια ψυχοθεραπευτικές προσεγγίσεις. Έχει εκπαιδευτεί στην Ανάλυση και Θεραπεία Συμπεριφοράς για αγχώδεις διαταραχές, μετατραυματική διαταραχή του στρες, ιδεοψυχαναγκαστική διαταραχή, τριχοτιλλομανία και διαταραχές πρόσληψης τροφής, ενώ εργάστηκε επί δύο χρόνια στη Μονάδα Θεραπείας Συμπεριφοράς υπό την εποπτεία του Δρ. Γιάννη Κασβίκη. Παράλληλα, ολοκληρώνει την εκπαίδευσή της στη Συστημική/Ομαδική–Οικογενειακή Θεραπεία στη Μονάδα Οικογενειακής Θεραπείας του Ψυχιατρικού Νοσοκομείου Αττικής, ως μία από τους επιλεγμένους εκπαιδευόμενους με υποτροφία φοίτησης.</p>
+                        <p data-i18n="bio_p2">Η πορεία της περιλαμβάνει εκπαίδευση σε παραπάνω από μια ψυχοθεραπευτικές προσεγγίσεις. Έχει εκπαιδευτεί στην Ανάλυση και Θεραπεία Συμπεριφοράς για αγχώδεις διαταραχές, μετατραυματική διαταραχή του στρες, ιδεοψυχαναγκαστική διαταραχή, τριχοτιλλομανία και διαταραχές πρόσληψης τροφής, ενώ εργάστηκε επί δύο χρόνια στη Μονάδα Θεραπείας Συμπεριφοράς υπό την εποπτεία του Δρ. Γιάννη Κασβίκη. Παράλληλα, ολοκληρώνει την εκπαίδευσή της στη Συστημική/Ομαδική–Οικογενειακή Θεραπεία στη Μονάδα Οικογενειακής Θεραπείας του Ψυχιατρικού Νοσοκομείου Αττικής, ως μία από τους επιλεγμένους εκπαιδευόμενους με υποτροφία φοίτησης.</p>
                         
-                        <p>Έχει συνεργαστεί με εξειδικευμένα κέντρα διαταραχών πρόσληψης τροφής και έχει ολοκληρώσει μονοετή εξειδικευμένη εκπαίδευση στο ψυχικό τραύμα μέσω του Trauma Research Foundation και του έργου του Dr. Bessel van der Kolk. Διατηρεί ενεργό ενδιαφέρον για τη συνεχιζόμενη και πολυδιάστατη εκπαίδευση, συνδέοντας διαφορετικά πεδία γνώσης και έκφρασης με την κλινική της εμπειρία, ενώ έχει συμμετάσχει και παρουσιάσει σε διεθνείς διοργανώσεις, μεταξύ των οποίων και το συνέδριο του World Psychiatric Association.</p>
+                        <p data-i18n="bio_p3">Έχει συνεργαστεί με εξειδικευμένα κέντρα διαταραχών πρόσληψης τροφής και έχει ολοκληρώσει μονοετή εξειδικευμένη εκπαίδευση στο ψυχικό τραύμα μέσω του Trauma Research Foundation και του έργου του Dr. Bessel van der Kolk. Διατηρεί ενεργό ενδιαφέρον για τη συνεχιζόμενη και πολυδιάστατη εκπαίδευση, συνδέοντας διαφορετικά πεδία γνώσης και έκφρασης με την κλινική της εμπειρία, ενώ έχει συμμετάσχει και παρουσιάσει σε διεθνείς διοργανώσεις, μεταξύ των οποίων και το συνέδριο του World Psychiatric Association.</p>
 
-                        <p>Είναι μουσικός, ασχολείται με τη ζωγραφική και την εκφραστική γραφή, ενώ εκπαιδεύεται και στη θεραπεία μέσω τέχνης (Art Therapy) στο Metàfora Art Therapy Center στη Βαρκελώνη.</p>
+                        <p data-i18n="bio_p4">Είναι μουσικός, ασχολείται με τη ζωγραφική και την εκφραστική γραφή, ενώ εκπαιδεύεται και στη θεραπεία μέσω τέχνης (Art Therapy) στο Metàfora Art Therapy Center στη Βαρκελώνη.</p>
 
-                        <p>Για την ίδια, η υγεία δεν αφορά την αναζήτηση μιας ιδανικής ή «τέλειας» εκδοχής του εαυτού, αλλά μια διαρκή, διαλεκτική διαδικασία ομοιόστασης — την καλύτερη συμφωνία που μπορούμε να κάνουμε με τον εαυτό μας με όσα γνωρίζουμε, όσα νιώθουμε, όσα φανταζόμαστε, όσα μπορούμε, όσα αντέχουμε να αλλάξουμε και να δημιουργήσουμε σε κάθε φάση της ζωής.</p>
+                        <p data-i18n="bio_p5">Για την ίδια, η υγεία δεν αφορά την αναζήτηση μιας ιδανικής ή «τέλειας» εκδοχής του εαυτού, αλλά μια διαρκή, διαλεκτική διαδικασία ομοιόστασης — την καλύτερη συμφωνία που μπορούμε να κάνουμε με τον εαυτό μας με όσα γνωρίζουμε, όσα νιώθουμε, όσα φανταζόμαστε, όσα μπορούμε, όσα αντέχουμε να αλλάξουμε και να δημιουργήσουμε σε κάθε φάση της ζωής.</p>
 
-                        <p>Επηρεασμένη από τη συνθετική και αφηγηματική σκέψη, προσεγγίζει κάθε άνθρωπο ως μια μοναδική ιστορία ζωής, με τη δική της διαδρομή, οργανικότητα, νοήματα, προσαρμογές, ανάγκες και τρόπους ύπαρξης μέσα στον κόσμο. Είναι μέλος της American Psychiatric Association ως International Fellow, της International OCD Foundation, της Academy for Eating Disorders και της Ελληνικής Εταιρείας Ανάλυσης Συμπεριφοράς.</p>
+                        <p data-i18n="bio_p6">Επηρεασμένη από τη συνθετική και αφηγηματική σκέψη, προσεγγίζει κάθε άνθρωπο ως μια μοναδική ιστορία ζωής, με τη δική της διαδρομή, οργανικότητα, νοήματα, προσαρμογές, ανάγκες και τρόπους ύπαρξης μέσα στον κόσμο. Είναι μέλος της American Psychiatric Association ως International Fellow, της International OCD Foundation, της Academy for Eating Disorders και της Ελληνικής Εταιρείας Ανάλυσης Συμπεριφοράς.</p>
                     </div>
                 </div>
 
+                <!-- Main Bio Image -->
                 <div class="lg:col-span-5 order-1 lg:order-2 relative mt-8 lg:mt-0 reveal delay-100">
                     <div class="absolute inset-0 translate-x-4 translate-y-4 md:translate-x-8 md:translate-y-8 border border-gold/40"></div>
                     <div class="absolute inset-0 -translate-x-2 -translate-y-2 bg-cypress/5"></div>
@@ -263,84 +280,87 @@
         </div>
     </section>
 
+    <!-- Services Section -->
     <section id="services" class="py-32 px-6 bg-white">
         <div class="max-w-7xl mx-auto">
             <div class="text-center mb-24 reveal">
-                <h2 class="text-sm uppercase tracking-[0.2em] text-gold mb-4">Οι Υπηρεσίες</h2>
-                <h3 class="text-4xl font-serif text-dark">Αρχιτεκτονική της Υγείας</h3>
+                <h2 class="text-sm uppercase tracking-[0.2em] text-gold mb-4" data-i18n="srv_tag">Οι Υπηρεσίες</h2>
+                <h3 class="text-4xl font-serif text-dark" data-i18n="srv_title">Αρχιτεκτονική της Υγείας</h3>
             </div>
 
             <div class="grid md:grid-cols-2 gap-12">
+                <!-- Υπηρεσία 1 -->
                 <div class="p-10 lg:p-12 border border-dark/5 hover:border-gold/30 transition-all duration-500 bg-base/30 hover:shadow-xl reveal">
                     <h4 class="text-2xl font-serif text-dark mb-4 flex items-center gap-4">
                         <span class="w-8 h-[1px] bg-gold block"></span>
-                        Ατομικές συναντήσεις
+                        <span data-i18n="srv_1_t">Ατομικές συναντήσεις</span>
                     </h4>
-                    <p class="text-dark/60 font-light mb-8 leading-relaxed">
+                    <p class="text-dark/60 font-light mb-8 leading-relaxed" data-i18n="srv_1_d">
                         Ενδεικτικά πεδία ενδιαφέροντος:
                     </p>
                     <ul class="space-y-4 text-dark font-medium text-[15px]">
                         <li class="flex items-start gap-3">
-                            <i data-lucide="check" class="w-4 h-4 text-cypress shrink-0 mt-1"></i> διαχείριση στρες και ψυχικής επιβάρυνσης
+                            <i data-lucide="check" class="w-4 h-4 text-cypress shrink-0 mt-1"></i> <span data-i18n="srv_1_li1">διαχείριση στρες και ψυχικής επιβάρυνσης</span>
                         </li>
                         <li class="flex items-start gap-3">
-                            <i data-lucide="check" class="w-4 h-4 text-cypress shrink-0 mt-1"></i> συναισθηματική ρύθμιση
+                            <i data-lucide="check" class="w-4 h-4 text-cypress shrink-0 mt-1"></i> <span data-i18n="srv_1_li2">συναισθηματική ρύθμιση</span>
                         </li>
                         <li class="flex items-start gap-3">
-                            <i data-lucide="check" class="w-4 h-4 text-cypress shrink-0 mt-1"></i> ανάπτυξη δεξιοτήτων ζωής
+                            <i data-lucide="check" class="w-4 h-4 text-cypress shrink-0 mt-1"></i> <span data-i18n="srv_1_li3">ανάπτυξη δεξιοτήτων ζωής</span>
                         </li>
                         <li class="flex items-start gap-3">
-                            <i data-lucide="check" class="w-4 h-4 text-cypress shrink-0 mt-1"></i> δυσκολίες προσαρμογής και μεταβάσεις ζωής
+                            <i data-lucide="check" class="w-4 h-4 text-cypress shrink-0 mt-1"></i> <span data-i18n="srv_1_li4">δυσκολίες προσαρμογής και μεταβάσεις ζωής</span>
                         </li>
                         <li class="flex items-start gap-3">
-                            <i data-lucide="check" class="w-4 h-4 text-cypress shrink-0 mt-1"></i> διαπροσωπικές προκλήσεις και υγιής οριοθέτηση
+                            <i data-lucide="check" class="w-4 h-4 text-cypress shrink-0 mt-1"></i> <span data-i18n="srv_1_li5">διαπροσωπικές προκλήσεις και υγιής οριοθέτηση</span>
                         </li>
                         <li class="flex items-start gap-3">
-                            <i data-lucide="check" class="w-4 h-4 text-cypress shrink-0 mt-1"></i> ανάπτυξη διεκδικητικής συμπεριφοράς
+                            <i data-lucide="check" class="w-4 h-4 text-cypress shrink-0 mt-1"></i> <span data-i18n="srv_1_li6">ανάπτυξη διεκδικητικής συμπεριφοράς</span>
                         </li>
                         <li class="flex items-start gap-3">
-                            <i data-lucide="check" class="w-4 h-4 text-cypress shrink-0 mt-1"></i> σύνδεση σώματος και ψυχικής εμπειρίας
+                            <i data-lucide="check" class="w-4 h-4 text-cypress shrink-0 mt-1"></i> <span data-i18n="srv_1_li7">σύνδεση σώματος και ψυχικής εμπειρίας</span>
                         </li>
                         <li class="flex items-start gap-3">
-                            <i data-lucide="check" class="w-4 h-4 text-cypress shrink-0 mt-1"></i> αυτοπαρατήρηση και κατανόηση μοτίβων συμπεριφοράς
+                            <i data-lucide="check" class="w-4 h-4 text-cypress shrink-0 mt-1"></i> <span data-i18n="srv_1_li8">αυτοπαρατήρηση και κατανόηση μοτίβων συμπεριφοράς</span>
                         </li>
                         <li class="flex items-start gap-3">
-                            <i data-lucide="check" class="w-4 h-4 text-cypress shrink-0 mt-1"></i> δυσκολίες αυτοεικόνας και σχέσης με το σώμα/τροφή
+                            <i data-lucide="check" class="w-4 h-4 text-cypress shrink-0 mt-1"></i> <span data-i18n="srv_1_li9">δυσκολίες αυτοεικόνας και σχέσης με το σώμα/τροφή</span>
                         </li>
                         <li class="flex items-start gap-3">
-                            <i data-lucide="check" class="w-4 h-4 text-cypress shrink-0 mt-1"></i> ενίσχυση ψυχικής ανθεκτικότητας
+                            <i data-lucide="check" class="w-4 h-4 text-cypress shrink-0 mt-1"></i> <span data-i18n="srv_1_li10">ενίσχυση ψυχικής ανθεκτικότητας</span>
                         </li>
                         <li class="flex items-start gap-3">
-                            <i data-lucide="check" class="w-4 h-4 text-cypress shrink-0 mt-1"></i> αφήγηση προσωπικής ιστορίας και ταυτότητας
+                            <i data-lucide="check" class="w-4 h-4 text-cypress shrink-0 mt-1"></i> <span data-i18n="srv_1_li11">αφήγηση προσωπικής ιστορίας και ταυτότητας</span>
                         </li>
                         <li class="flex items-start gap-3">
-                            <i data-lucide="check" class="w-4 h-4 text-cypress shrink-0 mt-1"></i> burnout και συναισθηματική εξάντληση
+                            <i data-lucide="check" class="w-4 h-4 text-cypress shrink-0 mt-1"></i> <span data-i18n="srv_1_li12">burnout και συναισθηματική εξάντληση</span>
                         </li>
                         <li class="flex items-start gap-3">
-                            <i data-lucide="check" class="w-4 h-4 text-cypress shrink-0 mt-1"></i> δημιουργικότητα, αυθεντικότητα και προσωπική έκφραση
+                            <i data-lucide="check" class="w-4 h-4 text-cypress shrink-0 mt-1"></i> <span data-i18n="srv_1_li13">δημιουργικότητα, αυθεντικότητα και προσωπική έκφραση</span>
                         </li>
                     </ul>
                 </div>
 
+                <!-- Υπηρεσία 2 -->
                 <div class="p-10 lg:p-12 border border-dark/5 hover:border-gold/30 transition-all duration-500 bg-base/30 hover:shadow-xl reveal delay-100 h-fit">
                     <h4 class="text-2xl font-serif text-dark mb-4 flex items-center gap-4">
                         <span class="w-8 h-[1px] bg-gold block"></span>
-                        Σεμινάρια (μελλοντικά)
+                        <span data-i18n="srv_2_t">Σεμινάρια (μελλοντικά)</span>
                     </h4>
-                    <p class="text-dark/60 font-light mb-8 leading-relaxed">
+                    <p class="text-dark/60 font-light mb-8 leading-relaxed" data-i18n="srv_2_d">
                         Ομαδικές δράσεις με σκοπό τη βαθύτερη κατανόηση της ανθρώπινης εμπειρίας.
                     </p>
                     <div class="mt-8">
-                        <h5 class="text-gold uppercase tracking-widest text-xs mb-4">Ομαδικές δράσεις γύρω από:</h5>
+                        <h5 class="text-gold uppercase tracking-widest text-xs mb-4" data-i18n="srv_2_d2">Ομαδικές δράσεις γύρω από:</h5>
                         <ul class="space-y-4 text-dark font-medium text-[15px]">
                             <li class="flex items-start gap-3">
-                                <i data-lucide="check" class="w-4 h-4 text-cypress shrink-0 mt-1"></i> δεξιότητες ζωής
+                                <i data-lucide="check" class="w-4 h-4 text-cypress shrink-0 mt-1"></i> <span data-i18n="srv_2_li1">δεξιότητες ζωής</span>
                             </li>
                             <li class="flex items-start gap-3">
-                                <i data-lucide="check" class="w-4 h-4 text-cypress shrink-0 mt-1"></i> αυτογνωσία
+                                <i data-lucide="check" class="w-4 h-4 text-cypress shrink-0 mt-1"></i> <span data-i18n="srv_2_li2">αυτογνωσία</span>
                             </li>
                             <li class="flex items-start gap-3">
-                                <i data-lucide="check" class="w-4 h-4 text-cypress shrink-0 mt-1"></i> σώμα και συναίσθημα
+                                <i data-lucide="check" class="w-4 h-4 text-cypress shrink-0 mt-1"></i> <span data-i18n="srv_2_li3">σώμα και συναίσθημα</span>
                             </li>
                         </ul>
                     </div>
@@ -349,40 +369,43 @@
         </div>
     </section>
 
+    <!-- Quote Section -->
     <section class="py-40 px-6 cypress-pattern text-base text-center relative overflow-hidden visibility-fix">
         <div class="max-w-4xl mx-auto reveal">
             <svg class="w-10 h-10 mx-auto text-gold/50 mb-10" fill="currentColor" viewBox="0 0 24 24">
                 <path d="M14.017 21v-7.391c0-5.704 3.731-9.57 8.983-10.609l.995 2.151c-2.432.917-3.995 3.638-3.995 5.849h4v10h-9.983zm-14.017 0v-7.391c0-5.704 3.748-9.57 9-10.609l.996 2.151c-2.433.917-3.996 3.638-3.996 5.849h3.983v10h-9.983z" />
             </svg>
             <h2 class="text-3xl md:text-5xl font-serif font-light leading-snug mb-16 text-base mx-auto max-w-3xl">
-                "Στόχος δεν είναι να διορθώσουμε τον άνθρωπο, αλλά να τον συναντήσουμε στο σημείο που <span class="italic text-gold">αναλαμβάνει την ιστορία του</span>."
+                <span data-i18n="quote_p1">"Στόχος δεν είναι να διορθώσουμε τον άνθρωπο, αλλά να τον συναντήσουμε στο σημείο που </span><span class="italic text-gold" data-i18n="quote_gold">αναλαμβάνει την ιστορία του</span><span data-i18n="quote_p2">."</span>
             </h2>
-            <a href="#contact" class="inline-flex items-center justify-center px-10 py-5 border border-gold/30 text-gold hover:bg-gold hover:text-cypress transition-all duration-500 uppercase tracking-widest text-sm">
+            <a href="#contact" class="inline-flex items-center justify-center px-10 py-5 border border-gold/30 text-gold hover:bg-gold hover:text-cypress transition-all duration-500 uppercase tracking-widest text-sm" data-i18n="btn_book">
                 Κλείσε μια πρώτη συνάντηση
             </a>
         </div>
     </section>
 
+    <!-- Media & CMS Articles Integration -->
     <section id="media" class="py-32 px-6 border-b border-dark/10 bg-base">
         <div class="max-w-7xl mx-auto">
             <div class="text-center mb-20 reveal">
-                <h2 class="text-sm uppercase tracking-[0.2em] text-gold mb-4">Παρουσίες & Αρθρογραφία</h2>
-                <h3 class="text-3xl font-serif text-dark mb-10 leading-snug">Άρθρα & Συνεντεύξεις</h3>
+                <h2 class="text-sm uppercase tracking-[0.2em] text-gold mb-4" data-i18n="med_tag">Παρουσίες & Αρθρογραφία</h2>
+                <h3 class="text-3xl font-serif text-dark mb-10 leading-snug" data-i18n="med_title">Άρθρα & Συνεντεύξεις</h3>
             </div>
 
             <div class="flex flex-col gap-16">
                 
+                <!-- 1. Pinned Feature: TrueMed Interview -->
                 <article class="grid lg:grid-cols-2 gap-12 lg:gap-20 items-center reveal bg-white p-8 lg:p-12 shadow-sm border border-gold/20">
                     <div class="order-2 lg:order-1">
-                        <span class="text-xs uppercase tracking-widest text-cypress mb-4 block font-bold">Συνεντευξη</span>
-                        <h3 class="text-3xl font-serif text-dark mb-6 leading-tight">
+                        <span class="text-xs uppercase tracking-widest text-cypress mb-4 block font-bold" data-i18n="med_1_tag">Συνεντευξη</span>
+                        <h3 class="text-3xl font-serif text-dark mb-6 leading-tight" data-i18n="med_1_title">
                             Συνέντευξη: Χαρτογραφώντας τον Κόσμο της Ψυχιατρικής με τη Χριστίνα Κουνατιάδου
                         </h3>
                         <div class="space-y-4 text-dark/70 font-light mb-8 leading-relaxed">
-                            <p>Σε μια ειλικρινή και βαθιά ανθρώπινη συζήτηση με τη Σταματία Κύρλα, η ειδικευόμενη ψυχίατρος Χριστίνα Κουνατιάδου ανοίγει ένα παράθυρο στις αθέατες πλευρές της ψυχικής υγείας και της σύγχρονης ιατρικής πραγματικότητας.</p>
-                            <p>Μέσα από τη δική της προσωπική και επαγγελματική διαδρομή προσεγγίζει καίρια ζητήματα της εποχής μας, αναδεικνύοντας το βιο-ψυχο-κοινωνικό μοντέλο, την ανατομία της σύγχρονης βίας, και απομυθοποιώντας την ψυχιατρική φροντίδα.</p>
+                            <p data-i18n="med_1_p1">Σε μια ειλικρινή και βαθιά ανθρώπινη συζήτηση με τη Σταματία Κύρλα, η ειδικευόμενη ψυχίατρος Χριστίνα Κουνατιάδου ανοίγει ένα παράθυρο στις αθέατες πλευρές της ψυχικής υγείας και της σύγχρονης ιατρικής πραγματικότητας.</p>
+                            <p data-i18n="med_1_p2">Μέσα από τη δική της προσωπική και επαγγελματική διαδρομή προσεγγίζει καίρια ζητήματα της εποχής μας, αναδεικνύοντας το βιο-ψυχο-κοινωνικό μοντέλο, την ανατομία της σύγχρονης βίας, και απομυθοποιώντας την ψυχιατρική φροντίδα.</p>
                         </div>
-                        <a href="https://www.truemed.gr/synenteukseis/kounatiadou-xristina/?fbclid=IwY2xjawRkde5leHRuA2FlbQIxMQBicmlkETFidko0R045T2lFbUJqZWwzc3J0YwZhcHBfaWQQMjIyMDM5MTc4ODIwMDg5MgABHgLJlqKlMRIE0E7g_Mc83HBqz--WbEh4Po3bYX3RKnqOZ0FGhSO4wA-F5E1l_aem_JrYp3_tKchVB7bTuMjKZPw" target="_blank" rel="noopener" class="inline-flex items-center text-sm uppercase tracking-widest text-dark border-b border-dark pb-1 hover:text-gold hover:border-gold transition-colors">
+                        <a href="https://www.truemed.gr/synenteukseis/kounatiadou-xristina/?fbclid=IwY2xjawRkde5leHRuA2FlbQIxMQBicmlkETFidko0R045T2lFbUJqZWwzc3J0YwZhcHBfaWQQMjIyMDM5MTc4ODIwMDg5MgABHgLJlqKlMRIE0E7g_Mc83HBqz--WbEh4Po3bYX3RKnqOZ0FGhSO4wA-F5E1l_aem_JrYp3_tKchVB7bTuMjKZPw" target="_blank" rel="noopener" class="inline-flex items-center text-sm uppercase tracking-widest text-dark border-b border-dark pb-1 hover:text-gold hover:border-gold transition-colors" data-i18n="med_1_btn">
                             Διαβάστε τη Συνέντευξη
                         </a>
                     </div>
@@ -393,17 +416,18 @@
                     </div>
                 </article>
 
+                <!-- 2. Pinned Feature: Action 24 Video -->
                 <article class="grid lg:grid-cols-2 gap-12 lg:gap-20 items-center reveal bg-white p-8 lg:p-12 shadow-sm border border-gold/20">
                     <div class="order-2">
-                        <span class="text-xs uppercase tracking-widest text-cypress mb-4 block font-bold">Video / TV</span>
-                        <h3 class="text-3xl font-serif text-dark mb-6 leading-tight">
+                        <span class="text-xs uppercase tracking-widest text-cypress mb-4 block font-bold" data-i18n="med_2_tag">Video / TV</span>
+                        <h3 class="text-3xl font-serif text-dark mb-6 leading-tight" data-i18n="med_2_title">
                             Συναισθηματική Υπερφαγία & Στρες: Γιατί καταφεύγουμε στο φαγητό;
                         </h3>
                         <div class="space-y-4 text-dark/70 font-light mb-8 leading-relaxed">
-                            <p>Πόσες φορές αναζητήσατε ένα πλούσιο γεύμα μετά από μια πιεστική μέρα, όχι από πραγματική πείνα, αλλά απλώς για να ηρεμήσετε;</p>
-                            <p>Καλεσμένη στην εκπομπή Vitality (ACTION 24 TV), η Χριστίνα Κουνατιάδου προσεγγίζει επιστημονικά –αλλά και με βαθιά ενσυναίσθηση– το συχνό, μα παρεξηγημένο φαινόμενο της συναισθηματικής υπερφαγίας.</p>
+                            <p data-i18n="med_2_p1">Πόσες φορές αναζητήσατε ένα πλούσιο γεύμα μετά από μια πιεστική μέρα, όχι από πραγματική πείνα, αλλά απλώς για να ηρεμήσετε;</p>
+                            <p data-i18n="med_2_p2">Καλεσμένη στην εκπομπή Vitality (ACTION 24 TV), η Χριστίνα Κουνατιάδου προσεγγίζει επιστημονικά –αλλά και με βαθιά ενσυναίσθηση– το συχνό, μα παρεξηγημένο φαινόμενο της συναισθηματικής υπερφαγίας.</p>
                         </div>
-                        <a href="https://www.youtube.com/watch?v=A0SnqUAz-Gg&authuser=0" target="_blank" rel="noopener" class="inline-flex items-center text-sm uppercase tracking-widest text-dark border-b border-dark pb-1 hover:text-gold hover:border-gold transition-colors">
+                        <a href="https://www.youtube.com/watch?v=A0SnqUAz-Gg&authuser=0" target="_blank" rel="noopener" class="inline-flex items-center text-sm uppercase tracking-widest text-dark border-b border-dark pb-1 hover:text-gold hover:border-gold transition-colors" data-i18n="med_2_btn">
                             Δειτε το Βιντεο
                         </a>
                     </div>
@@ -419,10 +443,12 @@
                     </div>
                 </article>
 
+                <!-- Dynamic Contentful Grid -->
                 <div class="pt-16 border-t border-dark/10">
-                    <h3 class="text-3xl font-serif text-dark mb-12 text-center">Όλα τα Άρθρα</h3>
+                    <h3 class="text-3xl font-serif text-dark mb-12 text-center" data-i18n="all_art_title">Όλα τα Άρθρα</h3>
+                    <!-- Εδώ φορτώνονται τα άρθρα -->
                     <div id="dynamic-articles-grid" class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-                        <p class="col-span-full text-center text-dark/60 font-light italic py-10">Φόρτωση άρθρων από το CMS...</p>
+                        <p class="col-span-full text-center text-dark/60 font-light italic py-10" data-i18n="art_loading">Φόρτωση άρθρων από το CMS...</p>
                     </div>
                 </div>
 
@@ -430,15 +456,16 @@
         </div>
     </section>
 
+    <!-- FULL ARTICLE MODAL (POPUP) -->
     <div id="article-modal" class="fixed inset-0 z-[200] bg-dark/90 backdrop-blur-sm flex items-start justify-center opacity-0 pointer-events-none transition-all duration-300 overflow-y-auto" onclick="closeArticleModal()">
         
+        <!-- Fixed Close Button -->
         <button onclick="closeArticleModal()" class="fixed top-6 right-6 md:top-10 md:right-10 w-14 h-14 bg-white text-dark hover:bg-gold hover:text-white rounded-full flex items-center justify-center shadow-2xl z-[250] transition-all duration-300 hover:scale-110 focus:outline-none group">
             <i data-lucide="x" class="w-8 h-8"></i>
         </button>
 
         <div class="flex min-h-screen items-center justify-center py-24 px-4 md:px-8 w-full">
             <div id="article-modal-content" class="bg-base max-w-3xl w-full p-8 md:p-14 shadow-[0_20px_60px_rgba(0,0,0,0.4)] relative border border-white/20 rounded-2xl my-auto transform scale-95 transition-transform duration-300" onclick="event.stopPropagation()">
-                
                 <span id="modal-date" class="text-xs uppercase tracking-widest text-cypress mb-6 block font-bold"></span>
                 <h3 id="modal-title" class="text-3xl md:text-5xl font-serif text-dark mb-10 leading-tight"></h3>
                 
@@ -448,27 +475,28 @@
         </div>
     </div>
 
+    <!-- Contact & Footer -->
     <footer id="contact" class="bg-base pt-32 pb-12 px-6 relative border-t border-dark/10">
         <div class="max-w-7xl mx-auto grid lg:grid-cols-2 gap-20 mb-24">
             
             <div class="reveal">
-                <h3 class="text-4xl font-serif text-dark mb-8">Επικοινωνία</h3>
-                <p class="text-dark/70 font-light mb-12 max-w-md leading-relaxed">
+                <h3 class="text-4xl font-serif text-dark mb-8" data-i18n="cont_title">Επικοινωνία</h3>
+                <p class="text-dark/70 font-light mb-12 max-w-md leading-relaxed" data-i18n="cont_desc">
                     Η πρώτη κίνηση είναι συχνά η πιο σημαντική. Συμπληρώστε τη φόρμα ή χρησιμοποιήστε τα στοιχεία επικοινωνίας παρακάτω.
                 </p>
 
                 <div class="space-y-8 font-light text-sm text-dark">
                     <div>
-                        <h5 class="text-gold uppercase tracking-widest text-xs mb-3">Ωράριο Λειτουργίας</h5>
-                        <p>Δευτέρα - Παρασκευή</p>
-                        <p class="text-dark/60 mt-1 italic">Κατόπιν Ραντεβού</p>
+                        <h5 class="text-gold uppercase tracking-widest text-xs mb-3" data-i18n="cont_hours_t">Ωράριο Λειτουργίας</h5>
+                        <p data-i18n="cont_hours_d">Δευτέρα - Παρασκευή</p>
+                        <p class="text-dark/60 mt-1 italic" data-i18n="cont_hours_a">Κατόπιν Ραντεβού</p>
                     </div>
                     <div>
-                        <h5 class="text-gold uppercase tracking-widest text-xs mb-3">Τηλέφωνο</h5>
+                        <h5 class="text-gold uppercase tracking-widest text-xs mb-3" data-i18n="cont_tel">Τηλέφωνο</h5>
                         <p><a href="tel:+306972153775" class="hover:text-gold transition-colors">+30 697 215 3775</a></p>
                     </div>
                     <div>
-                        <h5 class="text-gold uppercase tracking-widest text-xs mb-3">Email</h5>
+                        <h5 class="text-gold uppercase tracking-widest text-xs mb-3" data-i18n="cont_email">Email</h5>
                         <p><a href="mailto:hello@atelia.gr" class="hover:text-gold transition-colors">hello@atelia.gr</a></p>
                     </div>
                 </div>
@@ -477,23 +505,23 @@
             <div class="reveal delay-100">
                 <form class="space-y-8">
                     <div>
-                        <input type="text" placeholder="Όνομα" class="input-editorial w-full" required>
+                        <input type="text" placeholder="Όνομα" data-i18n="form_name" class="input-editorial w-full" required>
                     </div>
                     <div>
-                        <input type="email" placeholder="Email" class="input-editorial w-full" required>
+                        <input type="email" placeholder="Email" data-i18n="form_email" class="input-editorial w-full" required>
                     </div>
                     <div>
-                        <textarea placeholder="Μήνυμα" rows="4" class="input-editorial w-full resize-none" required></textarea>
+                        <textarea placeholder="Μήνυμα" data-i18n="form_msg" rows="4" class="input-editorial w-full resize-none" required></textarea>
                     </div>
                     <button type="submit" class="group relative inline-flex items-center justify-center px-10 py-5 overflow-hidden border border-dark text-dark transition-all duration-500 hover:bg-dark hover:text-base w-full md:w-auto">
-                        <span class="text-sm uppercase tracking-widest font-medium z-10">Αποστολή</span>
+                        <span class="text-sm uppercase tracking-widest font-medium z-10" data-i18n="form_send">Αποστολή</span>
                     </button>
                 </form>
             </div>
         </div>
 
         <div class="max-w-7xl mx-auto border-t border-dark/10 pt-10 flex flex-col md:flex-row justify-between items-center gap-6 reveal">
-            <p class="text-dark/50 text-xs tracking-wide">© 2026 Ατέλεια. All rights reserved.</p>
+            <p class="text-dark/50 text-xs tracking-wide" data-i18n="footer_rights">© 2026 Ατέλεια. All rights reserved.</p>
             
             <a href="#hero" class="group relative z-50 transform hover:-translate-y-1 transition-transform">
                 <img src="https://raw.githubusercontent.com/agelmet/KOUNATIADOU/refs/heads/main/ChatGPT%20Image%204%20%CE%9C%CE%B1%CE%90%202026%2C%2012_15_51%20%CF%80.%CE%BC..png" alt="Ατέλεια" class="h-24 w-24 md:h-28 md:w-28 rounded-full object-cover opacity-80 hover:opacity-100 transition-opacity drop-shadow-sm">
@@ -505,10 +533,137 @@
         </div>
     </footer>
 
+    <!-- Scripts -->
     <script>
         lucide.createIcons();
 
-        // Mobile Menu
+        // --- TRANSLATION LOGIC ---
+        const translations = {
+            en: {
+                nav_home: "Home", nav_about: "Atelia", nav_services: "Services", nav_media: "Articles & Media", nav_contact: "Contact",
+                hero_subtitle: "Atelia", hero_title_1: "The art of being", hero_title_2: "Human.", hero_quote: "«From survival to choice.»", hero_desc: "A space for connection, psychoeducation, and health promotion.", btn_book: "Book a session",
+                intro_p1: "Atelia is a space for understanding and exploring what it means to be human. It focuses on the", intro_gold: "architecture of health", intro_p1_cont: ", not on illness.", intro_p2: "On potential, opportunity, knowledge, and choice. It is an invitation to connect with who we are — through our relationship with imperfection.",
+                preview_01_title: "Individual Sessions", preview_01_desc: "A safe, stable space for self-understanding and support during periods of transition or difficulty.",
+                preview_02_title: "Counseling", preview_02_desc: "Focused guidance for specific concerns, enhancing decision-making skills and autonomy.",
+                preview_03_title: "Life Seminars", preview_03_desc: "Group educational activities focused on the skills required by modern reality and emotional development.",
+                preview_btn: "See More",
+                phil_tag: "THE PHILOSOPHY",
+                phil_p1: "«Atelia» was born as a space for observation, connection, exploration, and processing of the human experience — a way to know health not merely as the absence of illness, but as a living process of adaptation, connection, and meaning. Through scientific knowledge, medicine, art, community, and systemic thinking, it attempts to connect the different ways in which people inhabit themselves and their lives.",
+                phil_p2: "At «Atelia», whatever looks like a 'symptom' is utilized to introduce the unique way each person tries to survive, protect themselves, find relief, and exist. Health is approached as life architecture and the development of health skills — a deeper ability to relate to the body, emotions, and their regulatory mechanisms, stress, relationships, difficulties, challenges, and life's shifts.",
+                phil_p3: "«Atelia» is interested in what we have learned, what we might need to unlearn, and what we can and dare to learn all over again, aiming to live life with more freedom, consciousness, and truth. It is about how we write, narrate, and experience the story of ourselves and our lives — but also about the ability to re-signify it, share it, and find a more authentic place in the world within and the world outside us, according to our values and dreams.",
+                phil_p4: "At «Atelia», we do not reject the imperfect - we honor it, giving it the importance it deserves - as the beginning of authenticity, uniqueness, human truth, and essential connection. As an opportunity and potential - for a life that holds the meaning we give it.",
+                phil_p5: "Imperfection as a Beginning. Imperfection as acceptance. Imperfection as change. Imperfection as authenticity. Imperfection as truth. Imperfection as Human.",
+                phil_author: "— Christina Kounatiadou, Psychiatrist, Founder of «Atelia»",
+                bio_name: "Christina Kounatiadou", bio_sub: "Medical Doctor - Psychiatry Resident",
+                bio_p1: "Christina Kounatiadou is a medical doctor specializing in Psychiatry. Her postgraduate studies focus on the «Science of Stress and Health Promotion» at the Medical School of NKUA, with a scholarship of excellence and research work on the correlation between stress, autoimmune diseases, and eating disorders.",
+                bio_p2: "Her path includes training in more than one psychotherapeutic approach. She has been trained in Behavior Analysis and Therapy for anxiety disorders, PTSD, OCD, trichotillomania, and eating disorders, while she worked for two years at the Behavior Therapy Unit under the supervision of Dr. Giannis Kasvikis. Currently, she is completing her training in Systemic/Group-Family Therapy at the Family Therapy Unit of the Psychiatric Hospital of Attica, as one of the selected trainees with a scholarship.",
+                bio_p3: "She has collaborated with specialized eating disorder centers and has completed a one-year specialized training in psychological trauma through the Trauma Research Foundation and the work of Dr. Bessel van der Kolk. She maintains an active interest in continuous and multidimensional education, connecting different fields of knowledge and expression with her clinical experience, and has participated and presented in international events, including the World Psychiatric Association congress.",
+                bio_p4: "She is a musician, paints, and engages in expressive writing, while she is also training in Art Therapy at the Metàfora Art Therapy Center in Barcelona.",
+                bio_p5: "For her, health is not about the search for an ideal or 'perfect' version of the self, but a continuous, dialectical process of homeostasis — the best agreement we can make with ourselves with what we know, what we feel, what we imagine, what we can, and what we endure to change and create in each phase of life.",
+                bio_p6: "Influenced by synthetic and narrative thinking, she approaches every person as a unique life story, with its own path, organicity, meanings, adaptations, needs, and ways of existing in the world. She is an International Fellow of the American Psychiatric Association, a member of the International OCD Foundation, the Academy for Eating Disorders, and the Hellenic Association for Behavior Analysis.",
+                srv_tag: "The Services", srv_title: "Architecture of Health",
+                srv_1_t: "Individual sessions", srv_1_d: "Indicative fields of interest:",
+                srv_1_li1: "stress and mental burden management", srv_1_li2: "emotional regulation", srv_1_li3: "development of life skills", srv_1_li4: "adaptation difficulties and life transitions", srv_1_li5: "interpersonal challenges and healthy boundaries", srv_1_li6: "development of assertive behavior", srv_1_li7: "connection between body and psychological experience", srv_1_li8: "self-observation and understanding behavioral patterns", srv_1_li9: "self-image issues and relationship with body/food", srv_1_li10: "enhancement of psychological resilience", srv_1_li11: "personal story and identity narration", srv_1_li12: "burnout and emotional exhaustion", srv_1_li13: "creativity, authenticity, and personal expression",
+                srv_2_t: "Seminars (future)", srv_2_d: "Group activities aimed at a deeper understanding of the human experience.", srv_2_d2: "Group activities around:",
+                srv_2_li1: "life skills", srv_2_li2: "self-awareness", srv_2_li3: "body and emotion",
+                quote_p1: "\"The goal is not to fix the person, but to meet them at the point where they ", quote_gold: "take ownership of their story", quote_p2: ".\"",
+                med_tag: "Media & Articles", med_title: "Articles & Interviews",
+                med_1_tag: "Interview", med_1_title: "Interview: Mapping the World of Psychiatry with Christina Kounatiadou",
+                med_1_p1: "In an honest and deeply human conversation with Stamatia Kyrla, psychiatry resident Christina Kounatiadou opens a window into the unseen aspects of mental health and modern medical reality.",
+                med_1_p2: "Through her personal and professional journey, she approaches key issues of our time, highlighting the bio-psycho-social model, the anatomy of modern violence, and demystifying psychiatric care.",
+                med_1_btn: "Read the Interview",
+                med_2_tag: "Video / TV", med_2_title: "Emotional Overeating & Stress: Why do we turn to food?",
+                med_2_p1: "How many times have you sought a rich meal after a stressful day, not out of true hunger, but simply to calm down?",
+                med_2_p2: "As a guest on the show Vitality (ACTION 24 TV), Christina Kounatiadou approaches scientifically – and with deep empathy – the frequent but misunderstood phenomenon of emotional overeating.",
+                med_2_btn: "Watch the Video",
+                all_art_title: "All Articles", art_loading: "Loading articles from CMS...", art_error: "Error loading articles. Please try again later.", art_empty: "No articles found at the moment.", art_read_more: "Read More", art_click_more: "Click to read the full article...",
+                cont_title: "Contact", cont_desc: "The first step is often the most important. Fill out the form or use the contact details below.",
+                cont_hours_t: "Working Hours", cont_hours_d: "Monday - Friday", cont_hours_a: "By Appointment",
+                cont_tel: "Phone", cont_email: "Email", form_name: "Name", form_email: "Email", form_msg: "Message", form_send: "Send",
+                footer_rights: "© 2026 Atelia. All rights reserved."
+            },
+            el: {
+                nav_home: "Αρχική", nav_about: "Η Ατέλεια", nav_services: "Υπηρεσίες", nav_media: "Άρθρα & Παρουσίες", nav_contact: "Επικοινωνία",
+                hero_subtitle: "Ατέλεια", hero_title_1: "Η τέχνη του να είσαι", hero_title_2: "Άνθρωπος.", hero_quote: "«Από την επιβίωση, στην επιλογή.»", hero_desc: "Ένας χώρος συνάντησης, ψυχοεκπαίδευσης και προαγωγής της υγείας.", btn_book: "Κλείσε μια συνάντηση",
+                intro_p1: "Η Ατέλεια είναι ένας χώρος κατανόησης κι εξερεύνησης του τι σημαίνει να είσαι άνθρωπος. Είναι ένας χώρος που εστιάζει στην", intro_gold: "αρχιτεκτονική της υγείας", intro_p1_cont: ", όχι στην ασθένεια.", intro_p2: "Στην δυνατότητα, την ευκαιρία, την γνώση, την επιλογή. Είναι μια πρόσκληση να έρθουμε σε επαφή με αυτό που είμαστε — μέσα από τη σχέση μας με την ατέλεια.",
+                preview_01_title: "Ατομικές Συναντήσεις", preview_01_desc: "Ένας ασφαλής, σταθερός χώρος για την κατανόηση του εαυτού και την υποστήριξη σε περιόδους μετάβασης ή δυσκολίας.",
+                preview_02_title: "Συμβουλευτική", preview_02_desc: "Εστιασμένη καθοδήγηση για συγκεκριμένους προβληματισμούς, ενισχύοντας την ικανότητα λήψης αποφάσεων και την αυτονομία.",
+                preview_03_title: "Σεμινάρια Ζωής", preview_03_desc: "Ομαδικές δράσεις εκπαίδευσης γύρω από τις δεξιότητες που απαιτεί η σύγχρονη πραγματικότητα και η συναισθηματική ανάπτυξη.",
+                preview_btn: "Δες Περισσότερα",
+                phil_tag: "Η ΦΙΛΟΣΟΦΙΑ",
+                phil_p1: "Η «Ατέλεια» γεννήθηκε ως ένας χώρος παρατήρησης, συνάντησης, εξερεύνησης και επεξεργασίας της ανθρώπινης εμπειρίας — ενός τρόπου να γνωρίσουμε την υγεία όχι μόνο ως απουσία ασθένειας, αλλά ως μια ζωντανή διαδικασία προσαρμογής, σύνδεσης και νοήματος. Μέσα από την επιστημονική γνώση, την ιατρική, την τέχνη, την κοινότητα, τη συστημική σκέψη, επιχειρεί να συνδέσει τους διαφορετικούς τρόπους με τους οποίους οι άνθρωποι κατοικούν τον εαυτό και τη ζωή τους.",
+                phil_p2: "Στην \"Ατέλεια\", ο,τι μοιάζει με \"σύμπτωμα\" αξιοποιείται για να συστήσει τον μοναδικό τρόπο με τον οποίο κάθε άνθρωπος προσπαθεί να επιβιώσει, να προστατευτεί, να ανακουφιστεί, να υπάρξει. Στην «Ατέλεια», η υγεία προσεγγίζεται ως αρχιτεκτονική ζωής και ανάπτυξη δεξιοτήτων υγείας — μιας βαθύτερης ικανότητας να σχετιζόμαστε με το σώμα, τα συναισθήματα και τους μηχανισμούς ρύθμισής τους, το στρες, τις σχέσεις, τις δυσκολίες, τις προκλήσεις και τις μεταβολές της ζωής.",
+                phil_p3: "Η «Ατέλεια» ενδιαφέρεται για όσα μάθαμε, όσα ίσως χρειάζεται να ξεμάθουμε και όσα μπορούμε και τολμούμε να μάθουμε ξανά από την αρχή, με σκοπό να ζήσουμε τη ζωή με περισσότερη ελευθερία, συνείδηση κι αλήθεια. Για τον τρόπο με τον οποίο γράφουμε, αφηγούμαστε και βιώνουμε την ιστορία του εαυτού και της ζωής μας — αλλά και για τη δυνατότητα να την επανανοηματοδοτήσουμε, να την μοιραστούμε και να βρούμε μια πιο αυθεντική θέση στον κόσμο μέσα και στον κόσμο έξω μας, σύμφωνα με τις αξίες και τα όνειρα μας.",
+                phil_p4: "Στην «Ατέλεια», δεν απορρίπτουμε το ατελές - το τιμάμε, δίνοντας του τη σημασία που του αξίζει - ως αρχή της αυθεντικότητας, της μοναδικότητας, της ανθρώπινης αλήθειας, της ουσιαστικής συνάντησης. Ως ευκαιρία και δυνατότητα - για μια ζωή που έχει το νόημα που της δίνουμε.",
+                phil_p5: "Ατέλεια σαν Αρχή. Ατέλεια σαν αποδοχή. Ατέλεια σαν αλλαγή. Ατέλεια σαν αυθεντικότητα. Ατέλεια σαν αλήθεια. Ατέλεια σαν Ανθρωπος.",
+                phil_author: "— Χριστινα Κουνατιάδου, ειδ. ψυχίατρος, ιδρύτρια της \"Ατέλεια\"",
+                bio_name: "Χριστίνα Κουνατιάδου", bio_sub: "Ιατρός - Ειδικευόμενη Ψυχιατρικής",
+                bio_p1: "Η Χριστίνα Κουνάτιαδου είναι ιατρός και ειδικεύεται στην Ψυχιατρική. Οι μεταπτυχιακές της σπουδές επικεντρώνονται στην «Επιστήμη του Στρες και Προαγωγή της Υγείας» στην Ιατρική Σχολή του ΕΚΠΑ, με υποτροφία αριστείας και ερευνητικό έργο πάνω στη συσχέτιση στρες, αυτοάνοσων παθήσεων και διαταραχών πρόσληψης τροφής.",
+                bio_p2: "Η πορεία της περιλαμβάνει εκπαίδευση σε παραπάνω από μια ψυχοθεραπευτικές προσεγγίσεις. Έχει εκπαιδευτεί στην Ανάλυση και Θεραπεία Συμπεριφοράς για αγχώδεις διαταραχές, μετατραυματική διαταραχή του στρες, ιδεοψυχαναγκαστική διαταραχή, τριχοτιλλομανία και διαταραχές πρόσληψης τροφής, ενώ εργάστηκε επί δύο χρόνια στη Μονάδα Θεραπείας Συμπεριφοράς υπό την εποπτεία του Δρ. Γιάννη Κασβίκη. Παράλληλα, ολοκληρώνει την εκπαίδευσή της στη Συστημική/Ομαδική–Οικογενειακή Θεραπεία στη Μονάδα Οικογενειακής Θεραπείας του Ψυχιατρικού Νοσοκομείου Αττικής, ως μία από τους επιλεγμένους εκπαιδευόμενους με υποτροφία φοίτησης.",
+                bio_p3: "Έχει συνεργαστεί με εξειδικευμένα κέντρα διαταραχών πρόσληψης τροφής και έχει ολοκληρώσει μονοετή εξειδικευμένη εκπαίδευση στο ψυχικό τραύμα μέσω του Trauma Research Foundation και του έργου του Dr. Bessel van der Kolk. Διατηρεί ενεργό ενδιαφέρον για τη συνεχιζόμενη και πολυδιάστατη εκπαίδευση, συνδέοντας διαφορετικά πεδία γνώσης και έκφρασης με την κλινική της εμπειρία, ενώ έχει συμμετάσχει και παρουσιάσει σε διεθνείς διοργανώσεις, μεταξύ των οποίων και το συνέδριο του World Psychiatric Association.",
+                bio_p4: "Είναι μουσικός, ασχολείται με τη ζωγραφική και την εκφραστική γραφή, ενώ εκπαιδεύεται και στη θεραπεία μέσω τέχνης (Art Therapy) στο Metàfora Art Therapy Center στη Βαρκελώνη.",
+                bio_p5: "Για την ίδια, η υγεία δεν αφορά την αναζήτηση μιας ιδανικής ή «τέλειας» εκδοχής του εαυτού, αλλά μια διαρκή, διαλεκτική διαδικασία ομοιόστασης — την καλύτερη συμφωνία που μπορούμε να κάνουμε με τον εαυτό μας με όσα γνωρίζουμε, όσα νιώθουμε, όσα φανταζόμαστε, όσα μπορούμε, όσα αντέχουμε να αλλάξουμε και να δημιουργήσουμε σε κάθε φάση της ζωής.",
+                bio_p6: "Επηρεασμένη από τη συνθετική και αφηγηματική σκέψη, προσεγγίζει κάθε άνθρωπο ως μια μοναδική ιστορία ζωής, με τη δική της διαδρομή, οργανικότητα, νοήματα, προσαρμογές, ανάγκες και τρόπους ύπαρξης μέσα στον κόσμο. Είναι μέλος της American Psychiatric Association ως International Fellow, της International OCD Foundation, της Academy for Eating Disorders και της Ελληνικής Εταιρείας Ανάλυσης Συμπεριφοράς.",
+                srv_tag: "Οι Υπηρεσίες", srv_title: "Αρχιτεκτονική της Υγείας",
+                srv_1_t: "Ατομικές συναντήσεις", srv_1_d: "Ενδεικτικά πεδία ενδιαφέροντος:",
+                srv_1_li1: "διαχείριση στρες και ψυχικής επιβάρυνσης", srv_1_li2: "συναισθηματική ρύθμιση", srv_1_li3: "ανάπτυξη δεξιοτήτων ζωής", srv_1_li4: "δυσκολίες προσαρμογής και μεταβάσεις ζωής", srv_1_li5: "διαπροσωπικές προκλήσεις και υγιής οριοθέτηση", srv_1_li6: "ανάπτυξη διεκδικητικής συμπεριφοράς", srv_1_li7: "σύνδεση σώματος και ψυχικής εμπειρίας", srv_1_li8: "αυτοπαρατήρηση και κατανόηση μοτίβων συμπεριφοράς", srv_1_li9: "δυσκολίες αυτοεικόνας και σχέσης με το σώμα/τροφή", srv_1_li10: "ενίσχυση ψυχικής ανθεκτικότητας", srv_1_li11: "αφήγηση προσωπικής ιστορίας και ταυτότητας", srv_1_li12: "burnout και συναισθηματική εξάντληση", srv_1_li13: "δημιουργικότητα, αυθεντικότητα και προσωπική έκφραση",
+                srv_2_t: "Σεμινάρια (μελλοντικά)", srv_2_d: "Ομαδικές δράσεις με σκοπό τη βαθύτερη κατανόηση της ανθρώπινης εμπειρίας.", srv_2_d2: "Ομαδικές δράσεις γύρω από:",
+                srv_2_li1: "δεξιότητες ζωής", srv_2_li2: "αυτογνωσία", srv_2_li3: "σώμα και συναίσθημα",
+                quote_p1: "\"Στόχος δεν είναι να διορθώσουμε τον άνθρωπο, αλλά να τον συναντήσουμε στο σημείο που ", quote_gold: "αναλαμβάνει την ιστορία του", quote_p2: ".\"",
+                med_tag: "Παρουσίες & Αρθρογραφία", med_title: "Άρθρα & Συνεντεύξεις",
+                med_1_tag: "Συνεντευξη", med_1_title: "Συνέντευξη: Χαρτογραφώντας τον Κόσμο της Ψυχιατρικής με τη Χριστίνα Κουνατιάδου",
+                med_1_p1: "Σε μια ειλικρινή και βαθιά ανθρώπινη συζήτηση με τη Σταματία Κύρλα, η ειδικευόμενη ψυχίατρος Χριστίνα Κουνατιάδου ανοίγει ένα παράθυρο στις αθέατες πλευρές της ψυχικής υγείας και της σύγχρονης ιατρικής πραγματικότητας.",
+                med_1_p2: "Μέσα από τη δική της προσωπική και επαγγελματική διαδρομή προσεγγίζει καίρια ζητήματα της εποχής μας, αναδεικνύοντας το βιο-ψυχο-κοινωνικό μοντέλο, την ανατομία της σύγχρονης βίας, και απομυθοποιώντας την ψυχιατρική φροντίδα.",
+                med_1_btn: "Διαβάστε τη Συνέντευξη",
+                med_2_tag: "Video / TV", med_2_title: "Συναισθηματική Υπερφαγία & Στρες: Γιατί καταφεύγουμε στο φαγητό;",
+                med_2_p1: "Πόσες φορές αναζητήσατε ένα πλούσιο γεύμα μετά από μια πιεστική μέρα, όχι από πραγματική πείνα, αλλά απλώς για να ηρεμήσετε;",
+                med_2_p2: "Καλεσμένη στην εκπομπή Vitality (ACTION 24 TV), η Χριστίνα Κουνατιάδου προσεγγίζει επιστημονικά –αλλά και με βαθιά ενσυναίσθηση– το συχνό, μα παρεξηγημένο φαινόμενο της συναισθηματικής υπερφαγίας.",
+                med_2_btn: "Δειτε το Βιντεο",
+                all_art_title: "Όλα τα Άρθρα", art_loading: "Φόρτωση άρθρων από το CMS...", art_error: "Σφάλμα κατά τη φόρτωση των άρθρων. Παρακαλώ δοκιμάστε ξανά αργότερα.", art_empty: "Δεν βρέθηκαν άρθρα προς το παρόν.", art_read_more: "Διαβαστε Περισσοτερα", art_click_more: "Κάντε κλικ για να διαβάσετε ολόκληρο το άρθρο...",
+                cont_title: "Επικοινωνία", cont_desc: "Η πρώτη κίνηση είναι συχνά η πιο σημαντική. Συμπληρώστε τη φόρμα ή χρησιμοποιήστε τα στοιχεία επικοινωνίας παρακάτω.",
+                cont_hours_t: "Ωράριο Λειτουργίας", cont_hours_d: "Δευτέρα - Παρασκευή", cont_hours_a: "Κατόπιν Ραντεβού",
+                cont_tel: "Τηλέφωνο", cont_email: "Email", form_name: "Όνομα", form_email: "Email", form_msg: "Μήνυμα", form_send: "Αποστολή",
+                footer_rights: "© 2026 Ατέλεια. All rights reserved."
+            }
+        };
+
+        let currentLang = 'el'; // Default to Greek
+
+        document.addEventListener('DOMContentLoaded', () => {
+            // URL Detection Logic
+            // If the URL ends with /en or /en/, we are on the English page
+            const path = window.location.pathname.replace(/\/$/, '');
+            const isEnglish = path.endsWith('/en');
+            
+            const langSwitcher = document.getElementById('lang-switcher');
+            const langFlag = document.getElementById('lang-flag');
+
+            if (isEnglish) {
+                currentLang = 'en';
+                // Show Greek flag, set link back to root
+                langFlag.src = 'https://flagcdn.com/w80/gr.png';
+                langSwitcher.href = '/';
+                
+                // Apply English translations
+                document.querySelectorAll('[data-i18n]').forEach(el => {
+                    const key = el.getAttribute('data-i18n');
+                    if(translations['en'][key]) {
+                        if (el.tagName === 'INPUT' || el.tagName === 'TEXTAREA') {
+                            el.placeholder = translations['en'][key];
+                        } else {
+                            el.innerHTML = translations['en'][key];
+                        }
+                    }
+                });
+            } else {
+                currentLang = 'el';
+                // Show UK flag, set link to /en
+                langFlag.src = 'https://flagcdn.com/w80/gb.png';
+                langSwitcher.href = '/en';
+            }
+        });
+
+        // 1. Mobile Menu
         const btn = document.getElementById('mobile-menu-btn');
         const menu = document.getElementById('mobile-menu');
         const links = document.querySelectorAll('.mobile-link');
@@ -530,7 +685,7 @@
         btn.addEventListener('click', toggleMenu);
         links.forEach(link => link.addEventListener('click', toggleMenu));
 
-        // Intersection Observer (Scroll Animations)
+        // 2. Intersection Observer (Scroll Animations)
         const observer = new IntersectionObserver((entries, observer) => {
             entries.forEach(entry => {
                 if (entry.isIntersecting) {
@@ -542,7 +697,7 @@
 
         document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
 
-        // Navbar Scroll Behavior
+        // 3. Navbar Scroll Behavior
         const navbar = document.getElementById('navbar');
         window.addEventListener('scroll', () => {
             if (window.scrollY > 50) {
@@ -554,18 +709,20 @@
             }
         });
 
-        // CONTENTFUL INTEGRATION & MODAL LOGIC
+        // 4. Contentful Integration & Dynamic Modals
         const client = contentful.createClient({
             space: 'tovjl7zlci7q', 
             accessToken: '2zRMzD79QA1j6CCeTgehLTnYnT2z8e65kAF-h6xOhvc',
             environment: 'master'
         });
 
-        let allArticles = []; // Store fetched articles globally for the modal
+        let allArticles = []; 
 
         function formatDate(dateString) {
             const options = { year: 'numeric', month: 'long', day: 'numeric' };
-            return new Date(dateString).toLocaleDateString('el-GR', options);
+            // Optional: format date based on language (e.g. 'en-US' or 'el-GR')
+            const locale = currentLang === 'en' ? 'en-US' : 'el-GR';
+            return new Date(dateString).toLocaleDateString(locale, options);
         }
 
         function getImageUrl(url) {
@@ -573,8 +730,7 @@
             return url.startsWith('//') ? 'https:' + url : url;
         }
 
-        // Ο Έξυπνος Μεταφραστής Rich Text
-        function renderNode(node, assets = []) {
+        function renderNode(node) {
             if (!node) return '';
 
             if (node.nodeType === 'text') {
@@ -590,7 +746,7 @@
                 return html;
             }
 
-            const contentHtml = node.content ? node.content.map(c => renderNode(c, assets)).join('') : '';
+            const contentHtml = node.content ? node.content.map(renderNode).join('') : '';
 
             switch (node.nodeType) {
                 case 'paragraph': return `<p class="mb-5 leading-relaxed">${contentHtml}</p>`;
@@ -599,20 +755,13 @@
                 case 'heading-3': return `<h3 class="text-xl md:text-2xl font-serif text-dark mt-6 mb-4">${contentHtml}</h3>`;
                 case 'hyperlink': return `<a href="${node.data.uri}" target="_blank" class="text-gold hover:underline font-bold">${contentHtml}</a>`;
                 
-                case 'unordered-list': return `<ul class="list-disc pl-5 space-y-2 mb-6 marker:text-cypress">${contentHtml}</ul>`;
-                case 'ordered-list': return `<ol class="list-decimal pl-5 space-y-2 mb-6 marker:text-cypress">${contentHtml}</ol>`;
-                case 'list-item': return `<li>${contentHtml}</li>`;
-
                 case 'embedded-asset-block':
-                    if (node.data && node.data.target && node.data.target.sys) {
-                        const assetId = node.data.target.sys.id;
-                        const asset = assets.find(a => a.sys.id === assetId);
-                        
-                        if (asset && asset.fields && asset.fields.file) {
-                            const url = getImageUrl(asset.fields.file.url);
-                            const title = asset.fields.title || 'Εικόνα';
-                            return `<img src="${url}" alt="${title}" class="w-full h-auto rounded-xl my-10 shadow-sm border border-dark/5 object-cover max-h-[500px]">`;
-                        }
+                    const target = node.data.target;
+                    if (target && target.fields && target.fields.file) {
+                        const url = target.fields.file.url;
+                        const title = target.fields.title || 'Εικόνα';
+                        const finalUrl = getImageUrl(url);
+                        return `<img src="${finalUrl}" alt="${title}" class="w-full h-auto rounded-xl my-10 block shadow-lg border border-dark/5 object-cover">`;
                     }
                     return '';
                 
@@ -621,72 +770,7 @@
             }
         }
 
-        // Φόρτωση Άρθρων
-        document.addEventListener("DOMContentLoaded", () => {
-            client.getEntries({ order: '-sys.createdAt', include: 2 })
-                .then((response) => {
-                    const container = document.getElementById('dynamic-articles-grid');
-                    const assets = response.includes && response.includes.Asset ? response.includes.Asset : [];
-                    
-                    if (response.items.length === 0) {
-                        container.innerHTML = "<p class='col-span-full text-center text-dark/60 font-light italic py-10'>Δεν βρέθηκαν άρθρα προς το παρόν.</p>";
-                        return;
-                    }
-
-                    container.innerHTML = ""; 
-
-                    response.items.forEach((entry, index) => {
-                        const title = entry.fields.title || "Χωρίς Τίτλο";
-                        const date = formatDate(entry.sys.createdAt);
-                        const bodyHtml = renderNode(entry.fields.text || entry.fields.body, assets); 
-                        
-                        let coverImageUrl = '';
-                        if (entry.fields.image && entry.fields.image.fields && entry.fields.image.fields.file) {
-                            coverImageUrl = getImageUrl(entry.fields.image.fields.file.url);
-                        } else if (entry.fields.image && entry.fields.image.sys) {
-                            const assetId = entry.fields.image.sys.id;
-                            const asset = assets.find(a => a.sys.id === assetId);
-                            if(asset && asset.fields && asset.fields.file) {
-                                coverImageUrl = getImageUrl(asset.fields.file.url);
-                            }
-                        }
-                        
-                        allArticles.push({ title, bodyHtml, date, coverImage: coverImageUrl });
-
-                        const delayClass = index % 3 === 0 ? '' : (index % 3 === 1 ? 'delay-100' : 'delay-200');
-
-                        const summaryText = bodyHtml.replace(/<[^>]*>?/gm, ' ').substring(0, 140) + '...';
-
-                        const articleHTML = `
-                            <article class="cms-item reveal ${delayClass} bg-white p-6 md:p-8 border border-dark/5 hover:shadow-xl transition-all duration-500 flex flex-col h-full group rounded-md cursor-pointer border-l-4 hover:border-l-gold" onclick="openArticleModal(${index})">
-                                ${coverImageUrl ? `<div class="aspect-video w-full overflow-hidden mb-6 rounded-md bg-base"><img src="${coverImageUrl}" alt="${title}" class="w-full h-full object-cover transform transition-transform duration-700 group-hover:scale-105"></div>` : ''}
-                                <span class="text-xs uppercase tracking-widest text-cypress mb-3 block font-bold">${date}</span>
-                                <h4 class="text-xl md:text-2xl font-serif text-dark mb-4 leading-tight group-hover:text-gold transition-colors">${title}</h4>
-                                <div class="text-dark/60 text-sm md:text-base font-light mb-6 line-clamp-3 flex-grow">
-                                    ${summaryText}
-                                </div>
-                                <span class="text-xs uppercase tracking-widest text-dark font-bold border-b border-dark pb-1 inline-table group-hover:text-gold group-hover:border-gold transition-colors mt-auto w-max">
-                                    Διαβαστε Περισσοτερα
-                                </span>
-                            </article>
-                        `;
-                        
-                        container.insertAdjacentHTML('beforeend', articleHTML);
-                    });
-
-                    const dynamicReveals = container.querySelectorAll('.reveal');
-                    dynamicReveals.forEach(el => observer.observe(el));
-                })
-                .catch((error) => {
-                    console.error("Contentful Error:", error);
-                    document.getElementById('dynamic-articles-grid').innerHTML = `
-                        <p class="col-span-full text-center text-red-500/80 font-medium py-10">
-                            Σφάλμα κατά τη φόρτωση των άρθρων. Παρακαλώ δοκιμάστε ξανά αργότερα.
-                        </p>`;
-                });
-        });
-
-        // Λειτουργίες Popup (Modal) Άρθρου
+        // Συναρτήσεις του Modal για τα άρθρα
         const articleModal = document.getElementById('article-modal');
         const modalContent = document.getElementById('article-modal-content');
         const modalTitle = document.getElementById('modal-title');
@@ -731,6 +815,71 @@
             if (e.key === 'Escape' && articleModal.classList.contains('opacity-100')) {
                 closeArticleModal();
             }
+        });
+
+        // 5. Φόρτωση Άρθρων
+        document.addEventListener("DOMContentLoaded", () => {
+            client.getEntries({ order: '-sys.createdAt' })
+                .then((response) => {
+                    const container = document.getElementById('dynamic-articles-grid');
+                    
+                    if (response.items.length === 0) {
+                        container.innerHTML = `<p class='col-span-full text-center text-dark/60 font-light italic py-10' data-i18n="art_empty">${translations[currentLang].art_empty}</p>`;
+                        return;
+                    }
+
+                    container.innerHTML = ""; 
+
+                    response.items.forEach((entry, index) => {
+                        const title = entry.fields.title || "Χωρίς Τίτλο";
+                        const date = formatDate(entry.sys.createdAt);
+                        
+                        let bodyHtml = "";
+                        if (entry.fields.text && entry.fields.text.nodeType === 'document') {
+                            bodyHtml = renderNode(entry.fields.text); 
+                        } else {
+                            bodyHtml = `<p>${entry.fields.text || ""}</p>`; 
+                        }
+                        
+                        let coverImageUrl = '';
+                        if (entry.fields.image && entry.fields.image.fields && entry.fields.image.fields.file) {
+                            coverImageUrl = getImageUrl(entry.fields.image.fields.file.url);
+                        }
+                        
+                        allArticles.push({ title, bodyHtml, date, coverImage: coverImageUrl });
+
+                        const delayClass = index % 3 === 0 ? '' : (index % 3 === 1 ? 'delay-100' : 'delay-200');
+
+                        let summaryText = bodyHtml.replace(/<[^>]*>?/gm, ' ').substring(0, 140) + '...';
+                        if (summaryText.trim() === '...') summaryText = translations[currentLang].art_click_more;
+
+                        const articleHTML = `
+                            <article class="cms-item reveal ${delayClass} bg-white p-6 md:p-8 border border-dark/5 hover:shadow-xl transition-all duration-500 flex flex-col h-full group rounded-md cursor-pointer border-l-4 border-transparent hover:border-gold" onclick="openArticleModal(${index})">
+                                ${coverImageUrl ? `<div class="aspect-video w-full overflow-hidden mb-6 rounded-md bg-base"><img src="${coverImageUrl}" alt="${title}" class="w-full h-full object-cover transform transition-transform duration-700 group-hover:scale-105"></div>` : ''}
+                                <span class="text-xs uppercase tracking-widest text-cypress mb-3 block font-bold">${date}</span>
+                                <h4 class="text-xl md:text-2xl font-serif text-dark mb-4 leading-tight group-hover:text-gold transition-colors">${title}</h4>
+                                <div class="text-dark/60 text-sm md:text-base font-light mb-6 line-clamp-3 flex-grow" data-i18n="art_click_more">
+                                    ${summaryText}
+                                </div>
+                                <span class="text-xs uppercase tracking-widest text-dark font-bold border-b border-dark pb-1 inline-table group-hover:text-gold group-hover:border-gold transition-colors mt-auto w-max" data-i18n="art_read_more">
+                                    ${translations[currentLang].art_read_more}
+                                </span>
+                            </article>
+                        `;
+                        
+                        container.insertAdjacentHTML('beforeend', articleHTML);
+                    });
+
+                    const dynamicReveals = container.querySelectorAll('.reveal');
+                    dynamicReveals.forEach(el => observer.observe(el));
+                })
+                .catch((error) => {
+                    console.error("Contentful Error:", error);
+                    document.getElementById('dynamic-articles-grid').innerHTML = `
+                        <p class="col-span-full text-center text-red-500/80 font-medium py-10" data-i18n="art_error">
+                            ${translations[currentLang].art_error}
+                        </p>`;
+                });
         });
     </script>
 </body>
