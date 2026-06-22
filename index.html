@@ -114,7 +114,7 @@
     <nav id="navbar" class="fixed w-full z-50 transition-all duration-500 py-6">
         <div class="max-w-7xl mx-auto px-6 flex justify-between items-center">
             <a href="#hero" class="group relative z-50">
-                <img src="https://raw.githubusercontent.com/agelmet/KOUNATIADOU/refs/heads/main/ChatGPT%20Image%204%20%CE%9C%CE%B1%CE%90%202026%2C%2012_15_51%20%CF%80.%CE%BC..png" alt="Ατέλεια Logo" class="h-28 w-28 md:h-36 md:w-36 lg:h-40 lg:w-40 rounded-full object-cover transition-transform duration-700 hover:scale-105 drop-shadow-md">
+                <img id="main-logo" src="https://raw.githubusercontent.com/agelmet/KOUNATIADOU/refs/heads/main/ChatGPT%20Image%204%20%CE%9C%CE%B1%CE%90%202026%2C%2012_15_51%20%CF%80.%CE%BC..png" alt="Ατέλεια Logo" class="h-28 w-28 md:h-36 md:w-36 lg:h-40 lg:w-40 rounded-full object-cover transition-transform duration-700 hover:scale-105 drop-shadow-md">
             </a>
 
             <!-- Desktop Menu & Controls -->
@@ -129,7 +129,7 @@
 
                 <!-- Language Toggle Flag -->
                 <button onclick="toggleLanguage()" class="focus:outline-none hover:scale-110 transition-transform drop-shadow-sm flex items-center justify-center rounded-full overflow-hidden w-9 h-9 md:w-10 md:h-10 border-2 border-white shadow-md z-50 bg-white ml-2">
-                    <img id="lang-flag" src="https://flagcdn.com/w80/gb.png" alt="Translate to English" class="w-full h-full object-cover">
+                    <img id="lang-flag" src="https://flagcdn.com/w80/gb.png" alt="Translate Language" class="w-full h-full object-cover">
                 </button>
 
                 <!-- Mobile Toggle -->
@@ -178,7 +178,7 @@
     <section id="intro" class="py-32 px-6">
         <div class="max-w-4xl mx-auto text-center reveal">
             <p class="text-2xl md:text-4xl font-serif text-dark leading-relaxed">
-                <span data-i18n="intro_p1">Η Ατέλεια είναι ένας χώρος κατανόησης κι εξερεύνησης του τι σημαίνει να είσαι άνθρωπος. Είναι ένας χώρος που εστιάζει στην</span> <span class="text-gold italic" data-i18n="intro_gold">αρχιτεκτονική της υγείας</span><span data-i18n="intro_p1_cont">, όχι στην ασθένεια.</span>
+                <span data-i18n="intro_p1">Η Ατέλεια είναι ένας χώρος συνάντησης, εξερεύνησης και κατανόησης του τι σημαίνει να είσαι άνθρωπος. Ενας χώρος που εστιάζει στην</span> <span class="text-gold italic" data-i18n="intro_gold">αρχιτεκτονική της υγείας</span><span data-i18n="intro_p1_cont">, όχι ΤΗΣ ασθένειας.</span>
             </p>
             <p class="mt-10 text-lg text-dark/70 font-light max-w-2xl mx-auto leading-loose" data-i18n="intro_p2">
                 Στην δυνατότητα, την ευκαιρία, την γνώση, την επιλογή. Είναι μια πρόσκληση να έρθουμε σε επαφή με αυτό που είμαστε — μέσα από τη σχέση μας με την ατέλεια.
@@ -190,26 +190,23 @@
     <section class="py-32 px-6 bg-white">
         <div class="max-w-7xl mx-auto">
             <div class="grid md:grid-cols-3 gap-12 border-t border-dark/10 pt-20">
-                <div class="reveal p-8 border border-dark/5 hover:border-gold/30 transition-all duration-500 hover:shadow-lg">
-                    <span class="text-gold text-sm font-medium mb-4 block">01</span>
-                    <h3 class="text-2xl font-serif text-dark mb-4" data-i18n="preview_01_title">Ατομικές Συναντήσεις</h3>
-                    <p class="text-dark/60 font-light text-sm leading-relaxed mb-8" data-i18n="preview_01_desc">
-                        Ένας ασφαλής, σταθερός χώρος για την κατανόηση του εαυτού και την υποστήριξη σε περιόδους μετάβασης ή δυσκολίας.
-                    </p>
+                <div class="reveal p-8 border border-dark/5 hover:border-gold/30 transition-all duration-500 hover:shadow-lg flex items-center justify-center text-center">
+                    <div>
+                        <span class="text-gold text-sm font-medium mb-4 block">01</span>
+                        <h3 class="text-2xl font-serif text-dark mb-0" data-i18n="preview_01_title">Ατομικές συναντήσεις σε αγγλικά και ελληνικά</h3>
+                    </div>
                 </div>
-                <div class="reveal delay-100 p-8 border border-dark/5 hover:border-gold/30 transition-all duration-500 hover:shadow-lg">
-                    <span class="text-gold text-sm font-medium mb-4 block">02</span>
-                    <h3 class="text-2xl font-serif text-dark mb-4" data-i18n="preview_02_title">Συμβουλευτική</h3>
-                    <p class="text-dark/60 font-light text-sm leading-relaxed mb-8" data-i18n="preview_02_desc">
-                        Εστιασμένη καθοδήγηση για συγκεκριμένους προβληματισμούς, ενισχύοντας την ικανότητα λήψης αποφάσεων και την αυτονομία.
-                    </p>
+                <div class="reveal delay-100 p-8 border border-dark/5 hover:border-gold/30 transition-all duration-500 hover:shadow-lg flex items-center justify-center text-center">
+                    <div>
+                        <span class="text-gold text-sm font-medium mb-4 block">02</span>
+                        <h3 class="text-2xl font-serif text-dark mb-0" data-i18n="preview_02_title">Συμβουλευτική</h3>
+                    </div>
                 </div>
-                <div class="reveal delay-200 p-8 border border-dark/5 hover:border-gold/30 transition-all duration-500 hover:shadow-lg">
-                    <span class="text-gold text-sm font-medium mb-4 block">03</span>
-                    <h3 class="text-2xl font-serif text-dark mb-4" data-i18n="preview_03_title">Σεμινάρια Ζωής</h3>
-                    <p class="text-dark/60 font-light text-sm leading-relaxed mb-8" data-i18n="preview_03_desc">
-                        Ομαδικές δράσεις εκπαίδευσης γύρω από τις δεξιότητες που απαιτεί η σύγχρονη πραγματικότητα και η συναισθηματική ανάπτυξη.
-                    </p>
+                <div class="reveal delay-200 p-8 border border-dark/5 hover:border-gold/30 transition-all duration-500 hover:shadow-lg flex items-center justify-center text-center">
+                    <div>
+                        <span class="text-gold text-sm font-medium mb-4 block">03</span>
+                        <h3 class="text-2xl font-serif text-dark mb-0" data-i18n="preview_03_title">Σεμινάρια Ζωής</h3>
+                    </div>
                 </div>
             </div>
             
@@ -230,17 +227,19 @@
                 <h2 class="text-sm uppercase tracking-[0.2em] text-gold mb-6" data-i18n="phil_tag">Η ΦΙΛΟΣΟΦΙΑ</h2>
                 
                 <div class="space-y-6 text-dark font-normal text-lg leading-relaxed mx-auto max-w-3xl text-justify">
-                    <p data-i18n="phil_p1">Η «Ατέλεια» γεννήθηκε ως ένας χώρος παρατήρησης, συνάντησης, εξερεύνησης και επεξεργασίας της ανθρώπινης εμπειρίας — ενός τρόπου να γνωρίσουμε την υγεία όχι μόνο ως απουσία ασθένειας, αλλά ως μια ζωντανή διαδικασία προσαρμογής, σύνδεσης και νοήματος. Μέσα από την επιστημονική γνώση, την ιατρική, την τέχνη, την κοινότητα, τη συστημική σκέψη, επιχειρεί να συνδέσει τους διαφορετικούς τρόπους με τους οποίους οι άνθρωποι κατοικούν τον εαυτό και τη ζωή τους.</p>
+                    <p data-i18n="phil_p1">Η Ατέλεια γεννήθηκε ως ένας χώρος παρατήρησης, συνάντησης, εξερεύνησης και επεξεργασίας της ανθρώπινης εμπειρίας — ενός τρόπου να γνωρίσουμε την υγεία όχι μόνο ως απουσία ασθένειας, αλλά ως μια ζωντανή διαδικασία προσαρμογής, σύνδεσης και νοήματος. Μέσα από την επιστημονική γνώση, την ιατρική, την τέχνη, την κοινότητα, τη συστημική σκέψη, επιχειρεί να συνδέσει τους διαφορετικούς τρόπους με τους οποίους οι άνθρωποι κατοικούν τον εαυτό και τη ζωή τους.</p>
                     
-                    <p data-i18n="phil_p2">Στην "Ατέλεια", ο,τι μοιάζει με "σύμπτωμα" αξιοποιείται για να συστήσει τον μοναδικό τρόπο με τον οποίο κάθε άνθρωπος προσπαθεί να επιβιώσει, να προστατευτεί, να ανακουφιστεί, να υπάρξει. Στην «Ατέλεια», η υγεία προσεγγίζεται ως αρχιτεκτονική ζωής και ανάπτυξη δεξιοτήτων υγείας — μιας βαθύτερης ικανότητας να σχετιζόμαστε με το σώμα, τα συναισθήματα και τους μηχανισμούς ρύθμισής τους, το στρες, τις σχέσεις, τις δυσκολίες, τις προκλήσεις και τις μεταβολές της ζωής.</p>
+                    <p data-i18n="phil_p2">Στην Ατέλεια, ο,τι μοιάζει με "σύμπτωμα" αξιοποιείται για να συστήσει τον μοναδικό τρόπο με τον οποίο κάθε άνθρωπος προσπαθεί να επιβιώσει, να προστατευτεί, να ανακουφιστεί, να υπάρξει. Στην Ατέλεια, η υγεία προσεγγίζεται ως αρχιτεκτονική ζωής και ανάπτυξη δεξιοτήτων υγείας — μιας βαθύτερης ικανότητας να σχετιζόμαστε με το σώμα, τα συναισθήματα και τους μηχανισμούς ρύθμισής τους, το στρες, τις σχέσεις, τις δυσκολίες, τις προκλήσεις και τις μεταβολές της ζωής.</p>
                     
-                    <p data-i18n="phil_p3">Η «Ατέλεια» ενδιαφέρεται για όσα μάθαμε, όσα ίσως χρειάζεται να ξεμάθουμε και όσα μπορούμε και τολμούμε να μάθουμε ξανά από την αρχή, με σκοπό να ζήσουμε τη ζωή με περισσότερη ελευθερία, συνείδηση κι αλήθεια. Για τον τρόπο με τον οποίο γράφουμε, αφηγούμαστε και βιώνουμε την ιστορία του εαυτού και της ζωής μας — αλλά και για τη δυνατότητα να την επανανοηματοδοτήσουμε, να την μοιραστούμε και να βρούμε μια πιο αυθεντική θέση στον κόσμο μέσα και στον κόσμο έξω μας, σύμφωνα με τις αξίες και τα όνειρα μας.</p>
+                    <p data-i18n="phil_p3">Η Ατέλεια ενδιαφέρεται για όσα μάθαμε, όσα ίσως χρειάζεται να ξεμάθουμε και όσα μπορούμε και τολμούμε να μάθουμε ξανά από την αρχή, με σκοπό να ζήσουμε τη ζωή με περισσότερη ελευθερία, συνείδηση κι αλήθεια. Για τον τρόπο με τον οποίο γράφουμε, αφηγούμαστε και βιώνουμε την ιστορία του εαυτού και της ζωής μας — αλλά και για τη δυνατότητα να την επανανοηματοδοτήσουμε, να την μοιραστούμε και να βρούμε μια πιο αυθεντική θέση στον κόσμο μέσα και στον κόσμο έξω μας, σύμφωνα με τις αξίες και τα όνειρα μας.</p>
                     
-                    <p data-i18n="phil_p4">Στην «Ατέλεια», δεν απορρίπτουμε το ατελές - το τιμάμε, δίνοντας του τη σημασία που του αξίζει - ως αρχή της αυθεντικότητας, της μοναδικότητας, της ανθρώπινης αλήθειας, της ουσιαστικής συνάντησης. Ως ευκαιρία και δυνατότητα - για μια ζωή που έχει το νόημα που της δίνουμε.</p>
+                    <p data-i18n="phil_p4">Στην Ατέλεια, δεν απορρίπτουμε το ατελές - το τιμάμε, δίνοντας του τη σημασία που του αξίζει - ως αρχή της αυθεντικότητας, της μοναδικότητας, της ανθρώπινης αλήθειας, της ουσιαστικής συνάντησης. Ως ευκαιρία και δυνατότητα - για μια ζωή που έχει το νόημα που της δίνουμε.</p>
                     
-                    <p class="font-serif italic text-2xl mt-12 text-center text-gold" data-i18n="phil_p5">Ατέλεια σαν Αρχή. Ατέλεια σαν αποδοχή. Ατέλεια σαν αλλαγή. Ατέλεια σαν αυθεντικότητα. Ατέλεια σαν αλήθεια. Ατέλεια σαν Ανθρωπος.</p>
+                    <div class="font-serif italic text-2xl mt-12 text-center text-gold" data-i18n="phil_p5">
+                        Ατέλεια σαν Αρχή. Ατέλεια σαν αποδοχή. Ατέλεια σαν αλλαγή. Ατέλεια σαν αυθεντικότητα. Ατέλεια σαν αλήθεια. Ατέλεια σαν Ανθρωπος.
+                    </div>
                     
-                    <p class="text-right text-xs md:text-sm text-dark font-semibold uppercase tracking-widest mt-8" data-i18n="phil_author">— Χριστινα Κουνατιάδου, ειδ. ψυχίατρος, ιδρύτρια της "Ατέλεια"</p>
+                    <p class="text-right text-xs md:text-sm text-dark font-semibold uppercase tracking-widest mt-8" data-i18n="phil_author">— Χριστινα Κουνατιάδου, ειδ. ψυχίατρος, ιδρύτρια της Ατέλεια</p>
                 </div>
             </div>
 
@@ -256,7 +255,8 @@
                         
                         <p data-i18n="bio_p2">Η πορεία της περιλαμβάνει εκπαίδευση σε παραπάνω από μια ψυχοθεραπευτικές προσεγγίσεις. Έχει εκπαιδευτεί στην Ανάλυση και Θεραπεία Συμπεριφοράς για αγχώδεις διαταραχές, μετατραυματική διαταραχή του στρες, ιδεοψυχαναγκαστική διαταραχή, τριχοτιλλομανία και διαταραχές πρόσληψης τροφής, ενώ εργάστηκε επί δύο χρόνια στη Μονάδα Θεραπείας Συμπεριφοράς υπό την εποπτεία του Δρ. Γιάννη Κασβίκη. Παράλληλα, ολοκληρώνει την εκπαίδευσή της στη Συστημική/Ομαδική–Οικογενειακή Θεραπεία στη Μονάδα Οικογενειακής Θεραπείας του Ψυχιατρικού Νοσοκομείου Αττικής, ως μία από τους επιλεγμένους εκπαιδευόμενους με υποτροφία φοίτησης.</p>
                         
-                        <p data-i18n="bio_p3">Έχει συνεργαστεί με εξειδικευμένα κέντρα διαταραχών πρόσληψης τροφής και έχει ολοκληρώσει μονοετή εξειδικευμένη εκπαίδευση στο ψυχικό τραύμα μέσω του Trauma Research Foundation και του έργου του Dr. Bessel van der Kolk. Διατηρεί ενεργό ενδιαφέρον για τη συνεχιζόμενη και πολυδιάστατη εκπαίδευση, συνδέοντας διαφορετικά πεδία γνώσης και έκφρασης με την κλινική της εμπειρία, ενώ έχει συμμετάσχει και παρουσιάσει σε διεθνείς διοργανώσεις, μεταξύ των οποίων και το συνέδριο του World Psychiatric Association.</p>
+                        <!-- Updated 3rd paragraph -->
+                        <p data-i18n="bio_p3">Έχει συνεργαστεί με εξειδικευμένα κέντρα διαταραχών πρόσληψης τροφής και έχει εστιάσει στη μελέτη και θεραπεία του ψυχικού τραύματος μέσα από μια ψυχο-βιο-κοινωνική οπτική, μέσω του Trauma Research Foundation και της εκπαίδευσης που βασίζεται στο έργο του Dr. Bessel van der Kolk. Στόχος της είναι να κατανοεί σε βάθος και να συνθέτει διαφορετικά εργαλεία, επιστημονικά πεδία και θεραπευτικές προσεγγίσεις με την κλινική της εμπειρία, διαμορφώνοντας μια πιο συμπεριληπτική, ανθρώπινη και ρεαλιστική προσέγγιση της υγείας. Έχει συμμετάσχει και παρουσιάσει εργασίες σε εθνικά και διεθνή επιστημονικά συνέδρια.</p>
 
                         <p data-i18n="bio_p4">Είναι μουσικός, ασχολείται με τη ζωγραφική και την εκφραστική γραφή, ενώ εκπαιδεύεται και στη θεραπεία μέσω τέχνης (Art Therapy) στο Metàfora Art Therapy Center στη Βαρκελώνη.</p>
 
@@ -466,9 +466,11 @@
 
         <div class="flex min-h-screen items-center justify-center py-24 px-4 md:px-8 w-full">
             <div id="article-modal-content" class="bg-base max-w-3xl w-full p-8 md:p-14 shadow-[0_20px_60px_rgba(0,0,0,0.4)] relative border border-white/20 rounded-2xl my-auto transform scale-95 transition-transform duration-300" onclick="event.stopPropagation()">
+                
                 <span id="modal-date" class="text-xs uppercase tracking-widest text-cypress mb-6 block font-bold"></span>
                 <h3 id="modal-title" class="text-3xl md:text-5xl font-serif text-dark mb-10 leading-tight"></h3>
                 
+                <!-- Dynamic Content -->
                 <div id="modal-body" class="space-y-6 text-dark font-normal text-[16px] md:text-[17px] leading-relaxed text-justify pb-6">
                 </div>
             </div>
@@ -524,7 +526,7 @@
             <p class="text-dark/50 text-xs tracking-wide" data-i18n="footer_rights">© 2026 Ατέλεια. All rights reserved.</p>
             
             <a href="#hero" class="group relative z-50 transform hover:-translate-y-1 transition-transform">
-                <img src="https://raw.githubusercontent.com/agelmet/KOUNATIADOU/refs/heads/main/ChatGPT%20Image%204%20%CE%9C%CE%B1%CE%90%202026%2C%2012_15_51%20%CF%80.%CE%BC..png" alt="Ατέλεια" class="h-24 w-24 md:h-28 md:w-28 rounded-full object-cover opacity-80 hover:opacity-100 transition-opacity drop-shadow-sm">
+                <img id="footer-logo" src="https://raw.githubusercontent.com/agelmet/KOUNATIADOU/refs/heads/main/ChatGPT%20Image%204%20%CE%9C%CE%B1%CE%90%202026%2C%2012_15_51%20%CF%80.%CE%BC..png" alt="Ατέλεια" class="h-24 w-24 md:h-28 md:w-28 rounded-full object-cover opacity-80 hover:opacity-100 transition-opacity drop-shadow-sm">
             </a>
             
             <p class="text-dark/50 text-xs tracking-wide">
@@ -537,27 +539,27 @@
     <script>
         lucide.createIcons();
 
-        // --- TRANSLATION LOGIC ---
+        // --- TRANSLATION AND URL ROUTING LOGIC ---
         const translations = {
             en: {
                 nav_home: "Home", nav_about: "Atelia", nav_services: "Services", nav_media: "Articles & Media", nav_contact: "Contact",
                 hero_subtitle: "Atelia", hero_title_1: "The art of being", hero_title_2: "Human.", hero_quote: "«From survival to choice.»", hero_desc: "A space for connection, psychoeducation, and health promotion.", btn_book: "Book a session",
-                intro_p1: "Atelia is a space for understanding and exploring what it means to be human. It focuses on the", intro_gold: "architecture of health", intro_p1_cont: ", not on illness.", intro_p2: "On potential, opportunity, knowledge, and choice. It is an invitation to connect with who we are — through our relationship with imperfection.",
-                preview_01_title: "Individual Sessions", preview_01_desc: "A safe, stable space for self-understanding and support during periods of transition or difficulty.",
-                preview_02_title: "Counseling", preview_02_desc: "Focused guidance for specific concerns, enhancing decision-making skills and autonomy.",
-                preview_03_title: "Life Seminars", preview_03_desc: "Group educational activities focused on the skills required by modern reality and emotional development.",
+                intro_p1: "Atelia is a space for meeting, exploring, and understanding what it means to be human. A space that focuses on the", intro_gold: "architecture of health", intro_p1_cont: ", not of illness.", intro_p2: "On potential, opportunity, knowledge, and choice. It is an invitation to connect with who we are — through our relationship with imperfection.",
+                preview_01_title: "Individual sessions in English and Greek",
+                preview_02_title: "Counseling",
+                preview_03_title: "Life Seminars",
                 preview_btn: "See More",
                 phil_tag: "THE PHILOSOPHY",
-                phil_p1: "«Atelia» was born as a space for observation, connection, exploration, and processing of the human experience — a way to know health not merely as the absence of illness, but as a living process of adaptation, connection, and meaning. Through scientific knowledge, medicine, art, community, and systemic thinking, it attempts to connect the different ways in which people inhabit themselves and their lives.",
-                phil_p2: "At «Atelia», whatever looks like a 'symptom' is utilized to introduce the unique way each person tries to survive, protect themselves, find relief, and exist. Health is approached as life architecture and the development of health skills — a deeper ability to relate to the body, emotions, and their regulatory mechanisms, stress, relationships, difficulties, challenges, and life's shifts.",
-                phil_p3: "«Atelia» is interested in what we have learned, what we might need to unlearn, and what we can and dare to learn all over again, aiming to live life with more freedom, consciousness, and truth. It is about how we write, narrate, and experience the story of ourselves and our lives — but also about the ability to re-signify it, share it, and find a more authentic place in the world within and the world outside us, according to our values and dreams.",
-                phil_p4: "At «Atelia», we do not reject the imperfect - we honor it, giving it the importance it deserves - as the beginning of authenticity, uniqueness, human truth, and essential connection. As an opportunity and potential - for a life that holds the meaning we give it.",
-                phil_p5: "Imperfection as a Beginning. Imperfection as acceptance. Imperfection as change. Imperfection as authenticity. Imperfection as truth. Imperfection as Human.",
-                phil_author: "— Christina Kounatiadou, Psychiatrist, Founder of «Atelia»",
+                phil_p1: "\"Atelia\" is a Greek word that translates as \"imperfection\" — not as a flaw to be corrected, but as an expression of authenticity, uniqueness, and the human experience. Atelia was born as a space for observation, connection, exploration, and processing of the human experience — a way to know health not merely as the absence of illness, but as a living process of adaptation, connection, and meaning. Through scientific knowledge, medicine, art, community, and systemic thinking, it attempts to connect the different ways in which people inhabit themselves and their lives.",
+                phil_p2: "At Atelia, whatever looks like a 'symptom' is utilized to introduce the unique way each person tries to survive, protect themselves, find relief, and exist. Health is approached as life architecture and the development of health skills — a deeper ability to relate to the body, emotions, and their regulatory mechanisms, stress, relationships, difficulties, challenges, and life's shifts.",
+                phil_p3: "Atelia is interested in what we have learned, what we might need to unlearn, and what we can and dare to learn all over again, aiming to live life with more freedom, consciousness, and truth. It is about how we write, narrate, and experience the story of ourselves and our lives — but also about the ability to re-signify it, share it, and find a more authentic place in the world within and the world outside us, according to our values and dreams.",
+                phil_p4: "At Atelia, we do not reject the imperfect - we honor it, giving it the importance it deserves - as the beginning of authenticity, uniqueness, human truth, and essential connection. As an opportunity and potential - for a life that holds the meaning we give it.",
+                phil_p5: "Atelia as a Beginning.<br>Atelia as acceptance.<br>Atelia as change.<br>Atelia as authenticity.<br>Atelia as truth.<br>Atelia as Human.",
+                phil_author: "— Christina Kounatiadou, Psychiatrist, Founder of Atelia",
                 bio_name: "Christina Kounatiadou", bio_sub: "Medical Doctor - Psychiatry Resident",
                 bio_p1: "Christina Kounatiadou is a medical doctor specializing in Psychiatry. Her postgraduate studies focus on the «Science of Stress and Health Promotion» at the Medical School of NKUA, with a scholarship of excellence and research work on the correlation between stress, autoimmune diseases, and eating disorders.",
                 bio_p2: "Her path includes training in more than one psychotherapeutic approach. She has been trained in Behavior Analysis and Therapy for anxiety disorders, PTSD, OCD, trichotillomania, and eating disorders, while she worked for two years at the Behavior Therapy Unit under the supervision of Dr. Giannis Kasvikis. Currently, she is completing her training in Systemic/Group-Family Therapy at the Family Therapy Unit of the Psychiatric Hospital of Attica, as one of the selected trainees with a scholarship.",
-                bio_p3: "She has collaborated with specialized eating disorder centers and has completed a one-year specialized training in psychological trauma through the Trauma Research Foundation and the work of Dr. Bessel van der Kolk. She maintains an active interest in continuous and multidimensional education, connecting different fields of knowledge and expression with her clinical experience, and has participated and presented in international events, including the World Psychiatric Association congress.",
+                bio_p3: "She has collaborated with specialized eating disorder centers and has focused on the study and treatment of psychological trauma from a bio-psycho-social perspective, through the Trauma Research Foundation and training based on the work of Dr. Bessel van der Kolk. Her goal is to deeply understand and synthesize different tools, scientific fields, and therapeutic approaches with her clinical experience, shaping a more inclusive, human, and realistic approach to health. She has participated and presented her work at national and international scientific conferences.",
                 bio_p4: "She is a musician, paints, and engages in expressive writing, while she is also training in Art Therapy at the Metàfora Art Therapy Center in Barcelona.",
                 bio_p5: "For her, health is not about the search for an ideal or 'perfect' version of the self, but a continuous, dialectical process of homeostasis — the best agreement we can make with ourselves with what we know, what we feel, what we imagine, what we can, and what we endure to change and create in each phase of life.",
                 bio_p6: "Influenced by synthetic and narrative thinking, she approaches every person as a unique life story, with its own path, organicity, meanings, adaptations, needs, and ways of existing in the world. She is an International Fellow of the American Psychiatric Association, a member of the International OCD Foundation, the Academy for Eating Disorders, and the Hellenic Association for Behavior Analysis.",
@@ -585,22 +587,22 @@
             el: {
                 nav_home: "Αρχική", nav_about: "Η Ατέλεια", nav_services: "Υπηρεσίες", nav_media: "Άρθρα & Παρουσίες", nav_contact: "Επικοινωνία",
                 hero_subtitle: "Ατέλεια", hero_title_1: "Η τέχνη του να είσαι", hero_title_2: "Άνθρωπος.", hero_quote: "«Από την επιβίωση, στην επιλογή.»", hero_desc: "Ένας χώρος συνάντησης, ψυχοεκπαίδευσης και προαγωγής της υγείας.", btn_book: "Κλείσε μια συνάντηση",
-                intro_p1: "Η Ατέλεια είναι ένας χώρος κατανόησης κι εξερεύνησης του τι σημαίνει να είσαι άνθρωπος. Είναι ένας χώρος που εστιάζει στην", intro_gold: "αρχιτεκτονική της υγείας", intro_p1_cont: ", όχι στην ασθένεια.", intro_p2: "Στην δυνατότητα, την ευκαιρία, την γνώση, την επιλογή. Είναι μια πρόσκληση να έρθουμε σε επαφή με αυτό που είμαστε — μέσα από τη σχέση μας με την ατέλεια.",
-                preview_01_title: "Ατομικές Συναντήσεις", preview_01_desc: "Ένας ασφαλής, σταθερός χώρος για την κατανόηση του εαυτού και την υποστήριξη σε περιόδους μετάβασης ή δυσκολίας.",
-                preview_02_title: "Συμβουλευτική", preview_02_desc: "Εστιασμένη καθοδήγηση για συγκεκριμένους προβληματισμούς, ενισχύοντας την ικανότητα λήψης αποφάσεων και την αυτονομία.",
-                preview_03_title: "Σεμινάρια Ζωής", preview_03_desc: "Ομαδικές δράσεις εκπαίδευσης γύρω από τις δεξιότητες που απαιτεί η σύγχρονη πραγματικότητα και η συναισθηματική ανάπτυξη.",
+                intro_p1: "Η Ατέλεια είναι ένας χώρος συνάντησης, εξερεύνησης και κατανόησης του τι σημαίνει να είσαι άνθρωπος. Ενας χώρος που εστιάζει στην", intro_gold: "αρχιτεκτονική της υγείας", intro_p1_cont: ", όχι ΤΗΣ ασθένειας.", intro_p2: "Στην δυνατότητα, την ευκαιρία, την γνώση, την επιλογή. Είναι μια πρόσκληση να έρθουμε σε επαφή με αυτό που είμαστε — μέσα από τη σχέση μας με την ατέλεια.",
+                preview_01_title: "Ατομικές συναντήσεις σε αγγλικά και ελληνικά",
+                preview_02_title: "Συμβουλευτική",
+                preview_03_title: "Σεμινάρια Ζωής",
                 preview_btn: "Δες Περισσότερα",
                 phil_tag: "Η ΦΙΛΟΣΟΦΙΑ",
-                phil_p1: "Η «Ατέλεια» γεννήθηκε ως ένας χώρος παρατήρησης, συνάντησης, εξερεύνησης και επεξεργασίας της ανθρώπινης εμπειρίας — ενός τρόπου να γνωρίσουμε την υγεία όχι μόνο ως απουσία ασθένειας, αλλά ως μια ζωντανή διαδικασία προσαρμογής, σύνδεσης και νοήματος. Μέσα από την επιστημονική γνώση, την ιατρική, την τέχνη, την κοινότητα, τη συστημική σκέψη, επιχειρεί να συνδέσει τους διαφορετικούς τρόπους με τους οποίους οι άνθρωποι κατοικούν τον εαυτό και τη ζωή τους.",
-                phil_p2: "Στην \"Ατέλεια\", ο,τι μοιάζει με \"σύμπτωμα\" αξιοποιείται για να συστήσει τον μοναδικό τρόπο με τον οποίο κάθε άνθρωπος προσπαθεί να επιβιώσει, να προστατευτεί, να ανακουφιστεί, να υπάρξει. Στην «Ατέλεια», η υγεία προσεγγίζεται ως αρχιτεκτονική ζωής και ανάπτυξη δεξιοτήτων υγείας — μιας βαθύτερης ικανότητας να σχετιζόμαστε με το σώμα, τα συναισθήματα και τους μηχανισμούς ρύθμισής τους, το στρες, τις σχέσεις, τις δυσκολίες, τις προκλήσεις και τις μεταβολές της ζωής.",
-                phil_p3: "Η «Ατέλεια» ενδιαφέρεται για όσα μάθαμε, όσα ίσως χρειάζεται να ξεμάθουμε και όσα μπορούμε και τολμούμε να μάθουμε ξανά από την αρχή, με σκοπό να ζήσουμε τη ζωή με περισσότερη ελευθερία, συνείδηση κι αλήθεια. Για τον τρόπο με τον οποίο γράφουμε, αφηγούμαστε και βιώνουμε την ιστορία του εαυτού και της ζωής μας — αλλά και για τη δυνατότητα να την επανανοηματοδοτήσουμε, να την μοιραστούμε και να βρούμε μια πιο αυθεντική θέση στον κόσμο μέσα και στον κόσμο έξω μας, σύμφωνα με τις αξίες και τα όνειρα μας.",
-                phil_p4: "Στην «Ατέλεια», δεν απορρίπτουμε το ατελές - το τιμάμε, δίνοντας του τη σημασία που του αξίζει - ως αρχή της αυθεντικότητας, της μοναδικότητας, της ανθρώπινης αλήθειας, της ουσιαστικής συνάντησης. Ως ευκαιρία και δυνατότητα - για μια ζωή που έχει το νόημα που της δίνουμε.",
+                phil_p1: "Η Ατέλεια γεννήθηκε ως ένας χώρος παρατήρησης, συνάντησης, εξερεύνησης και επεξεργασίας της ανθρώπινης εμπειρίας — ενός τρόπου να γνωρίσουμε την υγεία όχι μόνο ως απουσία ασθένειας, αλλά ως μια ζωντανή διαδικασία προσαρμογής, σύνδεσης και νοήματος. Μέσα από την επιστημονική γνώση, την ιατρική, την τέχνη, την κοινότητα, τη συστημική σκέψη, επιχειρεί να συνδέσει τους διαφορετικούς τρόπους με τους οποίους οι άνθρωποι κατοικούν τον εαυτό και τη ζωή τους.",
+                phil_p2: "Στην Ατέλεια, ο,τι μοιάζει με \"σύμπτωμα\" αξιοποιείται για να συστήσει τον μοναδικό τρόπο με τον οποίο κάθε άνθρωπος προσπαθεί να επιβιώσει, να προστατευτεί, να ανακουφιστεί, να υπάρξει. Στην Ατέλεια, η υγεία προσεγγίζεται ως αρχιτεκτονική ζωής και ανάπτυξη δεξιοτήτων υγείας — μιας βαθύτερης ικανότητας να σχετιζόμαστε με το σώμα, τα συναισθήματα και τους μηχανισμούς ρύθμισής τους, το στρες, τις σχέσεις, τις δυσκολίες, τις προκλήσεις και τις μεταβολές της ζωής.",
+                phil_p3: "Η Ατέλεια ενδιαφέρεται για όσα μάθαμε, όσα ίσως χρειάζεται να ξεμάθουμε και όσα μπορούμε και τολμούμε να μάθουμε ξανά από την αρχή, με σκοπό να ζήσουμε τη ζωή με περισσότερη ελευθερία, συνείδηση κι αλήθεια. Για τον τρόπο με τον οποίο γράφουμε, αφηγούμαστε και βιώνουμε την ιστορία του εαυτού και της ζωής μας — αλλά και για τη δυνατότητα να την επανανοηματοδοτήσουμε, να την μοιραστούμε και να βρούμε μια πιο αυθεντική θέση στον κόσμο μέσα και στον κόσμο έξω μας, σύμφωνα με τις αξίες και τα όνειρα μας.",
+                phil_p4: "Στην Ατέλεια, δεν απορρίπτουμε το ατελές - το τιμάμε, δίνοντας του τη σημασία που του αξίζει - ως αρχή της αυθεντικότητας, της μοναδικότητας, της ανθρώπινης αλήθειας, της ουσιαστικής συνάντησης. Ως ευκαιρία και δυνατότητα - για μια ζωή που έχει το νόημα που της δίνουμε.",
                 phil_p5: "Ατέλεια σαν Αρχή. Ατέλεια σαν αποδοχή. Ατέλεια σαν αλλαγή. Ατέλεια σαν αυθεντικότητα. Ατέλεια σαν αλήθεια. Ατέλεια σαν Ανθρωπος.",
-                phil_author: "— Χριστινα Κουνατιάδου, ειδ. ψυχίατρος, ιδρύτρια της \"Ατέλεια\"",
+                phil_author: "— Χριστινα Κουνατιάδου, ειδ. ψυχίατρος, ιδρύτρια της Ατέλεια",
                 bio_name: "Χριστίνα Κουνατιάδου", bio_sub: "Ιατρός - Ειδικευόμενη Ψυχιατρικής",
                 bio_p1: "Η Χριστίνα Κουνάτιαδου είναι ιατρός και ειδικεύεται στην Ψυχιατρική. Οι μεταπτυχιακές της σπουδές επικεντρώνονται στην «Επιστήμη του Στρες και Προαγωγή της Υγείας» στην Ιατρική Σχολή του ΕΚΠΑ, με υποτροφία αριστείας και ερευνητικό έργο πάνω στη συσχέτιση στρες, αυτοάνοσων παθήσεων και διαταραχών πρόσληψης τροφής.",
                 bio_p2: "Η πορεία της περιλαμβάνει εκπαίδευση σε παραπάνω από μια ψυχοθεραπευτικές προσεγγίσεις. Έχει εκπαιδευτεί στην Ανάλυση και Θεραπεία Συμπεριφοράς για αγχώδεις διαταραχές, μετατραυματική διαταραχή του στρες, ιδεοψυχαναγκαστική διαταραχή, τριχοτιλλομανία και διαταραχές πρόσληψης τροφής, ενώ εργάστηκε επί δύο χρόνια στη Μονάδα Θεραπείας Συμπεριφοράς υπό την εποπτεία του Δρ. Γιάννη Κασβίκη. Παράλληλα, ολοκληρώνει την εκπαίδευσή της στη Συστημική/Ομαδική–Οικογενειακή Θεραπεία στη Μονάδα Οικογενειακής Θεραπείας του Ψυχιατρικού Νοσοκομείου Αττικής, ως μία από τους επιλεγμένους εκπαιδευόμενους με υποτροφία φοίτησης.",
-                bio_p3: "Έχει συνεργαστεί με εξειδικευμένα κέντρα διαταραχών πρόσληψης τροφής και έχει ολοκληρώσει μονοετή εξειδικευμένη εκπαίδευση στο ψυχικό τραύμα μέσω του Trauma Research Foundation και του έργου του Dr. Bessel van der Kolk. Διατηρεί ενεργό ενδιαφέρον για τη συνεχιζόμενη και πολυδιάστατη εκπαίδευση, συνδέοντας διαφορετικά πεδία γνώσης και έκφρασης με την κλινική της εμπειρία, ενώ έχει συμμετάσχει και παρουσιάσει σε διεθνείς διοργανώσεις, μεταξύ των οποίων και το συνέδριο του World Psychiatric Association.",
+                bio_p3: "Έχει συνεργαστεί με εξειδικευμένα κέντρα διαταραχών πρόσληψης τροφής και έχει εστιάσει στη μελέτη και θεραπεία του ψυχικού τραύματος μέσα από μια ψυχο-βιο-κοινωνική οπτική, μέσω του Trauma Research Foundation και της εκπαίδευσης που βασίζεται στο έργο του Dr. Bessel van der Kolk. Στόχος της είναι να κατανοεί σε βάθος και να συνθέτει διαφορετικά εργαλεία, επιστημονικά πεδία και θεραπευτικές προσεγγίσεις με την κλινική της εμπειρία, διαμορφώνοντας μια πιο συμπεριληπτική, ανθρώπινη και ρεαλιστική προσέγγιση της υγείας. Έχει συμμετάσχει και παρουσιάσει εργασίες σε εθνικά και διεθνή επιστημονικά συνέδρια.",
                 bio_p4: "Είναι μουσικός, ασχολείται με τη ζωγραφική και την εκφραστική γραφή, ενώ εκπαιδεύεται και στη θεραπεία μέσω τέχνης (Art Therapy) στο Metàfora Art Therapy Center στη Βαρκελώνη.",
                 bio_p5: "Για την ίδια, η υγεία δεν αφορά την αναζήτηση μιας ιδανικής ή «τέλειας» εκδοχής του εαυτού, αλλά μια διαρκή, διαλεκτική διαδικασία ομοιόστασης — την καλύτερη συμφωνία που μπορούμε να κάνουμε με τον εαυτό μας με όσα γνωρίζουμε, όσα νιώθουμε, όσα φανταζόμαστε, όσα μπορούμε, όσα αντέχουμε να αλλάξουμε και να δημιουργήσουμε σε κάθε φάση της ζωής.",
                 bio_p6: "Επηρεασμένη από τη συνθετική και αφηγηματική σκέψη, προσεγγίζει κάθε άνθρωπο ως μια μοναδική ιστορία ζωής, με τη δική της διαδρομή, οργανικότητα, νοήματα, προσαρμογές, ανάγκες και τρόπους ύπαρξης μέσα στον κόσμο. Είναι μέλος της American Psychiatric Association ως International Fellow, της International OCD Foundation, της Academy for Eating Disorders και της Ελληνικής Εταιρείας Ανάλυσης Συμπεριφοράς.",
@@ -629,13 +631,28 @@
 
         let currentLang = 'el'; // Προεπιλογή: Ελληνικά
 
-        function toggleLanguage() {
-            currentLang = currentLang === 'el' ? 'en' : 'el';
-            document.getElementById('lang-flag').src = currentLang === 'en' ? 'https://flagcdn.com/w80/gb.png' : 'https://flagcdn.com/w80/gr.png';
+        function setLanguage(lang, pushHistory = true) {
+            currentLang = lang;
             
+            // Toggle Logo
+            const mainLogo = document.getElementById('main-logo');
+            const footerLogo = document.getElementById('footer-logo');
+            const greekLogoSrc = "https://raw.githubusercontent.com/agelmet/KOUNATIADOU/refs/heads/main/ChatGPT%20Image%204%20%CE%9C%CE%B1%CE%90%202026%2C%2012_15_51%20%CF%80.%CE%BC..png";
+            const englishLogoSrc = "https://raw.githubusercontent.com/agelmet/KOUNATIADOU/a07084d7a28013d133455b648f4409ca4a209b80/kounenlg.png";
+            
+            if(mainLogo) mainLogo.src = lang === 'en' ? englishLogoSrc : greekLogoSrc;
+            if(footerLogo) footerLogo.src = lang === 'en' ? englishLogoSrc : greekLogoSrc;
+
+            // Toggle Flag Icon
+            const flagImg = document.getElementById('lang-flag');
+            if (flagImg) {
+                flagImg.src = currentLang === 'en' ? 'https://flagcdn.com/w80/gb.png' : 'https://flagcdn.com/w80/gr.png';
+            }
+            
+            // Translate Content
             document.querySelectorAll('[data-i18n]').forEach(el => {
                 const key = el.getAttribute('data-i18n');
-                if(translations[currentLang][key]) {
+                if(translations[currentLang] && translations[currentLang][key]) {
                     if (el.tagName === 'INPUT' || el.tagName === 'TEXTAREA') {
                         el.placeholder = translations[currentLang][key];
                     } else {
@@ -643,7 +660,35 @@
                     }
                 }
             });
+
+            // Update URL dynamically via HTML5 History API
+            if (pushHistory) {
+                let currentPath = window.location.pathname;
+                let newPath = currentPath;
+                if (lang === 'en') {
+                    if (!currentPath.endsWith('/en') && !currentPath.endsWith('/en/')) {
+                        newPath = currentPath.replace(/\/$/, '') + '/en';
+                    }
+                } else {
+                    newPath = currentPath.replace(/\/en\/?$/, '') || '/';
+                }
+                window.history.pushState({ lang: lang }, '', newPath + window.location.search + window.location.hash);
+            }
         }
+
+        function toggleLanguage() {
+            setLanguage(currentLang === 'el' ? 'en' : 'el', true);
+        }
+
+        // Listen for back/forward browser navigation
+        window.addEventListener('popstate', (event) => {
+            if (event.state && event.state.lang) {
+                setLanguage(event.state.lang, false);
+            } else {
+                const isEng = window.location.pathname.endsWith('/en') || window.location.pathname.endsWith('/en/');
+                setLanguage(isEng ? 'en' : 'el', false);
+            }
+        });
 
         // 1. Mobile Menu
         const btn = document.getElementById('mobile-menu-btn');
@@ -702,7 +747,6 @@
 
         function formatDate(dateString) {
             const options = { year: 'numeric', month: 'long', day: 'numeric' };
-            // Format by language if desired: currentLang === 'en' ? 'en-US' : 'el-GR'
             return new Date(dateString).toLocaleDateString('el-GR', options);
         }
 
@@ -798,8 +842,13 @@
             }
         });
 
-        // 5. Φόρτωση Άρθρων
+        // 5. Φόρτωση Άρθρων & Εκκίνηση Γλώσσας
         document.addEventListener("DOMContentLoaded", () => {
+            
+            // Έλεγχος γλώσσας βάσει του URL κατά την πρώτη φόρτωση
+            const isEng = window.location.pathname.endsWith('/en') || window.location.pathname.endsWith('/en/');
+            setLanguage(isEng ? 'en' : 'el', false);
+
             client.getEntries({ order: '-sys.createdAt' })
                 .then((response) => {
                     const container = document.getElementById('dynamic-articles-grid');
@@ -865,5 +914,3 @@
     </script>
 </body>
 </html>
-
-```
