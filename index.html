@@ -114,7 +114,8 @@
     <nav id="navbar" class="fixed w-full z-50 transition-all duration-500 py-6">
         <div class="max-w-7xl mx-auto px-6 flex justify-between items-center">
             <a href="#hero" class="group relative z-50">
-                <img id="main-logo" src="https://raw.githubusercontent.com/agelmet/KOUNATIADOU/refs/heads/main/ChatGPT%20Image%204%20%CE%9C%CE%B1%CE%90%202026%2C%2012_15_51%20%CF%80.%CE%BC..png" alt="Ατέλεια Logo" class="h-28 w-28 md:h-36 md:w-36 lg:h-40 lg:w-40 rounded-full object-cover transition-transform duration-700 hover:scale-105 drop-shadow-md">
+                <!-- Το λογότυπο άλλαξε στο νέο και μεγάλωσαν οι διαστάσεις (h-32 w-32 md:h-40 md:w-40 lg:h-44 lg:w-44) -->
+                <img id="main-logo" src="https://raw.githubusercontent.com/agelmet/KOUNATIADOU/a07084d7a28013d133455b648f4409ca4a209b80/kounenlg.png" alt="Ατέλεια Logo" class="h-32 w-32 md:h-40 md:w-40 lg:h-44 lg:w-44 rounded-full object-cover transition-transform duration-700 hover:scale-105 drop-shadow-md">
             </a>
 
             <!-- Desktop Menu & Controls -->
@@ -525,7 +526,7 @@
             <p class="text-dark/50 text-xs tracking-wide" data-i18n="footer_rights">© 2026 Ατέλεια. All rights reserved.</p>
             
             <a href="#hero" class="group relative z-50 transform hover:-translate-y-1 transition-transform">
-                <img id="footer-logo" src="https://raw.githubusercontent.com/agelmet/KOUNATIADOU/refs/heads/main/ChatGPT%20Image%204%20%CE%9C%CE%B1%CE%90%202026%2C%2012_15_51%20%CF%80.%CE%BC..png" alt="Ατέλεια" class="h-24 w-24 md:h-28 md:w-28 rounded-full object-cover opacity-80 hover:opacity-100 transition-opacity drop-shadow-sm">
+                <img id="footer-logo" src="https://raw.githubusercontent.com/agelmet/KOUNATIADOU/a07084d7a28013d133455b648f4409ca4a209b80/kounenlg.png" alt="Ατέλεια" class="h-28 w-28 md:h-32 md:w-32 rounded-full object-cover opacity-80 hover:opacity-100 transition-opacity drop-shadow-sm">
             </a>
             
             <p class="text-dark/50 text-xs tracking-wide">
@@ -543,7 +544,7 @@
             en: {
                 nav_home: "Home", nav_about: "Atelia", nav_services: "Services", nav_media: "Articles & Media", nav_contact: "Contact",
                 hero_subtitle: "Atelia", hero_title_1: "The art of being", hero_title_2: "Human.", hero_quote: "«From survival to choice.»", hero_desc: "A space for connection, psychoeducation, and health promotion.", btn_book: "Book a session",
-                intro_p1: "Atelia is a space for meeting, exploring, and understanding what it means to be human. A space that focuses on the", intro_gold: "architecture of health", intro_p1_cont: ", not of illness.", intro_p2: "On potential, opportunity, knowledge, and choice. It is an invitation to connect with who we are — through our relationship with imperfection.",
+                intro_p1: "Atelia is a space for meeting, exploring, and understanding what it means to be human. A space that focuses on the ", intro_gold: "architecture of health", intro_p1_cont: ", not of illness.", intro_p2: "On potential, opportunity, knowledge, and choice. It is an invitation to connect with who we are — through our relationship with imperfection.",
                 preview_01_title: "Individual sessions in English and Greek",
                 preview_02_title: "Counseling",
                 preview_03_title: "Life Seminars",
@@ -586,7 +587,7 @@
             el: {
                 nav_home: "Αρχική", nav_about: "Η Ατέλεια", nav_services: "Υπηρεσίες", nav_media: "Άρθρα & Παρουσίες", nav_contact: "Επικοινωνία",
                 hero_subtitle: "Ατέλεια", hero_title_1: "Η τέχνη του να είσαι", hero_title_2: "Άνθρωπος.", hero_quote: "«Από την επιβίωση, στην επιλογή.»", hero_desc: "Ένας χώρος συνάντησης, ψυχοεκπαίδευσης και προαγωγής της υγείας.", btn_book: "Κλείσε μια συνάντηση",
-                intro_p1: "Η Ατέλεια είναι ένας χώρος συνάντησης, εξερεύνησης και κατανόησης του τι σημαίνει να είσαι άνθρωπος. Ενας χώρος που εστιάζει στην", intro_gold: "αρχιτεκτονική της υγείας", intro_p1_cont: ", όχι της ασθένειας.", intro_p2: "Στην δυνατότητα, την ευκαιρία, την γνώση, την επιλογή. Είναι μια πρόσκληση να έρθουμε σε επαφή με αυτό που είμαστε — μέσα από τη σχέση μας με την ατέλεια.",
+                intro_p1: "Η Ατέλεια είναι ένας χώρος συνάντησης, εξερεύνησης και κατανόησης του τι σημαίνει να είσαι άνθρωπος. Ενας χώρος που εστιάζει στην ", intro_gold: "αρχιτεκτονική της υγείας", intro_p1_cont: ", όχι της ασθένειας.", intro_p2: "Στην δυνατότητα, την ευκαιρία, την γνώση, την επιλογή. Είναι μια πρόσκληση να έρθουμε σε επαφή με αυτό που είμαστε — μέσα από τη σχέση μας με την ατέλεια.",
                 preview_01_title: "Ατομικές συναντήσεις σε αγγλικά και ελληνικά",
                 preview_02_title: "Συμβουλευτική",
                 preview_03_title: "Σεμινάρια Ζωής",
@@ -633,16 +634,7 @@
         function setLanguage(lang, pushHistory = true) {
             currentLang = lang;
             
-            // Toggle Logo
-            const mainLogo = document.getElementById('main-logo');
-            const footerLogo = document.getElementById('footer-logo');
-            const greekLogoSrc = "https://raw.githubusercontent.com/agelmet/KOUNATIADOU/refs/heads/main/ChatGPT%20Image%204%20%CE%9C%CE%B1%CE%90%202026%2C%2012_15_51%20%CF%80.%CE%BC..png";
-            const englishLogoSrc = "https://raw.githubusercontent.com/agelmet/KOUNATIADOU/a07084d7a28013d133455b648f4409ca4a209b80/kounenlg.png";
-            
-            if(mainLogo) mainLogo.src = lang === 'en' ? englishLogoSrc : greekLogoSrc;
-            if(footerLogo) footerLogo.src = lang === 'en' ? englishLogoSrc : greekLogoSrc;
-
-            // Toggle Flag Icon
+            // Flag Toggle
             const flagImg = document.getElementById('lang-flag');
             if (flagImg) {
                 flagImg.src = currentLang === 'en' ? 'https://flagcdn.com/w80/gb.png' : 'https://flagcdn.com/w80/gr.png';
@@ -660,7 +652,7 @@
                 }
             });
 
-            // Update URL dynamically via HTML5 History API
+            // URL update
             if (pushHistory) {
                 let currentPath = window.location.pathname;
                 let newPath = currentPath;
@@ -679,7 +671,7 @@
             setLanguage(currentLang === 'el' ? 'en' : 'el', true);
         }
 
-        // Listen for back/forward browser navigation
+        // URL parsing on back/forward
         window.addEventListener('popstate', (event) => {
             if (event.state && event.state.lang) {
                 setLanguage(event.state.lang, false);
